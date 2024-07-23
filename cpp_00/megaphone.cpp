@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 		for (int i = 1; i < argc; i++)
 		{
 			for (int j = 0; argv[i][j]; j++)
-				std::cout << static_cast<char>toupper(argv[i][j]); //using a static_cast cast the output of toupper to a char, it's safer than using a C-style cast, or so I've been told
+				std::cout << static_cast<char>(toupper(argv[i][j])); //using a static_cast cast the output of toupper to a char, it's safer than using a C-style cast, or so I've been told
 		}
 		//prints a new line at the end of the output
 		std::cout << std::endl;
