@@ -12,7 +12,8 @@
 
 NAME	=	phonebook
 
-SRC		=	main.cpp Phonebook.cpp Contact.cpp
+#SRC		=	main.cpp Phonebook.cpp Contact.cpp
+SRC		=	main.cpp
 
 CC		=	c++
 
