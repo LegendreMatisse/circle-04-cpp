@@ -6,12 +6,13 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:00:30 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/07/24 20:46:55 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:51:04 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
 
 # include <string> // ==> used for the string class
 # include <iostream>
@@ -19,60 +20,72 @@
 
 class Contact
 {
-	private:
+	public:
 			Contact(void); //constructor
 			~Contact(void); //destructor
 
 			//getters
 			std::string GetFirstName() const
 			{
-				return _FirstName;
+				return _firstName;
 			}
 			std::string GetLastName() const
 			{
-				return _SecondName;
+				return _lastName;
 			}
-			std::string GetNickname() const
+			std::string GetNickName() const
 			{
-				return _Nickname;
+				return _nickname;
 			}
 			std::string GetPhoneNumber() const
 			{
-				return _PhoneNumber;
+				return _phoneNumber;
 			}
 			std::string GetDarkestSecret() const
 			{
-				return _DarkestSecret;
+				return _darkestSecret;
 			}
 
 			//setters
 			void SetFirstName(std::string &first_name)
 			{
-				this->_FirstName = first_name;
+				this->_firstName = first_name;
 			}
 			void SetLastName(std::string &last_name)
 			{
-				this->_SecondName = last_name;
+				this->_lastName = last_name;
 			}
-			void SetNickname(std::string &nickname)
+			void SetNickName(std::string &nickname)
 			{
-				this->_Nickname = nickname;
+				this->_nickname = nickname;
 			}
 			void SetPhoneNumber(std::string &phone_number)
 			{
-				this->_PhoneNumber = phone_number;
+				this->_phoneNumber = phone_number;
 			}
 			void SetDarkestSecret(std::string &darkest_secret)
 			{
-				this->_DarkestSecret = darkest
+				this->_darkestSecret = darkest_secret;
 			}
 
+			//functions
+			void SaveContact
+			(
+				std::string firstName,
+				std::string lastName,
+				std::string nickName,
+				std::string phoneNum,
+				std::string secret
+			);
+			void PrintContact(int index);
+			void PrintContactFull(int index);
+
 	private:
-			std::string _FirstName;
-			std::string _SecondName;
-			std::string _Nickname;
-			std::string _PhoneNumber;
-			std::string _DarkestSecret;
-}
+			std::string _firstName;
+			std::string _lastName;
+			std::string _nickname;
+			std::string _phoneNumber;
+			std::string _darkestSecret;
+};
 
 #endif
