@@ -39,7 +39,7 @@ std::string Contact::GetLastName(void) const
 
 std::string Contact::GetNickName(void) const
 {
-	return _nickName;
+	return _nickname;
 }
 
 std::string Contact::GetPhoneNumber(void) const
@@ -70,7 +70,7 @@ void Contact::SetLastName(std::string &lastName)
 
 void Contact::SetNickName(std::string &nickName)
 {
-	this->_nickName = nickName;
+	this->_nickname = nickName;
 }
 
 void Contact::SetPhoneNumber(std::string &phoneNumber)
@@ -92,7 +92,7 @@ void Contact::SaveContact(std::string firstName, std::string lastName, std::stri
 {
 	this->_firstName = firstName;
 	this->_lastName = lastName;
-	this->_nickName = nickName;
+	this->_nickname = nickName;
 	this->_phoneNumber = firstName;
 	this->_darkestSecret = secret;
 }
