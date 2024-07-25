@@ -6,7 +6,12 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:00:50 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/07/25 18:51:45 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:06:25 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifdef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+#include "contact.hpp"
+
+#endif

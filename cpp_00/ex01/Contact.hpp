@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:00:30 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/07/25 18:51:04 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/07/25 20:59:10 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,12 @@ class Contact
 			~Contact(void); //destructor
 
 			//getters
-			std::string GetFirstName() const
-			{
-				return _firstName;
-			}
-			std::string GetLastName() const
-			{
-				return _lastName;
-			}
-			std::string GetNickName() const
-			{
-				return _nickname;
-			}
-			std::string GetPhoneNumber() const
-			{
-				return _phoneNumber;
-			}
-			std::string GetDarkestSecret() const
-			{
-				return _darkestSecret;
-			}
-
+			std::string GetFirstName(void) const;
+			std::string GetLastName(void) const;
+			std::string GetNickName(void) const;
+			std::string GetPhoneNumber(void) const;
+			std::string GetDarkestSecret(void) const;
+			int GetOldest(void) const;
 			//setters
 			void SetFirstName(std::string &first_name)
 			{
@@ -67,6 +52,10 @@ class Contact
 			{
 				this->_darkestSecret = darkest_secret;
 			}
+			void SetOldest(int &oldest)
+			{
+				this->_oldest = oldest;
+			}
 
 			//functions
 			void SaveContact
@@ -81,11 +70,12 @@ class Contact
 			void PrintContactFull(int index);
 
 	private:
-			std::string _firstName;
-			std::string _lastName;
-			std::string _nickname;
-			std::string _phoneNumber;
-			std::string _darkestSecret;
+			std::string	_firstName;
+			std::string	_lastName;
+			std::string	_nickname;
+			std::string	_phoneNumber;
+			std::string	_darkestSecret;
+			int			_oldest;
 };
 
 #endif
