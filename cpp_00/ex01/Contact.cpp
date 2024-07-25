@@ -37,7 +37,7 @@ std::string Contact::GetLastName(void) const
 	return _lastName;
 }
 
-std::string Contact::GetnickName(void) const
+std::string Contact::GetNickName(void) const
 {
 	return _nickName;
 }
@@ -60,7 +60,7 @@ int Contact::GetOldest(void) const
 //setters
 void Contact::SetFirstName(std::string &firstName)
 {
-	this->_firstName = first_name;
+	this->_firstName = firstName;
 }
 
 void Contact::SetLastName(std::string &lastName)
