@@ -13,6 +13,7 @@
 #include <iostream>
 #include "Contact.hpp"
 
+//constructors
 Contact::Contact(void): 
 {
 	std::cout << "Contact constructor called" << std::endl;
@@ -25,6 +26,7 @@ Contact::~Contact(void)
 	return;
 }
 
+//getters
 std::string Contact::GetFirstName(void) const
 {
 	return _firstName;
@@ -35,9 +37,9 @@ std::string Contact::GetLastName(void) const
 	return _lastName;
 }
 
-std::string Contact::GetNickName(void) const
+std::string Contact::GetnickName(void) const
 {
-	return _nickname;
+	return _nickName;
 }
 
 std::string Contact::GetPhoneNumber(void) const
@@ -55,40 +57,70 @@ int Contact::GetOldest(void) const
 	return _oldest;
 }
 
+//setters
+void Contact::SetFirstName(std::string &firstName)
+{
+	this->_firstName = first_name;
+}
+
+void Contact::SetLastName(std::string &lastName)
+{
+	this->_lastName = lastName;
+}
+
+void Contact::SetNickName(std::string &nickName)
+{
+	this->_nickName = nickName;
+}
+
+void Contact::SetPhoneNumber(std::string &phoneNumber)
+{
+	this->_phoneNumber = phoneNumber;
+}
+
+void Contact::SetDarkestSecret(std::string &darkestSecret)
+{
+	this->_darkestSecret = darkestSecret;
+}
+
+void Contact::SetOldest(int &oldest)
+{
+	this->_oldest = oldest;
+}
+
 void Contact::SaveContact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNum, std::string secret)
 {
-	//Contact::SetFirstName(firstName);
 	this->_firstName = firstName;
-	Contact::SetLastName(lastName);
-	Contact::SetNickName(nickName);
-	Contact::SetPhoneNumber(phoneNum);
-	Contact::SetDarkestSecret(secret);
+	this->_lastName = lastName;
+	this->_nickName = nickName;
+	this->_phoneNumber = firstName;
+	this->_darkestSecret = secret;
 }
 
 void Contact::PrintContact(int index)
 {
 	std::cout << "|" << std::setw(10) << index + 1 << "|";
-	if (Contact::GetFirstName().length() > 10)
-		std::cout << std::setw(10) << Contact::GetFirstName().substr(0, 9) + '.' << "|";
+	if (this->_firstName.length() > 10)
+		std::cout << std::setw(10) << this->_firstName.substr(0, 9) + '.' << "|";
 	else
-		std::cout << std::setw(10) << Contact::GetFirstName() << "|";
-	if (Contact::GetLastName().length() > 10)
-		std::cout << std::setw(10) << Contact::GetLastName().substr(0, 9) + '.' << "|";
+		std::cout << std::setw(10) << this->_firstName << "|";
+	if (this->_lastName.length() > 10)
+		std::cout << std::setw(10) << this->_lastName.substr(0, 9) + '.' << "|";
 	else
-		std::cout << std::setw(10) << Contact::GetLastName() << "|";
-	if (Contact::GetNickName().length() > 10)
-		std::cout << std::setw(10) << Contact::GetNickName().substr(0, 9) + '.' << "|";
+		std::cout << std::setw(10) << this->_lastName << "|";
+	if (this->_nickname.length() > 10)
+		std::cout << std::setw(10) << this->_nickname.substr(0, 9) + '.' << "|";
 	else
-		std::cout << std::setw(10) << Contact::GetNickName() << "|";
+		std::cout << std::setw(10) << this->_nickname << "|";
 	std::cout << std::endl;	
 }
 
 void Contact::PrintContactFull(int index)
 {
 	std::cout << "Index: " << index + 1 << std::endl;
-	std::cout << "First name: " << Contact::GetFirstName() << std::endl;
-	std::cout << "Last name: " << Contact::GetLastName() << std::endl;
-	std::cout << "Nickname: " << Contact::GetNickName() << std::endl;
-	std::cout << "Phone number: " << Contact::GetPhoneNumber() << std::endl;
-	std::cout << "Darkest secret: " << Contact::GetDarkestSecret() << std::endl;
+	std::cout << "First name: " << this->_firstName << std::endl;
+	std::cout << "Last name: " << this->_lastName << std::endl;
+	std::cout << "nickName: " << this->_nickname << std::endl;
+	std::cout << "Phone number: " << this->_phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << this->_darkestSecret << std::endl;
 }
