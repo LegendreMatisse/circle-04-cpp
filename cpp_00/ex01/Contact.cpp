@@ -14,7 +14,7 @@
 #include "Contact.hpp"
 
 //constructors
-Contact::Contact(void): 
+Contact::Contact(void)
 {
 	std::cout << "Contact constructor called" << std::endl;
 	return;
