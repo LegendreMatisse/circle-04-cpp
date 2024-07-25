@@ -93,7 +93,7 @@ void Contact::SaveContact(std::string firstName, std::string lastName, std::stri
 	this->_firstName = firstName;
 	this->_lastName = lastName;
 	this->_nickname = nickName;
-	this->_phoneNumber = firstName;
+	this->_phoneNumber = phoneNum;
 	this->_darkestSecret = secret;
 }
 
