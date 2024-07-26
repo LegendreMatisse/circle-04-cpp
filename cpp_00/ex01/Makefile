@@ -6,31 +6,36 @@
 #    By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/24 18:00:39 by mlegendr          #+#    #+#              #
-#    Updated: 2024/07/25 16:13:22 by mlegendr         ###   ########.fr        #
+#    Updated: 2024/07/26 20:57:53 by mlegendr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	phonebook
 
-#SRC		=	main.cpp Phonebook.cpp Contact.cpp
-SRC		=	main.cpp Contact.cpp
+SRC		=	main.cpp Phonebook.cpp Contact.cpp
 
-CC		=	c++
+OBJ = $(SRC:.cpp=.o)
 
-FLAGS	=	-Wall -Werror -Wextra -std=c++98
+CC = c++
 
-RM		=	rm -rf
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-all		:	$(NAME)
+RM = rm -rf
 
-$(NAME)	:
-			$(CC) $(FLAGS) $(SRC) -o $(NAME)
+all: $(NAME)
 
-clean	:
-			$(RM) $(NAME)
+$(NAME):	$(OBJ)
+			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-fclean	:	clean
+%.o: %.cpp
+			$(CC) $(FLAGS) -c $< -o $@
 
-re		:	fclean all
+clean:
+		$(RM) $(OBJ)
 
-.PHONY	:	all clean fclean re
+fclean: clean
+		$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

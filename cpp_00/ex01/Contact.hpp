@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:00:30 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/07/25 20:59:10 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/07/26 20:17:54 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,12 @@ class Contact
 {
 	public:
 			Contact(void); //constructor
-			~Contact(void); //destructor
-
-			//getters
-			std::string	GetFirstName(void) const;
-			std::string	GetLastName(void) const;
-			std::string	GetNickName(void) const;
-			std::string	GetPhoneNumber(void) const;
-			std::string	GetDarkestSecret(void) const;
-			int			GetOldest(void) const;
-
-			//setters
-			void		SetFirstName(std::string &first_name);
-			void		SetLastName(std::string &last_name);
-			void		SetNickName(std::string &nickname);
-			void		SetPhoneNumber(std::string &phone_number);
-			void		SetDarkestSecret(std::string &darkest_secret);
-			void		SetOldest(int &oldest);
+			~Contact(); //destructor
 
 			//functions
 			void		SaveContact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNum, std::string secret);
 			void		PrintContact(int index);
-			void		PrintContactFull(int index);
+			void		PrintContactFull(void);
 
 	private:
 			std::string	_firstName;
@@ -51,7 +35,6 @@ class Contact
 			std::string	_nickname;
 			std::string	_phoneNumber;
 			std::string	_darkestSecret;
-			int			_oldest;
 };
 
 #endif
