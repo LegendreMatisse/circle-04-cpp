@@ -15,6 +15,9 @@
 
 int main(void)
 {	
+	/*
+		newZombie should be created on the heap using new
+	*/
 	std::string name2 = "Bob";
 	Zombie zombie;
 	Zombie zombie2(name2);

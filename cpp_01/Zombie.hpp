@@ -26,9 +26,6 @@ class Zombie
 
 		//getters
 		std::string	getName(void) const;
-		
-		//setters
-		void		setName(std::string &name);
 
 		//functions
 		void		announce(void);
