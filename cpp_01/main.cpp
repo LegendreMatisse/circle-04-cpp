@@ -17,7 +17,7 @@ int main(void)
 {	
 	std::string name2 = "Bob";
 	Zombie zombie;
-	Zombie zombie2(&name2);
+	Zombie zombie2(name2);
 	std::string name = "Steven";
 
 	zombie.setName(name);
