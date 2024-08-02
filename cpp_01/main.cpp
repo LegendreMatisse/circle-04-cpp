@@ -16,11 +16,13 @@
 int main(void)
 {
 	Zombie zombie;
+	Zombie zombie2("John");
 	std::string name = "Steven";
 
 	zombie.setName(name);
 
 	zombie.announce();
+	zombie2.announce();
 
 	return (0);
 }
