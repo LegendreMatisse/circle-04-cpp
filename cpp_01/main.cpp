@@ -14,11 +14,11 @@
 #include "Zombie.hpp"
 
 int main(void)
-{
+{	
+	std::string name2 = "Bob";
 	Zombie zombie;
 	Zombie zombie2(&name2);
 	std::string name = "Steven";
-	std::string name2 = "Bob";
 
 	zombie.setName(name);
 
