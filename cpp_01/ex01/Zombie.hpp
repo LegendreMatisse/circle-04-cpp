@@ -22,7 +22,6 @@ class Zombie
 		std::string	_name;
 	public:
 		Zombie(void);				//constructor
-		Zombie(std::string &name);	//constructor
 		~Zombie();					//destructor
 
 		//getters
