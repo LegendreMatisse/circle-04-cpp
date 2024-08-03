@@ -10,3 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include "Zombie.hpp"
+
+int main(void)
+{
+	int n = 5;
+
+	Zombie zombie("Steve");
+	zombie.announce();
+	test(n);
+	return (0);
+}
