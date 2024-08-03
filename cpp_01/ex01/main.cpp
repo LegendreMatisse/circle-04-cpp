@@ -15,10 +15,16 @@
 
 int main(void)
 {
-	int n = 5;
+	Zombie *horde;
 
-	Zombie zombie("Steve");
-	zombie.announce();
-	test(n);
+	horde = zombieHorde(5, "Steven");
+
+	for (int i = 0; i < 5; i++)
+	{
+		horde[i].announce();
+	}
+
+	delete[] horde;
+	
 	return (0);
 }

@@ -36,6 +36,6 @@ class Zombie
 		void		announce(void) const;
 };
 
-void	test(int n);
+Zombie	*zombieHorde(int n; std::string name)
 
 #endif
