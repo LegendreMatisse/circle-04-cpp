@@ -13,21 +13,17 @@
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
-# include <string>
 # include <iostream>
+# include <string>
 
 class Zombie
 {
 	private:
 		std::string	_name;
-
 	public:
-		//constructors
-		Zombie(void);
-		Zombie(std::string &name);
-
-		//destructor
-		~Zombie();
+		Zombie(void);				//constructor
+		Zombie(std::string &name);	//constructor
+		~Zombie();					//destructor
 
 		//getters
 		std::string	getName(void) const;
