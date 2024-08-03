@@ -12,7 +12,11 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {}
+Zombie::Zombie(void) 
+{
+	std::cout << "A zombie was raised from the dead..." << std::endl;
+	return ;
+}
 
 Zombie::Zombie(std::string &name) : _name(name)
 {
