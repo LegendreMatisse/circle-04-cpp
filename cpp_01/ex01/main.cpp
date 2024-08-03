@@ -16,8 +16,9 @@
 int main(void)
 {
 	Zombie *horde;
+	std::string name = "Steven";
 
-	horde = zombieHorde(5, "Steven");
+	horde = zombieHorde(5, name);
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -25,6 +26,6 @@ int main(void)
 	}
 
 	delete[] horde;
-	
+
 	return (0);
 }

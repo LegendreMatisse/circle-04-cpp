@@ -24,7 +24,7 @@ class Zombie
 	public:
 		//constructors
 		Zombie(void);
-		Zombie(std::string name);
+		Zombie(std::string &name);
 
 		//destructor
 		~Zombie();
