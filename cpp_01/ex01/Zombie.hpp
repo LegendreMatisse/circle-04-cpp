@@ -33,7 +33,7 @@ class Zombie
 		std::string	getName(void) const;
 
 		//functions
-		void		announce(void) const;
+		void		announce(void);
 };
 
 Zombie	*zombieHorde(int n, std::string name)
