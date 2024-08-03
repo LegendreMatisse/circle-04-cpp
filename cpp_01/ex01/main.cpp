@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Zombie.hpp"
 
 int main(void)
-{
+{	
 	Zombie *horde;
 	std::string name = "Steven";
 
@@ -25,6 +26,5 @@ int main(void)
 	}
 
 	delete[] horde;
-
 	return (0);
 }
