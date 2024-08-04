@@ -42,12 +42,12 @@ static void	replaceStringInFile(std::string filename, std::string s1, std::strin
 {
 	(void)s1;
 	(void)s2;
-	
+
 	std::ifstream	inputFile;
-	std::ofstream	outputFile = filename + ".replace";
+	std::ofstream	outputFile;
 
 	openInputFile(filename, inputFile);
-	openOutputFile(outputFile, outputFile);
+	openOutputFile(filename + ".replace", outputFile);
 
 	std::string line;
 	while (std::getline(inputFile, line))
