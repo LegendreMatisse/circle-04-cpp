@@ -17,7 +17,8 @@
 # include <fstream>
 # include <string>
 
-# define USAGE_ERR "Usage: ./replace [filename] [string to replace] [string to replace with]"
+# define USAGE_ERR "Usage: ./sed [filename] [string to replace] [string to replace with]"
+# define STRING_EMPTY_ERR "Error: the strings cannot be empty."
 # define FILE_ERR "Error: could not open file."
 
 #endif
