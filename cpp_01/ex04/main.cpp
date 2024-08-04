@@ -52,9 +52,9 @@ static void	replaceStringInFile(std::string filename, std::string s1, std::strin
 		size_t pos = 0;
 		while ((pos = line.find(s1, pos)) != std::string::npos)
 		{
-			line.erase(pos, s1.length()); // erase the string
-			line.insert(pos, s2); // insert the new string
-			pos += s2.length(); // move the position to the end of the new string
+			line.erase(pos, s1.length());
+			line.insert(pos, s2);
+			pos += s2.length();
 		}
 		outputFile << line;
 		if (!inputFile.eof())
