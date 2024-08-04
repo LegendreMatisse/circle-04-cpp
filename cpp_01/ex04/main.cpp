@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 #include "main.hpp"
 
 static std::ifstream &openInputFile(const std::string &filename, std::ifstream &file)
@@ -39,6 +40,9 @@ static std::ofstream &openOutputFile(const std::string &filename, std::ofstream 
 
 static void	replaceStringInFile(std::string filename, std::string s1, std::string s2)
 {
+	(void)s1;
+	(void)s2;
+	
 	std::ifstream	inputFile;
 	std::ofstream	outputFile = filename + ".replace";
 
