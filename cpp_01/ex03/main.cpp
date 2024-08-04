@@ -16,18 +16,18 @@
 int main()
 {
 	{
-		Weapon club = Weapon("A cannon loaded with grapeshot");
+		Weapon club = Weapon("cannon loaded with grapeshot");
 		HumanA bob("Jim Bob The Third", club);
 		bob.attack();
-		club.setType("A deadly bio-engineered virus");
+		club.setType("deadly bio-engineered virus");
 		bob.attack();
 	}
 	{
-		Weapon club = Weapon("A briefcase nuke");
+		Weapon club = Weapon("briefcase nuke");
 		HumanB jim("Jim Carlsson the Viscount of Montperllier");
 		jim.setWeapon(club);
 		jim.attack();
-		club.setType("Nuclear fallout");
+		club.setType("weaponized incompetence");
 		jim.attack();
 	}
 	return (0);
