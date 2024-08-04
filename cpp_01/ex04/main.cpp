@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		std::cout << USAGE_ERR << std::endl;
 		return (1);
 	}
-	else if (argv[1] == "" || argv[2] == "" || argv[3] == "")
+	else if (std::string(argv[1]).empty() || std::string(argv[2]).empty() || std::string(argv[3]).empty())
 	{
 		std::cout << USAGE_ERR << std::endl;
 		return (1);
