@@ -15,7 +15,7 @@
 #include <string>
 #include "main.hpp"
 
-int main(int argv, char **argv)
+int main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
