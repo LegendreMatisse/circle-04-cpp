@@ -21,7 +21,7 @@ static std::ifstream &openInputFile(const std::string &filename, std::ifstream &
 	if (!file.is_open())
 	{
 		std::cout << FILE_ERR << std::endl;
-		exit(1);
+		std::exit(1);
 	}
 	return (file);
 }
@@ -32,7 +32,7 @@ static std::ofstream &openOutputFile(const std::string &filename, std::ofstream 
 	if (!file.is_open())
 	{
 		std::cout << FILE_ERR << std::endl;
-		exit(1);
+		std::exit(1);
 	}
 	return (file);
 }
