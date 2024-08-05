@@ -12,7 +12,7 @@
 
 NAME	=	harl
 
-SRC		=	main.cpp harl.cpp
+SRC		=	main.cpp Harl.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
