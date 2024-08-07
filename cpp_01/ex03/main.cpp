@@ -16,25 +16,25 @@
 int main()
 {
 	//human A
-	Weapon weapon = Weapon("cannon loaded with grapeshot");
-	HumanA bob("Jim Bob The Third", weapon);
+	Weapon weapon1 = Weapon("cannon loaded with grapeshot");
+	HumanA bob("Jim Bob The Third", weapon1);
 	bob.attack();
-	weapon.setType("deadly bio-engineered virus");
+	weapon1.setType("deadly bio-engineered virus");
 	bob.attack();
 
 	//human B with weapon
-	Weapon weapon = Weapon("briefcase nuke");
+	Weapon weapon2 = Weapon("briefcase nuke");
 	HumanB jim("Jim Carlsson the Viscount of Montperllier");
-	jim.setWeapon(weapon);
+	jim.setWeapon(weapon2);
 	jim.attack();
-	weapon.setType("weaponized incompetence");
+	weapon2.setType("weaponized incompetence");
 	jim.attack();
 
 	//human B without weapon
-	Weapon weapon = Weapon("sword of infinite power");
+	Weapon weapon3 = Weapon("sword of infinite power");
 	HumanB steven("Steven Engelbert, the 2nd of his name, conqueror of the 7 seas, rightful heir to the throne of the 3rd kingdom of the 5th empire");
 	steven.attack();
-	weapon.setType("a stern look");
+	weapon3.setType("a stern look");
 	steven.attack();
 	return (0);
 }
