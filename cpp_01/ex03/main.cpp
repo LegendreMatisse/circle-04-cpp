@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:58:38 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/06 15:34:04 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:35:44 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int main()
 	Weapon weapon3 = Weapon("sword of infinite power");
 	HumanB steven("Steven Engelbert, the 2nd of his name, conqueror of the 7 seas, rightful heir to the throne of the 3rd kingdom of the 5th empire");
 	steven.attack();
-	weapon3.setType("a stern look");
 	steven.setWeapon(weapon3);
 	steven.attack();
 	return (0);
-
-	//remove red
 }
