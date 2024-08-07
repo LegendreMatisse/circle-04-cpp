@@ -15,13 +15,11 @@
 HumanB::HumanB(std::string name) : _name(name)
 {
 	std::cout << "HumanB created" << std::endl;
-	return ;
 }
 
 HumanB::~HumanB()
 {
 	std::cout << "HumanB destroyed" << std::endl;
-	return ;
 }
 
 std::string HumanB::getName() const
@@ -32,11 +30,15 @@ std::string HumanB::getName() const
 void HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
-	return ;
 }
 
 void HumanB::attack() const
 {
+	if (this->_weapon == NULL)
+	{
+		std::cout << HumanB::getName() << " has no weapon" << std::endl;
+		return ;
+	}
 	std::cout << HumanB::getName() << " attacks with his " << this->_weapon->getType() << std::endl;
 	return ;
 }

@@ -15,13 +15,11 @@
 Harl::Harl(void)
 {
 	std::cout << "Harl constructor called" << std::endl;
-	return ;
 }
 
 Harl::~Harl()
 {
 	std::cout << "Harl destructor called" << std::endl;
-	return ;
 }
 
 void Harl::_debug(void)

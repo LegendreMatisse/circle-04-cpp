@@ -15,13 +15,11 @@
 Weapon::Weapon(std::string type) : _type(type)
 {
 	std::cout << "Weapon created" << std::endl;
-	return ;
 }
 
 Weapon::~Weapon()
 {
 	std::cout << "Weapon destroyed" << std::endl;
-	return ;
 }
 
 const std::string &Weapon::getType() const
@@ -32,5 +30,4 @@ const std::string &Weapon::getType() const
 void Weapon::setType(std::string type)
 {
 	this->_type = type;
-	return ;
 }

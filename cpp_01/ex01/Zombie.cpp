@@ -15,13 +15,11 @@
 Zombie::Zombie(void) 
 {
 	std::cout << "A zombie was raised from the dead..." << std::endl;
-	return ;
 }
 
 Zombie::~Zombie(void)
 {
 	std::cout << Zombie::getName() << " was banished from this realm..." << std::endl;
-	return ;
 }
 
 std::string	Zombie::getName(void) const

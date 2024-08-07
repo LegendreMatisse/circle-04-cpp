@@ -15,13 +15,11 @@
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
 	std::cout << "HumanA created" << std::endl;
-	return ;
 }
 
 HumanA::~HumanA()
 {
 	std::cout << "HumanA destroyed" << std::endl;
-	return ;
 }
 
 std::string HumanA::getName() const
