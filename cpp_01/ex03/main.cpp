@@ -31,10 +31,10 @@ int main()
 	jim.attack();
 
 	//human B without weapon
-	Weapon weapon = Weapon("briefcase nuke");
-	HumanB jim("Jim Carlsson the Viscount of Montperllier");
-	jim.attack();
-	weapon.setType("weaponized incompetence");
-	jim.attack();
+	Weapon weapon = Weapon("sword of infinite power");
+	HumanB steven("Steven Engelbert, the 2nd of his name, conqueror of the 7 seas, rightful heir to the throne of the 3rd kingdom of the 5th empire");
+	steven.attack();
+	weapon.setType("a stern look");
+	steven.attack();
 	return (0);
 }
