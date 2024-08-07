@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:17:30 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/07 16:58:43 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/07 20:09:23 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,20 @@ Fixed::Fixed(void) : _fixedValue(0)
 //copy constructor
 Fixed::Fixed(const Fixed &copyCo)
 {
-	//*this = copyCo; //maybe this, but I think it might be better to reassign the value
-	this->_fixedValue = copyCo.getRawBits();
 	std::cout << "Copy constructor called" << std::endl;
+	*this = copyCo;
 }
 
-//assignation operator overload
+//assignment operator overload
+Fixed &Fixed::operator=(const Fixed &copyOp)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &copyOp)
+	{
+		this->_fixedValue = copyOp.getRawBits();
+	}
+	return (*this);
+}
 //destructor
 Fixed::~Fixed(void)
 {
