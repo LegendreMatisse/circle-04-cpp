@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:17:33 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/06 17:45:28 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:38:10 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ class Fixed
 		//destructor
 		~Fixed();
 
-		//functions
+		//getter
 		int		getRawBits(void) const;
+
+		//setter
 		void	setRawBits(int const raw);
 };
 
