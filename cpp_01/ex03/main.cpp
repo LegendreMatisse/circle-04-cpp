@@ -35,6 +35,7 @@ int main()
 	HumanB steven("Steven Engelbert, the 2nd of his name, conqueror of the 7 seas, rightful heir to the throne of the 3rd kingdom of the 5th empire");
 	steven.attack();
 	weapon3.setType("a stern look");
+	steven.setWeapon(weapon3);
 	steven.attack();
 	return (0);
 }
