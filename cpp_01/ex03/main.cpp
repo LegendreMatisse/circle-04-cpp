@@ -37,5 +37,12 @@ int main()
 	weapon3.setType("a stern look");
 	steven.setWeapon(weapon3);
 	steven.attack();
+
+	//human B without weapon
+	Weapon weapon4 = Weapon("sword of infinite power");
+	HumanB karl("Steven Engelbert, the 2nd of his name, conqueror of the 7 seas, rightful heir to the throne of the 3rd kingdom of the 5th empire");
+	karl.attack();
+	karl.setWeapon(weapon4);
+	karl.attack();
 	return (0);
 }
