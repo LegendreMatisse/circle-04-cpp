@@ -15,20 +15,26 @@
 
 int main()
 {
-	{
-		Weapon club = Weapon("cannon loaded with grapeshot");
-		HumanA bob("Jim Bob The Third", club);
-		bob.attack();
-		club.setType("deadly bio-engineered virus");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("briefcase nuke");
-		HumanB jim("Jim Carlsson the Viscount of Montperllier");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("weaponized incompetence");
-		jim.attack();
-	}
+	//human A
+	Weapon weapon = Weapon("cannon loaded with grapeshot");
+	HumanA bob("Jim Bob The Third", weapon);
+	bob.attack();
+	weapon.setType("deadly bio-engineered virus");
+	bob.attack();
+
+	//human B with weapon
+	Weapon weapon = Weapon("briefcase nuke");
+	HumanB jim("Jim Carlsson the Viscount of Montperllier");
+	jim.setWeapon(weapon);
+	jim.attack();
+	weapon.setType("weaponized incompetence");
+	jim.attack();
+
+	//human B without weapon
+	Weapon weapon = Weapon("briefcase nuke");
+	HumanB jim("Jim Carlsson the Viscount of Montperllier");
+	jim.attack();
+	weapon.setType("weaponized incompetence");
+	jim.attack();
 	return (0);
 }
