@@ -172,12 +172,12 @@ Fixed	Fixed::operator++(int)
 {
 	Fixed incTemp(*this);
 	++(*this);
-	return (incTemp)
+	return (incTemp);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed decTemp(*this);
 	--(*this);
-	return (decTemp)
+	return (decTemp);
 }
