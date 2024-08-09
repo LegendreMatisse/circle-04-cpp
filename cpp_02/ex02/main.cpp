@@ -107,13 +107,17 @@ int main(void)
 	int bb = 39;
 
 	std::cout << aa++ << std::endl;
+	std::cout << aa << std::endl;
 	std::cout << bb-- << std::endl;
+	std::cout << bb << std::endl;
 	std::cout << std::endl;
 
 	int aaa = 18;
 	int bbb = 39;
 
+	std::cout << aaa << std::endl;
 	std::cout << ++aaa << std::endl;
+	std::cout << bbb << std::endl;
 	std::cout << --bbb << std::endl;
 	std::cout << std::endl;
 }
