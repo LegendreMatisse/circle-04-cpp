@@ -25,57 +25,57 @@ int main(void)
 
 	bool test = a > b;
 	std::cout << test << std::endl;
-	bool test = b > a;
+	test = b > a;
 	std::cout << test << std::endl;
-	bool test = a > c;
-	std::cout << test << std::endl;
-	std::cout << std::endl;
-	
-	bool test = a < b;
-	std::cout << test << std::endl;
-	bool test = b < a;
-	std::cout << test << std::endl;
-	bool test = a < c;
+	test = a > c;
 	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	bool test = a >= b;
+	test = a < b;
 	std::cout << test << std::endl;
-	bool test = b >= a;
+	test = b < a;
 	std::cout << test << std::endl;
-	bool test = a >= c;
-	std::cout << test << std::endl;
-	bool test = a >= a;
+	test = a < c;
 	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	bool test = a <= b;
+	test = a >= b;
 	std::cout << test << std::endl;
-	bool test = b <= a;
+	test = b >= a;
 	std::cout << test << std::endl;
-	bool test = a <= c;
+	test = a >= c;
 	std::cout << test << std::endl;
-	bool test = a <= a;
-	std::cout << test << std::endl;
-	std::cout << std::endl;
-	
-	bool test = a == b;
-	std::cout << test << std::endl;
-	bool test = b == a;
-	std::cout << test << std::endl;
-	bool test = a == c;
-	std::cout << test << std::endl;
-	bool test = a == a;
+	test = a >= a;
 	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	bool test = a != b;
+	test = a <= b;
 	std::cout << test << std::endl;
-	bool test = b != a;
+	test = b <= a;
 	std::cout << test << std::endl;
-	bool test = a != c;
+	test = a <= c;
 	std::cout << test << std::endl;
-	bool test = a != a;
+	test = a <= a;
+	std::cout << test << std::endl;
+	std::cout << std::endl;
+	
+	test = a == b;
+	std::cout << test << std::endl;
+	test = b == a;
+	std::cout << test << std::endl;
+	test = a == c;
+	std::cout << test << std::endl;
+	test = a == a;
+	std::cout << test << std::endl;
+	std::cout << std::endl;
+	
+	test = a != b;
+	std::cout << test << std::endl;
+	test = b != a;
+	std::cout << test << std::endl;
+	test = a != c;
+	std::cout << test << std::endl;
+	test = a != a;
 	std::cout << test << std::endl;
 	std::cout << std::endl;
 }
