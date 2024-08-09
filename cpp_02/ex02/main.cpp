@@ -18,6 +18,9 @@ int main(void)
 	Fixed b(39);
 	Fixed c(8);
 
+	Fixed af(18.5856);
+	Fixed bf(39.1541);
+
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
@@ -77,5 +80,25 @@ int main(void)
 	std::cout << test << std::endl;
 	test = a != a;
 	std::cout << test << std::endl;
+	std::cout << std::endl;
+
+	Fixed result = a + b;
+	std::cout << result << std::endl;
+	result = a - b;
+	std::cout << result << std::endl;
+	result = a * b;
+	std::cout << result << std::endl;
+	result = a / b;
+	std::cout << result << std::endl;
+	std::cout << std::endl;
+
+	Fixed result = af + bf;
+	std::cout << result << std::endl;
+	result = af - bf;
+	std::cout << result << std::endl;
+	result = af * bf;
+	std::cout << result << std::endl;
+	result = af / bf;
+	std::cout << result << std::endl;
 	std::cout << std::endl;
 }

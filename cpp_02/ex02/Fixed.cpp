@@ -129,3 +129,28 @@ bool	Fixed::operator!=(Fixed const &notEq) const
 		return (true);
 	return (false);
 }
+
+//arithmetic operators
+Fixed	Fixed::operator+(Fixed const &add)
+{
+	this->_fixedValue += add.getRawBits();
+	return (*this);
+}
+
+Fixed	Fixed::operator-(Fixed const &sub)
+{
+	this->_fixedValue -= sub.getRawBits();
+	return (*this);
+}
+
+Fixed	Fixed::operator*(Fixed const &tim)
+{
+	this->_fixedValue = (this->toFloat() * tim.toFloat()) * (1 << _fractionalBits);
+	return (*this);
+}
+
+Fixed	Fixed::operator/(Fixed const &div)
+{
+	this->_fixedValue = (this->toFloat() / div.toFloat()) * (1 << _fractionalBits);
+	return (*this);
+}

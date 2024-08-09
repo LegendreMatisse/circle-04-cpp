@@ -55,6 +55,12 @@ class Fixed
 		bool	operator<=(Fixed const &smaEqOp)	const;
 		bool	operator==(Fixed const &eqOp)		const;
 		bool	operator!=(Fixed const &notEq)		const;
+
+		//arithmetic operators
+		Fixed	operator+(Fixed const &add);
+		Fixed	operator-(Fixed const &sub);
+		Fixed	operator*(Fixed const &tim);
+		Fixed	operator/(Fixed const &div);
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value);
