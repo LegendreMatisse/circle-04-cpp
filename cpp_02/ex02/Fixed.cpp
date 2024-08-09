@@ -86,3 +86,46 @@ std::ostream &operator<<(std::ostream &out, Fixed const &value)
 	out << value.toFloat();
 	return (out);
 }
+
+//comparison operators
+bool	Fixed::operator>(Fixed const &greOp) const
+{
+	if (this->_fixedValue > greOp.getRawBits())
+		return (true);
+	return (false);	
+}
+
+bool	Fixed::operator<(Fixed const &smaOp) const
+{
+	if (this->_fixedValue < smaOp.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=(Fixed const &greEqOp) const
+{
+	if (this->_fixedValue >= greEqOp.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=(Fixed const &smaEqOp) const
+{
+	if (this->_fixedValue <= smaEqOp.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(Fixed const &eqOp) const
+{
+	if (this->_fixedValue == eqOp.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(Fixed const &notEq) const
+{
+	if (this->_fixedValue != notEq.getRawBits())
+		return (true);
+	return (false);
+}

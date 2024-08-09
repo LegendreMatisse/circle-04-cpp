@@ -47,6 +47,14 @@ class Fixed
 		//functions
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		//comparison operators
+		bool	operator>(Fixed const &greOp)		const;
+		bool	operator<(Fixed const &smaOp)		const;
+		bool	operator>=(Fixed const &greEqOp)	const;
+		bool	operator<=(Fixed const &smaEqOp)	const;
+		bool	operator==(Fixed const &eqOp)		const;
+		bool	operator!=(Fixed const &notEq)		const;
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value);
