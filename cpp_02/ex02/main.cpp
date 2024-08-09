@@ -103,14 +103,17 @@ int main(void)
 	std::cout << std::endl;
 
 	
-	std::cout << a++ << std::endl;
-	std::cout << b-- << std::endl;
+	Fixed aa(18);
+	Fixed bb(39);
+
+	std::cout << aa++ << std::endl;
+	std::cout << bb-- << std::endl;
 	std::cout << std::endl;
 
-	a(18);
-	b(39);
+	Fixed aaa(18);
+	Fixed bbb(39);
 
-	std::cout << ++a << std::endl;
-	std::cout << --b << std::endl;
+	std::cout << ++aaa << std::endl;
+	std::cout << --bbb << std::endl;
 	std::cout << std::endl;
 }
