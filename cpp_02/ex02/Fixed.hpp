@@ -57,6 +57,6 @@ class Fixed
 		bool	operator!=(Fixed const &notEq)		const;
 };
 
-std::ostream &operator<<(std::ostream &out, Fixed const &value);
+//std::ostream &operator<<(std::ostream &out, Fixed const &value);
 
 #endif
