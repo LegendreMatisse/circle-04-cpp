@@ -154,3 +154,30 @@ Fixed	Fixed::operator/(Fixed const &div)
 	this->_fixedValue = (this->toFloat() / div.toFloat()) * (1 << _fractionalBits);
 	return (*this);
 }
+
+//in- and decrement operators
+Fixed	Fixed::operator++(void)
+{
+	this->_fixedValue++;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(void)
+{
+	this->_fixedValue--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed incTemp(*this);
+	++(*this);
+	return (incTemp)
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed decTemp(*this);
+	--(*this);
+	return (decTemp)
+}

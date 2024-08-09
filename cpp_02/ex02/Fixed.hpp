@@ -61,6 +61,12 @@ class Fixed
 		Fixed	operator-(Fixed const &sub);
 		Fixed	operator*(Fixed const &tim);
 		Fixed	operator/(Fixed const &div);
+
+		//in- and decrement operators
+		Fixed	operator++(void);
+		Fixed	operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value);

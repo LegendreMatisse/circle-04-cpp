@@ -101,4 +101,16 @@ int main(void)
 	result = af / bf;
 	std::cout << result << std::endl;
 	std::cout << std::endl;
+
+	
+	std::cout << a++ << std::endl;
+	std::cout << b-- << std::endl;
+	std::cout << std::endl;
+
+	a(18);
+	b(39);
+
+	std::cout << ++a << std::endl;
+	std::cout << --b << std::endl;
+	std::cout << std::endl;
 }
