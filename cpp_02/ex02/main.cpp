@@ -104,7 +104,7 @@ int main(void)
 
 	
 	int aa = 18;
-	int bb = 39
+	int bb = 39;
 
 	std::cout << aa++ << std::endl;
 	std::cout << bb-- << std::endl;
