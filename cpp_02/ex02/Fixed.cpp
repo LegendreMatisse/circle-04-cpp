@@ -15,20 +15,17 @@
 //default constructor
 Fixed::Fixed(void) : _fixedValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 //copy constructor
 Fixed::Fixed(const Fixed &copyCo)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copyCo;
 }
 
 //assignment operator overload
 Fixed &Fixed::operator=(const Fixed &copyOp)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &copyOp)
 	{
 		this->_fixedValue = copyOp.getRawBits();
@@ -39,33 +36,28 @@ Fixed &Fixed::operator=(const Fixed &copyOp)
 //parameterized constructor
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixedValue = value << _fractionalBits;
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixedValue = roundf(value * (1 << _fractionalBits));
 }
 
 //destructor
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 //getter
 int		Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedValue);
 }
 
 //setter
 void	Fixed::setRawBits(int const raw)
 {
-	//the setter doesn't appear to be printing anything in the example subject
 	this->_fixedValue = raw;
 }
 
