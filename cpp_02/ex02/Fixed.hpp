@@ -71,7 +71,7 @@ class Fixed
 		//min max functions
 		static Fixed const &min(Fixed const &testValue1, Fixed const &testValue2);
 		static Fixed const &max(Fixed const &testValue1, Fixed const &testValue2);
-		static Fixed &max(Fixed &testValue1, Fixed &testValue2);
+		static Fixed &min(Fixed &testValue1, Fixed &testValue2);
 		static Fixed &max(Fixed &testValue1, Fixed &testValue2);
 };
 

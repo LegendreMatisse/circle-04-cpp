@@ -197,7 +197,7 @@ Fixed const &Fixed::max(Fixed const &testValue1, Fixed const &testValue2)
 	return (testValue1);
 }
 
-Fixed &Fixed::max(Fixed &testValue1, Fixed &testValue2)
+Fixed &Fixed::min(Fixed &testValue1, Fixed &testValue2)
 {
 	if (testValue1.getRawBits() > testValue2.getRawBits())
 		return (testValue2);
