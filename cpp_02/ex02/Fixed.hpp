@@ -67,6 +67,12 @@ class Fixed
 		Fixed	operator--(void);
 		Fixed	operator++(int);
 		Fixed	operator--(int);
+
+		//min max functions
+		static Fixed const &min(Fixed const &testValue1, Fixed const &testValue2);
+		static Fixed const &max(Fixed const &testValue1, Fixed const &testValue2);
+		static Fixed &max(Fixed &testValue1, Fixed &testValue2);
+		static Fixed &max(Fixed &testValue1, Fixed &testValue2);
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value);

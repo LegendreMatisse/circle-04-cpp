@@ -181,3 +181,32 @@ Fixed	Fixed::operator--(int)
 	--(*this);
 	return (decTemp);
 }
+
+//min max functions
+Fixed const &Fixed::min(Fixed const &testValue1, Fixed const &testValue2)
+{
+	if (testValue1.getRawBits() > testValue2.getRawBits())
+		return (testValue2);
+	return (testValue1);
+}
+
+Fixed const &Fixed::max(Fixed const &testValue1, Fixed const &testValue2)
+{
+	if (testValue1.getRawBits() < testValue2.getRawBits())
+		return (testValue2);
+	return (testValue1);
+}
+
+Fixed &Fixed::max(Fixed &testValue1, Fixed &testValue2)
+{
+	if (testValue1.getRawBits() > testValue2.getRawBits())
+		return (testValue2);
+	return (testValue1);
+}
+
+Fixed &Fixed::max(Fixed &testValue1, Fixed &testValue2)
+{
+	if (testValue1.getRawBits() < testValue2.getRawBits())
+		return (testValue2);
+	return (testValue1);
+}
