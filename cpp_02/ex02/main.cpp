@@ -23,36 +23,59 @@ int main(void)
 	std::cout << c.getRawBits() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << a > b << std::endl;
-	std::cout << b > a << std::endl;
-	std::cout << a > c << std::endl;
+	bool test = a > b;
+	std::cout << test << std::endl;
+	bool test = b > a;
+	std::cout << test << std::endl;
+	bool test = a > c;
+	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << a < b << std::endl;
-	std::cout << b < a << std::endl;
-	std::cout << a < c << std::endl;
+	bool test = a < b;
+	std::cout << test << std::endl;
+	bool test = b < a;
+	std::cout << test << std::endl;
+	bool test = a < c;
+	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << a >= b << std::endl;
-	std::cout << b >= a << std::endl;
-	std::cout << a >= c << std::endl;
-	std::cout << a >= a << std::endl;
+	bool test = a >= b;
+	std::cout << test << std::endl;
+	bool test = b >= a;
+	std::cout << test << std::endl;
+	bool test = a >= c;
+	std::cout << test << std::endl;
+	bool test = a >= a;
+	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << a <= b << std::endl;
-	std::cout << b <= a << std::endl;
-	std::cout << a <= c << std::endl;
-	std::cout << a <= a << std::endl;
+	bool test = a <= b;
+	std::cout << test << std::endl;
+	bool test = b <= a;
+	std::cout << test << std::endl;
+	bool test = a <= c;
+	std::cout << test << std::endl;
+	bool test = a <= a;
+	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << a == b << std::endl;
-	std::cout << b == a << std::endl;
-	std::cout << a == c << std::endl;
-	std::cout << a == a << std::endl;
+	bool test = a == b;
+	std::cout << test << std::endl;
+	bool test = b == a;
+	std::cout << test << std::endl;
+	bool test = a == c;
+	std::cout << test << std::endl;
+	bool test = a == a;
+	std::cout << test << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << a != b << std::endl;
-	std::cout << b != a << std::endl;
-	std::cout << a != c << std::endl;
-	std::cout << a != a << std::endl;
+	bool test = a != b;
+	std::cout << test << std::endl;
+	bool test = b != a;
+	std::cout << test << std::endl;
+	bool test = a != c;
+	std::cout << test << std::endl;
+	bool test = a != a;
+	std::cout << test << std::endl;
+	std::cout << std::endl;
 }

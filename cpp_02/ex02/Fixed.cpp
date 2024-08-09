@@ -81,11 +81,11 @@ int		Fixed::toInt(void) const
 }
 
 //operator overload
-/*std::ostream &operator<<(std::ostream &out, Fixed const &value)
+std::ostream &operator<<(std::ostream &out, Fixed const &value)
 {
 	out << value.toFloat();
 	return (out);
-}*/
+}
 
 //comparison operators
 bool	Fixed::operator>(Fixed const &greOp) const
