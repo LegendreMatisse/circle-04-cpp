@@ -18,8 +18,8 @@ int main(void)
 	Fixed b(39);
 	Fixed c(8);
 
-	Fixed af(18.5856);
-	Fixed bf(39.1541);
+	Fixed af(18.5856f);
+	Fixed bf(39.1541f);
 
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
@@ -92,7 +92,7 @@ int main(void)
 	std::cout << result << std::endl;
 	std::cout << std::endl;
 
-	Fixed result = af + bf;
+	result = af + bf;
 	std::cout << result << std::endl;
 	result = af - bf;
 	std::cout << result << std::endl;
