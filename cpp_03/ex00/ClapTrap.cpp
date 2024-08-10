@@ -101,14 +101,6 @@ void ClapTrap::attack(std::string const &target)
 	determineMessage("attack", this->_attackDamage, this->_name, target);
 	ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
 	return ;
-	/*determineMessage("attack", this->_attackDamage, this->_name, target);
-	int temp = ClapTrap::getEnergyPoints();
-	temp -= 1;
-	ClapTrap::setEnergyPoints(temp);
-	temp = ClapTrap::getHitPoints();
-	temp -= getAttackDamage();
-	ClapTrap::setHitPoints(temp);
-	return ;*/
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
