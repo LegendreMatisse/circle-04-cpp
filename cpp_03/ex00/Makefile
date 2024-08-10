@@ -12,7 +12,7 @@
 
 NAME	=	claptrap
 
-SRC		=	main.cpp
+SRC		=	main.cpp ClapTrap.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
