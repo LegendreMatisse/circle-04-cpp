@@ -59,7 +59,7 @@ class ClapTrap
 		void		determineMessage(std::string const &message, int const &amount, std::string const &name, std::string const &target);
 
 		//debug functions
-		void		printStats(const ClapTrap &clapTrap);
+		void		printStats(void);
 };
 
 #endif
