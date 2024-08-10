@@ -89,11 +89,11 @@ void ClapTrap::setAttackDamage(int attackDamage)
 void ClapTrap::determineMessage(std::string const &message, int const &amount, std::string const &name, std::string const &target)
 {
 	if (message == "attack")
-		std::cout << "ClapTrap " << name << "attacks " << target << "causing, " << amount << "points of damage!" << std::endl;
+		std::cout << "ClapTrap " << name << " attacks " << target << " causing, " << amount << " points of damage!" << std::endl;
 	else if (message == "takeDamage")
-		std::cout << "ClapTrap " << name << "takes " << amount << "points of damage!" << std::endl;
+		std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
 	else if (message == "beRepaired")
-		std::cout << "ClapTrap " << name << "is being repaired for " << amount << "points!" << std::endl;
+		std::cout << "ClapTrap " << name << " is being repaired for " << amount << " points!" << std::endl;
 }
 
 void ClapTrap::attack(std::string const &target)
@@ -105,14 +105,14 @@ void ClapTrap::attack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	determineMessage("takeDamage", amount, this->_name, NULL);
+	determineMessage("takeDamage", amount, this->_name, "himself");
 	ClapTrap::setHitPoints(ClapTrap::getHitPoints() - amount);
 	return ;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	determineMessage("beRepaired", amount, this->_name, NULL);
+	determineMessage("beRepaired", amount, this->_name, "himself");
 	ClapTrap::setHitPoints(ClapTrap::getHitPoints() + amount);
 	ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
 	return ;
