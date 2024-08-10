@@ -56,7 +56,7 @@ class ClapTrap
 		void		attack(std::string const &target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
-		void		determineMessage(std::string const &message, int const &amount, std::string const &name, std::string const &target);
+		void		determineMessage(std::string const &message, std::string const &target, int amount);
 
 		//debug functions
 		void		printStats(void);
