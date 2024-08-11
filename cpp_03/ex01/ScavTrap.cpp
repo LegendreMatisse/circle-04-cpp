@@ -49,7 +49,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
+void ScavTrap::determineMessage(std::string const &message, std::string const &target)
 {
 	if (message == "attack")
 		std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
@@ -67,15 +67,15 @@ void	ScavTrap::attack(std::string const &target)
 {
 	if (this->getEnergyPoints() < 1)
 	{
-		this->determineMessage("tiredAttack", target, 0);
+		this->determineMessage("tiredAttack", target);
 		return ;
 	}
 	if (this->getHitPoints() < 1)
 	{
-		this->determineMessage("dead", target, 0);
+		this->determineMessage("dead", target);
 		return ;
 	}
-	this->determineMessage("attack", target, this->getAttackDamage());
+	this->determineMessage("attack", target);
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
 }
@@ -84,14 +84,14 @@ void	ScavTrap::guardGate(void)
 {
 	if (this->getEnergyPoints() < 1)
 	{
-		this->determineMessage("tiredDefend", "himself", 0);
+		this->determineMessage("tiredDefend", "himself");
 		return ;
 	}
 	if (this->getHitPoints() < 1)
 	{
-		this->determineMessage("dead", "himself", 0);
+		this->determineMessage("dead", "himself");
 		return ;
 	}
-	this->determineMessage("defend", "himself", 0);
+	this->determineMessage("defend", "himself");
 	return ;
 }
