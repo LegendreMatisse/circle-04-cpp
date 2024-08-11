@@ -115,9 +115,9 @@ void ClapTrap::attack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (ClapTrap::getHitPoints() < 1)
+	if ((ClapTrap::getHitPoints() - amount) < 1)
 	{
-		std::cout << "ClapTrap " << this->getName() << " is already dead!" << std::endl;
+		std::cout << "ClapTrap " << this->getName() << " is dead!" << std::endl;
 		this->setHitPoints(0);
 		return ;
 	}
