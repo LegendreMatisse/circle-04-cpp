@@ -51,7 +51,7 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::attack(std::string const &target)
 {
-	std::cout << "ScavTrap " << this->getName() << " attack " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

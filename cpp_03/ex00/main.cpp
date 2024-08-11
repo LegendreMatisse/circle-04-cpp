@@ -17,6 +17,7 @@ int main()
 	ClapTrap clapTrap1("Steven");
 	ClapTrap clapTrap2("Walter");
 
+	clapTrap1.printStats();
 	clapTrap1.setAttackDamage(2);
 	clapTrap1.printStats();
 	clapTrap1.attack(clapTrap2.getName());

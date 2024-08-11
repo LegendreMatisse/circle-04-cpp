@@ -14,8 +14,8 @@
 
 int main()
 {
-	ScavTrap scavTrap("ScavTrap");
-	ClapTrap clapTrap("ClapTrap");
+	ScavTrap scavTrap("Steven");
+	ClapTrap clapTrap("Walter");
 
 	scavTrap.printStats();
 	scavTrap.attack(clapTrap.getName());
