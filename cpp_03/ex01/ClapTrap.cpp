@@ -12,12 +12,12 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : #name("default"), #hitPoints(10), #energyPoints(10), #attackDamage(0)
+ClapTrap::ClapTrap(void) : _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : #name(name), #hitPoints(10), #energyPoints(10), #attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap parameterized constructor called" << std::endl;
 }
@@ -33,10 +33,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copyOp)
 	std::cout << "ClapTrap assignment operator called" << std::endl;
 	if (this != &copyOp)
 	{
-		this->#name = copyOp.#name;
-		this->#hitPoints = copyOp.#hitPoints;
-		this->#energyPoints = copyOp.#energyPoints;
-		this->#attackDamage = copyOp.#attackDamage;
+		this->_name = copyOp._name;
+		this->_hitPoints = copyOp._hitPoints;
+		this->_energyPoints = copyOp._energyPoints;
+		this->_attackDamage = copyOp._attackDamage;
 	}
 	return (*this);
 }
@@ -48,42 +48,42 @@ ClapTrap::~ClapTrap()
 
 std::string ClapTrap::getName(void) const
 {
-	return (this->#name);
+	return (this->_name);
 }
 
 int ClapTrap::getHitPoints(void) const
 {
-	return (this->#hitPoints);
+	return (this->_hitPoints);
 }
 
 int ClapTrap::getEnergyPoints(void) const
 {
-	return (this->#energyPoints);
+	return (this->_energyPoints);
 }
 
 int ClapTrap::getAttackDamage(void) const
 {
-	return (this->#attackDamage);
+	return (this->_attackDamage);
 }
 
 void ClapTrap::setName(std::string name)
 {
-	this->#name = name;
+	this->_name = name;
 }
 
 void ClapTrap::setHitPoints(int hitPoints)
 {
-	this->#hitPoints = hitPoints;
+	this->_hitPoints = hitPoints;
 }
 
 void ClapTrap::setEnergyPoints(int energyPoints)
 {
-	this->#energyPoints = energyPoints;
+	this->_energyPoints = energyPoints;
 }
 
 void ClapTrap::setAttackDamage(int attackDamage)
 {
-	this->#attackDamage = attackDamage;
+	this->_attackDamage = attackDamage;
 }
 
 void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
