@@ -10,3 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "FragTrap.hpp"
+
+int main(void)
+{
+	FragTrap fragTrap1("Steven");
+
+	fragTrap1.printStats();
+	fragTrap1.highFivesGuys();
+	return (0);
+}
