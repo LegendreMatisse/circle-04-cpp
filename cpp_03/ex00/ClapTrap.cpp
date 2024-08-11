@@ -104,14 +104,14 @@ void ClapTrap::determineMessage(std::string const &message, std::string const &t
 
 void ClapTrap::attack(std::string const &target)
 {
+	if (this->getHitPoints() < 1)
+	{
+		this->determineMessage("dead", "himself", 0);
+		return ;
+	}
 	if (this->getEnergyPoints() < 1)
 	{
 		this->determineMessage("tiredAttack", "himself", 0);
-		return ;
-	}
-	else if (this->getHitPoints() < 1)
-	{
-		this->determineMessage("dead", "himself", 0);
 		return ;
 	}
 	determineMessage("attack", target, 0);
@@ -133,14 +133,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->getHitPoints() < 1)
+	{
+		this->determineMessage("dead", "himself", 0);
+		return ;
+	}
 	if (this->getEnergyPoints() < 1)
 	{
 		this->determineMessage("tiredRepair", "himself", 0);
-		return ;
-	}
-	else if (this->getHitPoints() < 1)
-	{
-		this->determineMessage("dead", "himself", 0);
 		return ;
 	}
 	determineMessage("beRepaired", "himself", amount);

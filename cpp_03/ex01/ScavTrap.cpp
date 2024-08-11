@@ -49,49 +49,35 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-void ScavTrap::determineMessage(std::string const &message, std::string const &target)
-{
-	if (message == "attack")
-		std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
-	else if (message == "defend")
-		std::cout << "ScavTrap " << this->getName() << ", is guarding the gate against the forces of evil." << std::endl;
-	else if (message == "tiredAttack")
-		std::cout << "ScavTrap " << this->getName() << " is too tired to attack!" << std::endl;
-	else if (message == "tiredDefend")
-		std::cout << "ScavTrap " << this->getName() << " is too tired to defend the gate." << std::endl;
-	else if (message == "dead")
-		std::cout << "ScavTrap " << this->getName() << " is dead!" << std::endl;
-}
-
 void	ScavTrap::attack(std::string const &target)
 {
-	if (this->getEnergyPoints() < 1)
-	{
-		this->determineMessage("tiredAttack", target);
-		return ;
-	}
 	if (this->getHitPoints() < 1)
 	{
-		this->determineMessage("dead", target);
+		this->determineMessage("dead", 0);
 		return ;
 	}
-	this->determineMessage("attack", target);
+	if (this->getEnergyPoints() < 1)
+	{
+		this->determineMessage("tiredAttack", 0);
+		return ;
+	}
+	std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	if (this->getEnergyPoints() < 1)
-	{
-		this->determineMessage("tiredDefend", "himself");
-		return ;
-	}
 	if (this->getHitPoints() < 1)
 	{
-		this->determineMessage("dead", "himself");
+		this->determineMessage("dead", 0);
 		return ;
 	}
-	this->determineMessage("defend", "himself");
+	if (this->getEnergyPoints() < 1)
+	{
+		std::cout << this->getName() << " is too tired to guard the gate!" << std::endl;
+		return ;
+	}
+	std::cout <<  this->getName() << " has entered in Gate keeper mode!" << std::endl;
 	return ;
 }

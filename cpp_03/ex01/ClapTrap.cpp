@@ -86,35 +86,33 @@ void ClapTrap::setAttackDamage(int attackDamage)
 	this->_attackDamage = attackDamage;
 }
 
-void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
+void ClapTrap::determineMessage(std::string const &message, int amount)
 {
-	if (message == "attack")
-		std::cout << "ClapTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
-	else if (message == "takeDamage")
-		std::cout << "ClapTrap " << this->getName() << " takes " << amount << " points of damage!" << std::endl;
+	if (message == "takeDamage")
+		std::cout << this->getName() << " takes " << amount << " points of damage!" << std::endl;
 	else if (message == "beRepaired")
-		std::cout << "ClapTrap " << this->getName() << " is being repaired for " << amount << " points!" << std::endl;
+		std::cout << this->getName() << " is being repaired for " << amount << " points!" << std::endl;
 	else if (message == "tiredAttack")
-		std::cout << "ClapTrap " << this->getName() << " is too tired to attack!" << std::endl;
+		std::cout << this->getName() << " is too tired to attack!" << std::endl;
 	else if (message == "tiredRepair")
-		std::cout << "ClapTrap " << this->getName() << " is too tired to repair itself!" << std::endl;
+		std::cout << this->getName() << " is too tired to repair itself!" << std::endl;
 	else if (message == "dead")
-		std::cout << "ClapTrap " << this->getName() << " is dead!" << std::endl;
+		std::cout << this->getName() << " is dead!" << std::endl;
 }
 
 void ClapTrap::attack(std::string const &target)
 {
 	if (this->getEnergyPoints() < 1)
 	{
-		this->determineMessage("tiredAttack", "himself", 0);
+		this->determineMessage("tiredAttack", 0);
 		return ;
 	}
-	else if (this->getHitPoints() < 1)
+	if (this->getHitPoints() < 1)
 	{
-		this->determineMessage("dead", "himself", 0);
+		this->determineMessage("dead", 0);
 		return ;
 	}
-	determineMessage("attack", target, 0);
+	std::cout << "ClapTrap " << this->getName() << " attacks " << target << " causing, " << this->getAttackDamage() << " points of damage!" << std::endl;
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
 }
@@ -123,27 +121,27 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (static_cast<unsigned int>(this->getHitPoints()) <= amount)
 	{
-		this->determineMessage("dead", "himself", 0);
+		this->determineMessage("dead", 0);
 		this->setHitPoints(0);
 		return ;
 	}
-	determineMessage("takeDamage", "himself", amount);
+	determineMessage("takeDamage", amount);
 	this->setHitPoints(this->getHitPoints() - amount);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->getHitPoints() < 1)
+	{
+		this->determineMessage("dead", 0);
+		return ;
+	}
 	if (this->getEnergyPoints() < 1)
 	{
-		this->determineMessage("tiredRepair", "himself", 0);
+		this->determineMessage("tiredRepair", 0);
 		return ;
 	}
-	else if (this->getHitPoints() < 1)
-	{
-		this->determineMessage("dead", "himself", 0);
-		return ;
-	}
-	determineMessage("beRepaired", "himself", amount);
+	determineMessage("beRepaired", amount);
 	this->setHitPoints(this->getHitPoints() + amount);
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
