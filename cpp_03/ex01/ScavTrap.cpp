@@ -49,19 +49,33 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
+{
+	if (message == "attack")
+		std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
+	else if (message == "defend")
+		std::cout << "ScavTrap " << this->getName() << ", is guarding the gate against the forces of evil." << std::endl;
+	else if (message == "tiredAttack")
+		std::cout << "ScavTrap " << this->getName() << " is too tired to attack!" << std::endl;
+	else if (message == "tiredDefend")
+		std::cout << "ScavTrap " << this->getName() << " is too tired to defend the gate." << std::endl;
+	else if (message == "dead")
+		std::cout << "ScavTrap " << this->getName() << " is dead!" << std::endl;
+}
+
 void	ScavTrap::attack(std::string const &target)
 {
 	if (this->getEnergyPoints() < 1)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is too tired to attack." << std::endl;
+		this->determineMessage("tiredAttack", target, 0);
 		return ;
 	}
 	if (this->getHitPoints() < 1)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+		this->determineMessage("dead", target, 0);
 		return ;
 	}
-	std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+	this->determineMessage("attack", target, this->getAttackDamage());
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
 }
@@ -70,14 +84,14 @@ void	ScavTrap::guardGate(void)
 {
 	if (this->getEnergyPoints() < 1)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is too tired to defend the gate." << std::endl;
+		this->determineMessage("tiredDefend", "himself", 0);
 		return ;
 	}
 	if (this->getHitPoints() < 1)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+		this->determineMessage("dead", "himself", 0);
 		return ;
 	}
-	std::cout << "ScavTrap " << this->getName() << ", is guarding the gate against the forces of evil." << std::endl;
+	this->determineMessage("defend", "himself", 0);
 	return ;
 }
