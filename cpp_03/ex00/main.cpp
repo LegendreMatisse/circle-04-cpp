@@ -25,5 +25,6 @@ int main()
 	clapTrap2.printStats();
 	clapTrap2.beRepaired(1);
 	clapTrap2.printStats();
+	clapTrap1.printStats();
 	return (0);
 }
