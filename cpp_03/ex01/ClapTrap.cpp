@@ -89,15 +89,25 @@ void ClapTrap::setAttackDamage(int attackDamage)
 void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
 {
 	if (message == "attack")
-		std::cout << "ClapTrap " << ClapTrap::getName() << " attacks " << target << " causing, " << ClapTrap::getAttackDamage() << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " <<this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
 	else if (message == "takeDamage")
-		std::cout << "ClapTrap " << ClapTrap::getName() << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " <<this->getName() << " takes " << amount << " points of damage!" << std::endl;
 	else if (message == "beRepaired")
-		std::cout << "ClapTrap " << ClapTrap::getName() << " is being repaired for " << amount << " points!" << std::endl;
+		std::cout << "ClapTrap " <<this->getName() << " is being repaired for " << amount << " points!" << std::endl;
 }
 
 void ClapTrap::attack(std::string const &target)
 {
+	if (ClapTrap::getEnergyPoints() < 1)
+	{
+		std::cout << "ClapTrap " <<this->getName() << " is too tired to attack!" << std::endl;
+		return ;
+	}
+	else if (ClapTrap::getHitPoints() < 1)
+	{
+		std::cout << "ClapTrap " <<this->getName() << " is dead!" << std::endl;
+		return ;
+	}
 	determineMessage("attack", target, 0);
 	ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
 	return ;
@@ -112,6 +122,16 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (ClapTrap::getEnergyPoints() < 1)
+	{
+		std::cout << "ClapTrap " <<this->getName() << " is too tired to repair itself!" << std::endl;
+		return ;
+	}
+	else if (ClapTrap::getHitPoints() < 1)
+	{
+		std::cout << "ClapTrap " <<this->getName() << " is dead!" << std::endl;
+		return ;
+	}
 	determineMessage("beRepaired", "himself", amount);
 	ClapTrap::setHitPoints(ClapTrap::getHitPoints() + amount);
 	ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
@@ -121,9 +141,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 //debug functions
 void ClapTrap::printStats(void)
 {
-	std::cout << "Name: " << ClapTrap::getName() << std::endl;
-	std::cout << "Hitpoints: " << ClapTrap::getHitPoints() << std::endl;
-	std::cout << "Energy Points: " << ClapTrap::getEnergyPoints() << std::endl;
-	std::cout << "Attack Damage: " << ClapTrap::getAttackDamage() << std::endl;
+	std::cout << "Name: " <<this->getName() << std::endl;
+	std::cout << "Hitpoints: " <<this->getHitPoints() << std::endl;
+	std::cout << "Energy Points: " <<this->getEnergyPoints() << std::endl;
+	std::cout << "Attack Damage: " <<this->getAttackDamage() << std::endl;
 	return ;
 }

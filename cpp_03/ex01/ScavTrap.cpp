@@ -51,10 +51,28 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::attack(std::string const &target)
 {
+	if (this->getEnergyPoints() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is too tired to attack." << std::endl;
+		return ;
+	}
+	if (this->getHitPoints() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
+	return ;
 }
 
 void	ScavTrap::guardGate(void)
 {
+	if (this->getHitPoints() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->getName() << ", is guarding the gate against the forces of evil." << std::endl;
+	return ;
 }
