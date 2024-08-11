@@ -68,6 +68,11 @@ void	ScavTrap::attack(std::string const &target)
 
 void	ScavTrap::guardGate(void)
 {
+	if (this->getEnergyPoints() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is too tired to defend the gate." << std::endl;
+		return ;
+	}
 	if (this->getHitPoints() < 1)
 	{
 		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
