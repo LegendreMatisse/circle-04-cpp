@@ -49,6 +49,18 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+void	ScavTrap::takeDamage(unsigned int amount) : ClapTrap::takeDamage(amount)
+{
+	if (this->getHitPoints() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is already dead." << std::endl;
+		//this->setHitPoints(0);
+		return ;
+	}
+	std::cout << "ScavTrap " << this->getName() << " takes " << amount << " points of damage!" << std::endl;
+	return ;
+}
+
 void	ScavTrap::attack(std::string const &target)
 {
 	if (this->getEnergyPoints() < 1)

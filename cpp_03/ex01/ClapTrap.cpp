@@ -115,9 +115,14 @@ void ClapTrap::attack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	if (ClapTrap::getHitPoints() < 1)
+	{
+		std::cout << "ClapTrap " << this->getName() << " is already dead!" << std::endl;
+		this->setHitPoints(0);
+		return ;
+	}
 	determineMessage("takeDamage", "himself", amount);
 	ClapTrap::setHitPoints(ClapTrap::getHitPoints() - amount);
-	return ;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
