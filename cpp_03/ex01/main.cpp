@@ -19,6 +19,9 @@ int main()
 
 	scavTrap1.attack(clapTrap1.getName());
 	scavTrap1.printStats();
+	clapTrap1.setAttackDamage(2);
+	clapTrap1.attack(scavTrap1.getName());
+	scavTrap1.takeDamage(clapTrap1.getAttackDamage());
 	clapTrap1.takeDamage(scavTrap1.getAttackDamage());
 	clapTrap1.printStats();
 	clapTrap1.beRepaired(1);
