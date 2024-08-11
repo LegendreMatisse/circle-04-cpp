@@ -10,3 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
+
+int main()
+{
+	ScavTrap scavTrap("ScavTrap");
+	ClapTrap clapTrap("ClapTrap");
+
+	scavTrap.printStats();
+	scavTrap.attack(clapTrap.getName());
+	clapTrap.takeDamage(scavTrap.getAttackDamage());
+	clapTrap.printStats();
+	scavTrap.guardGate();
+	return (0);
+}
