@@ -38,3 +38,5 @@ class FragTrap : public ClapTrap
 		//functions
 		void	highFivesGuys(void);
 };
+
+#endif
