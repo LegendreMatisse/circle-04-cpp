@@ -14,13 +14,20 @@
 
 int main()
 {
-	ScavTrap scavTrap("Steven");
+	/*ScavTrap scavTrap("Steven");
 	ClapTrap clapTrap("Walter");
 
 	scavTrap.printStats();
 	scavTrap.attack(clapTrap.getName());
 	clapTrap.takeDamage(scavTrap.getAttackDamage());
 	clapTrap.printStats();
-	scavTrap.guardGate();
+	scavTrap.guardGate();*/
+
+	ScavTrap scavTrap1("Steven");
+
+	scavTrap1.attack("Walter");
+	scavTrap.printStats();
+	scavTrap1.guardGate();
+	
 	return (0);
 }
