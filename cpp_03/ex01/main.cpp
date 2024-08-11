@@ -27,6 +27,8 @@ int main()
 
 	scavTrap1.attack("Walter");
 	scavTrap1.printStats();
+	scavTrap1.takeDamage(2);
+	scavTrap1.printStats();
 	scavTrap1.guardGate();
 
 	return (0);
