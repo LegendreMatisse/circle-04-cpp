@@ -25,7 +25,8 @@ int main()
 	scavTrap1.printStats();
 	scavTrap1.guardGate();
 
-
+	scavTrap1.takeDamage(110);
+	scavTrap1.printStats();
 
 	return (0);
 }
