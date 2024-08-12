@@ -43,6 +43,11 @@ std::string Animal::getType() const
 	return _type;
 }
 
+void	Animal::setType(std::string const &type)
+{
+	this->_type = type;
+}
+
 void Animal::makeSound() const
 {
 	std::cout << "This animal is just an animal, therefor it does not make a sound." << std::endl;

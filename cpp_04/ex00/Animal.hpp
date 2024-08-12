@@ -40,7 +40,6 @@ class Animal
 		//setter
 		void			setType(std::string const &type);
 
-
 		//functions
 		virtual void	makeSound(void) const;
 };
