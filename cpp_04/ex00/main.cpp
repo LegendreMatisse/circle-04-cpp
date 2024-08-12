@@ -14,6 +14,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {
@@ -39,7 +40,8 @@ int main(void)
 
 	std::cout << "\nThe wrong animals are here..." << std::endl;
 	std::cout << "\nMay the Gods have mercy on our souls..." << std::endl;
-	const WrongAnimal* steve	= new WrongAnimal;
+	const WrongAnimal* steve	= new WrongAnimal();
+	const WrongAnimal* karl		= new WrongCat();
 
 	std::cout << "\nPrinting the types of the various wrong animals..." << std::endl;
 	std::cout << "meta: " << steve->getType() << std::endl;
@@ -52,6 +54,6 @@ int main(void)
 	std::cout << "\nDeleting the various wrong animals..." << std::endl;
 	delete(steve);
 	delete(karl);
-	
+
 	return (0);
 }
