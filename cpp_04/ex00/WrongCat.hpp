@@ -31,7 +31,7 @@ class WrongCat : public WrongAnimal
 		virtual ~WrongCat();
 
 		//functions
-		virutal void	makeSound(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif
