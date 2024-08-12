@@ -39,7 +39,7 @@ int main(void)
 	delete(i);
 
 	std::cout << "\nThe wrong animals are here..." << std::endl;
-	std::cout << "\nMay the Gods have mercy on our souls..." << std::endl;
+	std::cout << "May the Gods have mercy on our souls..." << std::endl;
 	const WrongAnimal* steve	= new WrongAnimal();
 	const WrongAnimal* karl		= new WrongCat();
 
