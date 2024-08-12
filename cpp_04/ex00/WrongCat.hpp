@@ -28,10 +28,10 @@ class WrongCat : public WrongAnimal
 		WrongCat &operator=(const WrongCat &copyOp);
 
 		//destructor
-		~WrongCat();
+		virtual ~WrongCat();
 
 		//functions
-		void	makeSound(void) const;
+		virutal void	makeSound(void) const;
 };
 
 #endif

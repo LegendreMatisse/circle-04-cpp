@@ -32,7 +32,7 @@ class WrongAnimal
 		WrongAnimal &operator=(const WrongAnimal &copyOp);
 
 		//destructor
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		//getter
 		std::string		getType(void) const;
@@ -41,7 +41,7 @@ class WrongAnimal
 		void			setType(std::string const &type);
 
 		//functions
-		void	makeSound(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif
