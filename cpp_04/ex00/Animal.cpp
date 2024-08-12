@@ -50,6 +50,6 @@ void	Animal::setType(std::string const &type)
 
 void Animal::makeSound() const
 {
-	std::cout << "This animal is just an animal, therefor it does not make a sound." << std::endl;
+	std::cout << "This animal is just an animal, therefore it does not make a sound." << std::endl;
 }
 
