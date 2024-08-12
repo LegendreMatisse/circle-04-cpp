@@ -12,26 +12,27 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() : type_("Animal")
+Animal::Animal(void) : _type("Animal")
 {
 	std::cout << "An animal has been created" << std::endl;
 }
 
-Animal::Animal(std::string const &type) : type_(type)
+Animal::Animal(std::string const &type) : _type(type)
 {
 	std::cout << "An animal has been created" << std::endl;
 }
 
-Animal::Animal(Animal const &other) : type_(other.type_)
+Animal::Animal(Animal const &copyCo)
 {
 	std::cout << "An animal has been created by copy" << std::endl;
+	*this = copyCo;
 }
 
-Animal &Animal::operator=(Animal const &other)
+Animal &Animal::operator=(Animal const &copyOp)
 {
-	if (this == &other)
+	if (this == &copyOp)
 		return *this;
-	type_ = other.type_;
+	_type = copyOp._type;
 	std::cout << "An animal has been assigned" << std::endl;
 	return *this;
 }
@@ -43,7 +44,7 @@ Animal::~Animal()
 
 std::string Animal::getType() const
 {
-	return type_;
+	return _type;
 }
 
 void Animal::makeSound() const

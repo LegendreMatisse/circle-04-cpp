@@ -10,3 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+# define DOG_HPP
+
+# include "Animal.hpp"
+
+class Dog : public Animal
+{
+	public:
+		//constructor
+		Dog(void);
+
+		//parameterized constructor
+		Dog(std::string const &type);
+
+		//copy constructor
+		Dog(const Dog &copyCo);
+
+		//assignment operator overload
+		Dog &operator=(const Dog &copyOp);
+
+		//destructor
+		~Dog() override;
+
+		//functions
+		void	makeSound(void) const override;
+};
+
+#endif
