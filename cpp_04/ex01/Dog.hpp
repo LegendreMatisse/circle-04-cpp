@@ -28,10 +28,10 @@ class Dog : public Animal
 		Dog &operator=(const Dog &copyOp);
 
 		//destructor
-		~Dog();
+		virtual ~Dog();
 
 		//functions
-		void	makeSound(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif
