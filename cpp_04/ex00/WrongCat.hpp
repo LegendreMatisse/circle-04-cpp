@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGWrongCat_HPP
-# define WRONGWrongCat_HPP
+#ifndef WRONGCat_HPP
+# define WRONGCat_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
