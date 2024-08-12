@@ -15,9 +15,11 @@
 
 int main(void)
 {
+	std::cout << "Creating the various animals...\n" << std::endl;
 	const Animal* meta	= new Animal();
 	const Animal* j		= new Dog();
 
+	std::cout << "Printing the types of the various animals...\n" << std::endl;
 	std::cout << meta->getType() << std::endl;
 	std::cout << j->getType() << std::endl;
 	std::cout << std::endl;

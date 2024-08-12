@@ -15,11 +15,7 @@
 Dog::Dog(void) : Animal()
 {
 	std::cout << "A dog has been constructed." << std::endl;
-}
-
-Dog::Dog(std::string const &type) : Animal(type)
-{
-	std::cout << "A dog has been constructed." << std::endl;
+	this->setType("Dog");
 }
 
 Dog::Dog(Dog const &copyCo) : Animal(copyCo)

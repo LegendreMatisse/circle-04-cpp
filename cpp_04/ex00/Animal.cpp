@@ -12,14 +12,10 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : _type("Animal")
+Animal::Animal(void)
 {
 	std::cout << "An animal has been created" << std::endl;
-}
-
-Animal::Animal(std::string const &type) : _type(type)
-{
-	std::cout << "An animal has been created" << std::endl;
+	this->setType("Animal");
 }
 
 Animal::Animal(Animal const &copyCo)

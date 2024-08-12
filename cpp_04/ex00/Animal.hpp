@@ -25,9 +25,6 @@ class Animal
 		//constructor
 		Animal(void);
 
-		//parameterized constructor
-		Animal(std::string const &type);
-
 		//copy constructor
 		Animal(const Animal &copyCo);
 
@@ -37,8 +34,14 @@ class Animal
 		//destructor
 		virtual ~Animal();
 
-		//functions
+		//getter
 		std::string		getType(void) const;
+
+		//setter
+		void			setType(std::string const &type);
+
+
+		//functions
 		virtual void	makeSound(void) const;
 };
 

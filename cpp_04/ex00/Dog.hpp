@@ -21,9 +21,6 @@ class Dog : public Animal
 		//constructor
 		Dog(void);
 
-		//parameterized constructor
-		Dog(std::string const &type);
-
 		//copy constructor
 		Dog(const Dog &copyCo);
 
