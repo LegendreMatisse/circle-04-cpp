@@ -12,13 +12,13 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) : Animal()
+WrongCat::WrongCat(void) : WrongAnimal()
 {
 	std::cout << "A WrongCat has been constructed." << std::endl;
 	this->setType("WrongCat");
 }
 
-WrongCat::WrongCat(WrongCat const &copyCo) : Animal(copyCo)
+WrongCat::WrongCat(WrongCat const &copyCo) : WrongAnimal(copyCo)
 {
 	std::cout << "A WrongCat has been created by copy." << std::endl;
 	*this = copyCo;
