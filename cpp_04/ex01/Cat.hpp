@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 00:42:58 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/13 00:42:58 by mlegendr         ###   ########.fr       */
+/*   Created: 2024/08/12 22:49:43 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/08/12 22:49:43 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
 
-class WrongAnimal
+class Cat : public Animal
 {
-	protected:
-		std::string _type;
-
 	public:
 		//constructor
-		WrongAnimal(void);
+		Cat(void);
 
 		//copy constructor
-		WrongAnimal(const WrongAnimal &copyCo);
+		Cat(const Cat &copyCo);
 
 		//assignment operator overload
-		WrongAnimal &operator=(const WrongAnimal &copyOp);
+		Cat &operator=(const Cat &copyOp);
 
 		//destructor
-		~WrongAnimal();
-
-		//getter
-		std::string		getType(void) const;
-
-		//setter
-		void			setType(std::string const &type);
+		~Cat();
 
 		//functions
 		void	makeSound(void) const;
