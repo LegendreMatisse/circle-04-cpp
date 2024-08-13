@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 00:42:58 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/13 00:42:58 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:39:30 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class WrongAnimal
 		WrongAnimal &operator=(const WrongAnimal &copyOp);
 
 		//destructor
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 
 		//getter
 		std::string		getType(void) const;
@@ -41,7 +41,7 @@ class WrongAnimal
 		void			setType(std::string const &type);
 
 		//functions
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif

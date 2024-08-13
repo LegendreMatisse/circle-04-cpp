@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 00:49:53 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/13 00:49:53 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:39:37 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ class WrongCat : public WrongAnimal
 		WrongCat &operator=(const WrongCat &copyOp);
 
 		//destructor
-		virtual ~WrongCat();
+		~WrongCat();
 
 		//functions
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif
