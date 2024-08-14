@@ -27,6 +27,7 @@ int main(void)
 		animalArray[i] = new Cat();
 		std::cout << animalArray[i]->getType() << std::endl;
 		animalArray[i]->makeSound();
+		std::cout << "Brain address: " << dynamic_cast<Cat*>(animalArray[i])->getBrainAddress() << std::endl; 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
@@ -49,18 +50,21 @@ int main(void)
 	Cat catTest = *dynamic_cast<Cat*>(animalArray[2]);
 	std::cout << catTest.getType() << std::endl;
 	catTest.makeSound();
+	std::cout << "Brain address: " << catTest.getBrainAddress() << std::endl;
 	std::cout << "--__--__--__--__--" << std::endl;
 
 	std::cout << "Creating copy of copy of cat: " << std::endl;
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
+	std::cout << "Brain address: " << deepCatTest.getBrainAddress() << std::endl;
 	std::cout << "--__--__--__--__--" << std::endl;
 
 	std::cout << "Creating copy of copy of copy of cat: " << std::endl;
 	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
 	copyTest->makeSound();
+	std::cout << "Brain address: " << copyTest->getBrainAddress() << std::endl;
 	std::cout << "--__--__--__--__--" << std::endl;
 
 	for (size_t i = 0; i < 10; i++)
