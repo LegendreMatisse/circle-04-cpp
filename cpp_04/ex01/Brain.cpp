@@ -38,7 +38,7 @@ Brain::~Brain()
 	std::cout << "A brain has been destroyed" << std::endl;
 }
 
-std::string	Brain::&getIdea(const int i) const
+std::string	&Brain::getIdea(const int i) const
 {
 	static const std::string emptyString = "";
 	//if (i < 0 || i >= sizeof(_ideas) / sizeof(_ideas[0]))

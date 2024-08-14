@@ -29,7 +29,7 @@ class Brain
 		Brain(const Brain &copyCo);
 
 		//assignment operator overload
-		Brain &operator=(const Dog &copyOp);
+		Brain &operator=(const Brain &copyOp);
 
 		//destructor
 		~Brain();
