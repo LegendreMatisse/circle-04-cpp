@@ -40,17 +40,18 @@ Brain::~Brain()
 
 std::string	&Brain::getIdea(const int i) const
 {
-	static const std::string emptyString = "";
+	static std::string emptyString = "";
 	//if (i < 0 || i >= sizeof(_ideas) / sizeof(_ideas[0]))
 	if (i < 0 || i >= 100)
 	{
 		std::cout << "The index is out of bounds" << std::endl;
-		std::exit(1);
+		return emptyString;
+		
 	}
 	return this->_ideas[i];
 }
 
-void Brain::setIdea(std::string &idea, int i)
+void Brain::setIdea(const std::string &idea, int i)
 {
 	this->_ideas[i] = idea;
 }
