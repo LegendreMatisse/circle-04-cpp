@@ -31,7 +31,7 @@ int main(void)
 
 	for (size_t i = 0; i < 100; i++)
 	{
-		steven->getIdea(i);
+		std::cout << steven->getIdea(i); << std::endl;
 	}
 	
 	delete steven;
