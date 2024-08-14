@@ -37,7 +37,7 @@ int main(void)
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
-	Dog dogTest = animalArray[6];
+	Dog dogTest = *dynamic_cast<Dog*>(animalArray[6]);
 	std::cout << dogTest.getType() << std::endl;
 	dogTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
