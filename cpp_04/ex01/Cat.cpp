@@ -14,27 +14,31 @@
 
 Cat::Cat(void) : Animal()
 {
-	std::cout << "A Cat has been constructed." << std::endl;
 	this->setType("Cat");
+	this->_brian = new Brain();
+	std::cout << "A Cat has been constructed." << std::endl;
 }
 
 Cat::Cat(Cat const &copyCo) : Animal(copyCo)
 {
-	std::cout << "A Cat has been created by copy." << std::endl;
+	this->_brian = new Brain();
 	*this = copyCo;
+	std::cout << "A Cat has been created by copy." << std::endl;
 }
 
 Cat &Cat::operator=(Cat const &copyOp)
 {
 	if (this == &copyOp)
 		return *this;
-	_type = copyOp._type;
+	this->_type = copyOp._type;
+	*(this->_brain) = *(copyOp._brain);
 	std::cout << "A Cat has been assigned" << std::endl;
 	return *this;
 }
 
 Cat::~Cat()
 {
+	delete this->_brain;
 	std::cout << "A Cat has been destroyed." << std::endl;
 }
 

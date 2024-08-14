@@ -14,14 +14,16 @@
 
 Dog::Dog(void) : Animal()
 {
-	std::cout << "A dog has been constructed." << std::endl;
 	this->setType("Dog");
+	this->_brian = new Brain();
+	std::cout << "A dog has been constructed." << std::endl;
 }
 
 Dog::Dog(Dog const &copyCo) : Animal(copyCo)
 {
-	std::cout << "A dog has been created by copy." << std::endl;
+	this->_brian = new Brain();
 	*this = copyCo;
+	std::cout << "A dog has been created by copy." << std::endl;
 }
 
 Dog &Dog::operator=(Dog const &copyOp)
@@ -29,12 +31,14 @@ Dog &Dog::operator=(Dog const &copyOp)
 	if (this == &copyOp)
 		return *this;
 	_type = copyOp._type;
+	*(this->_brain) = *(copyOp._brain);
 	std::cout << "A dog has been assigned" << std::endl;
 	return *this;
 }
 
 Dog::~Dog()
 {
+	delete this->_brain;
 	std::cout << "A dog has been destroyed." << std::endl;
 }
 

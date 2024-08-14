@@ -19,22 +19,55 @@
 
 int main(void)
 {
-	Brain *steven = new Brain();
+	Animal *animalArray[10];
 
-	for (size_t i = 0; i < 15; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
-		steven->setIdea("ding", i);
+		animalArray[i] = new Cat();
+		std::cout << animalArray->getType() << std::endl;
+		std::cout << animalArray->makeSound() << std::endl;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
-	steven->setIdea("ding", 20);
 
-	steven->setIdea("ding", 101);
-
-	for (size_t i = 0; i < 100; i++)
+	for (size_t i = 5; i < 10; i++)
 	{
-		std::cout << steven->getIdea(i) << std::endl;
+		animalArray[i] = new Dog();
+		std::cout << animalArray->getType() << std::endl;
+		std::cout << animalArray->makeSound() << std::endl;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
+
+	Dog dogTest = animalArray[6];
+	std::cout << dogTest.getType() << std::endl;
+	std::cout << dogTest.makeSound() << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Cat catTest = animalArray[2];
+	std::cout << catTest.getType() << std::endl;
+	std::cout << catTest.makeSound() << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Cat deepCatTest = catTest;
+	std::cout << deepCatTest.getType() << std::endl;
+	std::cout << deepCatTest.makeSound() << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	cat *copyTest = new Cat(animalArray[2]);
+	std::cout << copyTest.getType() << std::endl;
+	std::cout << copyTest.makeSound() << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	delete copyTest;
+	delete deepCatTest;
+	delete catTest;
+	delete dogTest;
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		delete animalArray[i];
+	}
+
+	delete animalArray;
 	
-	delete steven;
-
 	return (0);
 }

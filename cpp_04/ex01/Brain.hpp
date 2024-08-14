@@ -33,12 +33,6 @@ class Brain
 
 		//destructor
 		~Brain();
-
-		//getter
-		const std::string	&getIdea(const int i) const;
-
-		//setter
-		void				setIdea(const std::string &idea, int i);
 };
 
 #endif
