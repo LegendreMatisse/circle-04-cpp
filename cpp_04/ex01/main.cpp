@@ -42,7 +42,7 @@ int main(void)
 	dogTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	/*Cat catTest = animalArray[2];
+	Cat catTest = *dynamic_cast<Cat*>(animalArray[2]);
 	std::cout << catTest.getType() << std::endl;
 	catTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
@@ -50,7 +50,7 @@ int main(void)
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;*/
+	std::cout << "--__--__--__--__--" << std::endl;
 
 	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
