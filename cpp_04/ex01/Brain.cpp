@@ -45,12 +45,12 @@ std::string	&Brain::getIdea(const int i) const
 	if (i < 0 || i >= 100)
 	{
 		std::cout << "The index is out of bounds" << std::endl;
-		return emptyString;
+		std::exit(1);
 	}
 	return this->_ideas[i];
 }
 
-void Brain::setIdea(const std::string &idea, int i)
+void Brain::setIdea(std::string &idea, int i)
 {
 	this->_ideas[i] = idea;
 }
