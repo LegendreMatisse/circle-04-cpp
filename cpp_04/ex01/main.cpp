@@ -59,6 +59,7 @@ int main(void)
 
 	for (size_t i = 0; i < 10; i++)
 	{
+		std::cout << "Deleting animal[" << i << "]: ";
 		delete animalArray[i];
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
