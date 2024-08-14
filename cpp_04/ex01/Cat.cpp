@@ -15,13 +15,13 @@
 Cat::Cat(void) : Animal()
 {
 	this->setType("Cat");
-	this->_brian = new Brain();
+	this->_brain = new Brain();
 	std::cout << "A Cat has been constructed." << std::endl;
 }
 
 Cat::Cat(Cat const &copyCo) : Animal(copyCo)
 {
-	this->_brian = new Brain();
+	this->_brain = new Brain();
 	*this = copyCo;
 	std::cout << "A Cat has been created by copy." << std::endl;
 }
