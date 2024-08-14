@@ -23,7 +23,7 @@ int main(void)
 
 	for (size_t i = 0; i < 5; i++)
 	{
-		std::cout << "Creating cat[" << i << "]: " std::endl;
+		std::cout << "Creating cat[" << i << "]: " << std::endl;
 		animalArray[i] = new Cat();
 		std::cout << animalArray[i]->getType() << std::endl;
 		animalArray[i]->makeSound();
@@ -32,32 +32,32 @@ int main(void)
 
 	for (size_t i = 5; i < 10; i++)
 	{
-		std::cout << "Creating dog[" << i << "]: " std::endl;
+		std::cout << "Creating dog[" << i << "]: " << std::endl;
 		animalArray[i] = new Dog();
 		std::cout << animalArray[i]->getType() << std::endl;
 		animalArray[i]->makeSound();
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
-	std::cout << "Creating copy of dog: " std::endl;
+	std::cout << "Creating copy of dog: " << std::endl;
 	Dog dogTest = *dynamic_cast<Dog*>(animalArray[6]);
 	std::cout << dogTest.getType() << std::endl;
 	dogTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	std::cout << "Creating copy of cat: " std::endl;
+	std::cout << "Creating copy of cat: " << std::endl;
 	Cat catTest = *dynamic_cast<Cat*>(animalArray[2]);
 	std::cout << catTest.getType() << std::endl;
 	catTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	std::cout << "Creating copy of copy of cat: " std::endl;
+	std::cout << "Creating copy of copy of cat: " << std::endl;
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	std::cout << "Creating copy of copy of copy of cat: " std::endl;
+	std::cout << "Creating copy of copy of copy of cat: " << std::endl;
 	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
 	copyTest->makeSound();
@@ -65,7 +65,7 @@ int main(void)
 
 	for (size_t i = 0; i < 10; i++)
 	{
-		std::cout << "Deleting animal[" << i << "]: " std::endl;
+		std::cout << "Deleting animal[" << i << "]: " << std::endl;
 		delete animalArray[i];
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
