@@ -37,20 +37,20 @@ int main(void)
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
-	/*Dog dogTest = animalArray[6];
+	Dog dogTest = animalArray[6];
 	std::cout << dogTest.getType() << std::endl;
 	dogTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	Cat catTest = animalArray[2];
+	/*Cat catTest = animalArray[2];
 	std::cout << catTest.getType() << std::endl;
 	catTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;*/
+	std::cout << "--__--__--__--__--" << std::endl;
 
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;*/
 
 	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
