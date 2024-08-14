@@ -35,7 +35,7 @@ class Brain
 		~Brain();
 
 		//getter
-		std::string	&getIdea(const int i) const;
+		const std::string	&getIdea(const int i) const;
 
 		//setter
 		void				setIdea(const std::string &idea, int i);
