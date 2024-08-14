@@ -28,7 +28,7 @@ Brain &Brain::operator=(const Brain &copyOp)
 	if (this == &copyOp)
 		return *this;
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = copyOp.ideas[i];
+		this->_ideas[i] = copyOp._ideas[i];
 	std::cout << "A brain has been assigned" << std::endl;
 	return *this;
 }
@@ -44,13 +44,13 @@ std::string	&Brain::getIdea(const int i) const
 	//if (i < 0 || i >= sizeof(_ideas) / sizeof(_ideas[0]))
 	if (i < 0 || i >= 100)
 	{
-		std::cout << "The index is out of bounds" << std::end;
+		std::cout << "The index is out of bounds" << std::endl;
 		return emptyString;
 	}
-	return this->ideas[i];
+	return this->_ideas[i];
 }
 
-void setIdea(const std::string &idea, int i)
+void Brain::setIdea(const std::string &idea, int i)
 {
-	this->ideas[i] = idea;
+	this->_ideas[i] = idea;
 }
