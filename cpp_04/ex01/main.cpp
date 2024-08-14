@@ -24,16 +24,16 @@ int main(void)
 	for (size_t i = 0; i < 5; i++)
 	{
 		animalArray[i] = new Cat();
-		std::cout << animalArray->getType() << std::endl;
-		animalArray->makeSound();
+		std::cout << animalArray[i]->getType() << std::endl;
+		animalArray[i]->makeSound();
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
 	for (size_t i = 5; i < 10; i++)
 	{
 		animalArray[i] = new Dog();
-		std::cout << animalArray->getType() << std::endl;
-		animalArray->makeSound();
+		std::cout << animalArray[i]->getType() << std::endl;
+		animalArray[i]->makeSound();
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
