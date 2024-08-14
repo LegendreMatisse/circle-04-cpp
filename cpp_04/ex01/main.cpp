@@ -23,15 +23,15 @@ int main(void)
 
 	for (size_t i = 0; i < 15; i++)
 	{
-		steven.setIdea("ding", i);
+		steven->setIdea("ding", i);
 	}
-	steven.setIdea("ding", 20);
+	steven->setIdea("ding", 20);
 
-	steven.setIdea("ding", 101);
+	steven->setIdea("ding", 101);
 
 	for (size_t i = 0; i < 100; i++)
 	{
-		steven.getIdea(i);
+		steven->getIdea(i);
 	}
 	
 	delete steven;
