@@ -36,6 +36,7 @@ class Dog : public Animal
 
 		//functions
 		virtual void	makeSound(void) const;
+		const Brain		*getBrainAddress(void) const;
 };
 
 #endif
