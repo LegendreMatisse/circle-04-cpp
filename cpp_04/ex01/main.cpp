@@ -45,12 +45,12 @@ int main(void)
 	Cat catTest = animalArray[2];
 	std::cout << catTest.getType() << std::endl;
 	catTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;*/
 
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;*/
+	std::cout << "--__--__--__--__--" << std::endl;
 
 	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
@@ -60,6 +60,7 @@ int main(void)
 	for (size_t i = 0; i < 10; i++)
 	{
 		delete animalArray[i];
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	
 	delete copyTest;
