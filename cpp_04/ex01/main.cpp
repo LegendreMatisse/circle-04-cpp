@@ -52,7 +52,7 @@ int main(void)
 	deepCatTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;*/
 
-	Cat *copyTest = new Cat(dynamic_cast<Cat*>(animalArray[2]));
+	Cat *copyTest = new Cat(*dynamic_cast<Cat*>(animalArray[2]));
 	std::cout << copyTest->getType() << std::endl;
 	copyTest->makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
