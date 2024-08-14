@@ -37,7 +37,7 @@ int main(void)
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
 
-	Dog dogTest = animalArray[6];
+	/*Dog dogTest = animalArray[6];
 	std::cout << dogTest.getType() << std::endl;
 	dogTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
@@ -50,24 +50,19 @@ int main(void)
 	Cat deepCatTest = catTest;
 	std::cout << deepCatTest.getType() << std::endl;
 	deepCatTest.makeSound();
-	std::cout << "--__--__--__--__--" << std::endl;
+	std::cout << "--__--__--__--__--" << std::endl;*/
 
-	cat *copyTest = new Cat(animalArray[2]);
+	Cat *copyTest = new Cat(animalArray[2]);
 	std::cout << copyTest.getType() << std::endl;
 	copyTest.makeSound();
 	std::cout << "--__--__--__--__--" << std::endl;
-
-	delete copyTest;
-	delete deepCatTest;
-	delete catTest;
-	delete dogTest;
 
 	for (size_t i = 0; i < 10; i++)
 	{
 		delete animalArray[i];
 	}
-
-	delete animalArray;
 	
+	delete copyTest;
+
 	return (0);
 }
