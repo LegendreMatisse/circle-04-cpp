@@ -26,10 +26,10 @@ class Brain
 		Brain(void);
 
 		//copy constructor
-		Brain(const Brain &copyCo)
+		Brain(const Brain &copyCo);
 
 		//assignment operator overload
-		Brain &operator=(const Dog &copyOp)
+		Brain &operator=(const Dog &copyOp);
 
 		//destructor
 		~Brain();

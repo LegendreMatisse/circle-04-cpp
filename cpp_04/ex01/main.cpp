@@ -19,7 +19,7 @@
 
 int main(void)
 {
-	Brain steven = new brain();
+	Brain steven = new Brain();
 
 	for (size_t i = 0; i < 15; i++)
 	{
