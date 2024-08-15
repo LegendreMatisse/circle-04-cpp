@@ -14,6 +14,8 @@ NAME	=	brain
 
 SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
+INC		=	Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+
 OBJ		=	$(SRC:.cpp=.o)
 
 CC		=	c++
@@ -27,7 +29,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o		:	%.cpp
+%.o		:	%.cpp $(INC)
 			$(CC) $(FLAGS) -c $< -o $@
 
 clean	:

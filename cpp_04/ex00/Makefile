@@ -14,6 +14,8 @@ NAME	=	animal
 
 SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
+INC		=	Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+
 OBJ		=	$(SRC:.cpp=.o)
 
 CC		=	c++
