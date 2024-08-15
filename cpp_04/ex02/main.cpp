@@ -40,7 +40,7 @@ int main(void)
 	for (size_t i = 0; i < 5; i++)
 	{
 		std::cout << "Creating dog[" << i << "]: " << std::endl;
-		dogArray[i] = new Cat();
+		dogArray[i] = new Dog();
 		std::cout << dogArray[i]->getType() << std::endl;
 		dogArray[i]->makeSound();
 		std::cout << "--__--__--__--__--" << std::endl;
