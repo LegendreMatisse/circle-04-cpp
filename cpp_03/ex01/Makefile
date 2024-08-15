@@ -14,6 +14,8 @@ NAME	=	scavtrap
 
 SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
+INC		=	ClapTrap.hpp ScavTrap.hpp
+
 OBJ		=	$(SRC:.cpp=.o)
 
 CC		=	c++
@@ -27,7 +29,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o		:	%.cpp
+%.o		:	%.cpp $(INC)
 			$(CC) $(FLAGS) -c $< -o $@
 
 clean	:

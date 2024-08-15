@@ -29,7 +29,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o		:	%.cpp
+%.o		:	%.cpp $(INC)
 			$(CC) $(FLAGS) -c $< -o $@
 
 clean	:
