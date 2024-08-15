@@ -22,9 +22,6 @@ int main(void)
 	/*This will give a compile error, intentional design xoxo*/
 	// Animal test;
 
-
-	// Animal *animalArray[10];
-
 	Cat *catArray[5];
 	Dog *dogArray[5];
 
