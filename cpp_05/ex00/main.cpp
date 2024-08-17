@@ -16,6 +16,7 @@ int main(void)
 {
 	try
 	{
+		std::cout << "Test 1" << std::endl;
 		unsigned int tempGrade = 19;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
@@ -29,6 +30,7 @@ int main(void)
 		}
 		std::cout << *steven;
 		delete steven;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -37,6 +39,7 @@ int main(void)
 
 	try
 	{
+		std::cout << "Test 2" << std::endl;
 		unsigned int tempGrade = 1;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
@@ -50,6 +53,7 @@ int main(void)
 		}
 		std::cout << *steven;
 		delete steven;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -58,6 +62,7 @@ int main(void)
 
 	try
 	{
+		std::cout << "Test 3" << std::endl;
 		unsigned int tempGrade = 150;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
@@ -71,6 +76,7 @@ int main(void)
 		}
 		std::cout << *steven;
 		delete steven;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -79,6 +85,7 @@ int main(void)
 
 	try
 	{
+		std::cout << "Test 4" << std::endl;
 		unsigned int tempGrade = 200;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
@@ -92,6 +99,7 @@ int main(void)
 		}
 		std::cout << *steven;
 		delete steven;
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
