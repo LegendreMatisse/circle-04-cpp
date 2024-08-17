@@ -20,8 +20,8 @@
 class Bureaucrat
 {
 	private:
-		const std::string	_name;
-		unsigned int		_grade;
+		std::string		_name;
+		unsigned int	_grade;
 
 	public:
 		//constructor
