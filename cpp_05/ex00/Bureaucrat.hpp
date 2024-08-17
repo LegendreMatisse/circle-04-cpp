@@ -21,7 +21,7 @@ class Bureaucrat
 {
 	private:
 		const std::string	_name;
-		unsigned int		_grade
+		unsigned int		_grade;
 
 	public:
 		//constructor

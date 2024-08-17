@@ -16,7 +16,8 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat *steven = new Bureaucrat("Steven", 19);
+		unsigned int tempGrade = 19;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
 		{
 			steven->incrementGrade();
@@ -36,7 +37,8 @@ int main(void)
 
 	try
 	{
-		Bureaucrat *steven = new Bureaucrat("Steven", 1);
+		unsigned int tempGrade = 1;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
 		{
 			steven->incrementGrade();
@@ -56,7 +58,29 @@ int main(void)
 
 	try
 	{
-		Bureaucrat *steven = new Bureaucrat("Steven", 100);
+		unsigned int tempGrade = 150;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
+		try
+		{
+			steven->incrementGrade();
+			steven->decrementGrade();
+		}
+		catch(const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		std::cout << *steven;
+		delete steven;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		unsigned int tempGrade = 200;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		try
 		{
 			steven->incrementGrade();
