@@ -17,15 +17,6 @@
 # include <string>
 # include <exception>
 
-# define LOW 150
-# define High 1
-
-//implement exceptions									--> DONE
-//implement getter for private variables				--> DONE
-//implement all constructors (par: grade and name)		--> DONE
-//implement increment and decrement function for grade	--> DONE
-//implement << overload									--> DONE
-
 class Bureaucrat
 {
 	private:
@@ -40,10 +31,10 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, unsigned int &grade);
 
 		//copy constructor
-		Bureaucrat(const Bureaucrat &copyCo)
+		Bureaucrat(const Bureaucrat &copyCo);
 
 		//assignment operator overload
-		Bureaucrat &operator=(const Bureaucrat &copyOp)
+		Bureaucrat &operator=(const Bureaucrat &copyOp);
 		
 		//destructor
 		~Bureaucrat();
