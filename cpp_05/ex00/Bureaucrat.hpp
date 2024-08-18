@@ -62,7 +62,7 @@ class Bureaucrat
 			The <const> keyword "promises" that we will not modify the member variables of the class.
 			The <throw> keyword specifies that this function will not throw any exceptions.
 		*/
-		class GradeTooLowException : public std::exception, public Bureaucrat
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();
