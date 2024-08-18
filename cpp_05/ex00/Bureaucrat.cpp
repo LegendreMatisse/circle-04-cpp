@@ -74,7 +74,7 @@ void Bureaucrat::decrementGrade(void)
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("The grade of the bureaucrat is too low.\n");
+	return ("The grade of the bureaucrat " + getName() + " is too low.\n");
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
