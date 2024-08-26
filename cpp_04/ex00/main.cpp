@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:06:45 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/12 17:06:45 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:20:05 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ int main(void)
 	std::cout << "\nDeleting the various wrong animals..." << std::endl;
 	delete(steve);
 	delete(karl);
+
+	WrongAnimal carl;
+	WrongCat	sigismund;
+
+	std::cout << "\nPrinting the types of the various wrong animals..." << std::endl;
+	std::cout << "steve: " << carl.getType() << std::endl;
+	std::cout << "sigismund: " << sigismund.getType() << std::endl;
+
+	std::cout << "\nCalling the makeSound function for the various wrong animals..." << std::endl;
+	carl.makeSound();
+	sigismund.makeSound();
 
 	return (0);
 }

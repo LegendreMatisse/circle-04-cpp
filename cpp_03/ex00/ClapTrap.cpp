@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 21:50:02 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/10 21:50:02 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:23:52 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void ClapTrap::setAttackDamage(int attackDamage)
 void ClapTrap::determineMessage(std::string const &message, std::string const &target, int amount)
 {
 	if (message == "attack")
-		std::cout << "ClapTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->getName() << " attacks " << target << ", causing " <<this->getAttackDamage() << " points of damage!" << std::endl;
 	else if (message == "takeDamage")
 		std::cout << "ClapTrap " << this->getName() << " takes " << amount << " points of damage!" << std::endl;
 	else if (message == "beRepaired")

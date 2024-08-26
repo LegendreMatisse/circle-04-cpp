@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:30:50 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/11 22:30:50 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:31:48 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ScavTrap::attack(std::string const &target)
 		this->determineMessage("tiredAttack", 0);
 		return ;
 	}
-	std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing, " <<this->getAttackDamage() << " points of damage!" << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " <<this->getAttackDamage() << " points of damage!" << std::endl;
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	return ;
 }
