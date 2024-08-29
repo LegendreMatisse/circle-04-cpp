@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:18:58 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/19 19:43:33 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/08/29 20:44:07 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Form
 		Form(void);
 
 		//parameterised constructor
-		Form(const std::string &name, int &signGrade, int &execGrade);
+		Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade);
 
 		//copy constructor
 		Form(const Form &copyCo);
