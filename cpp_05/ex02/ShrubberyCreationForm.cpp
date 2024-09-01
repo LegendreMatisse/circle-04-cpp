@@ -49,13 +49,12 @@ void	ShrubberyCreationForm::specialFeature(void) const
 	if (file.is_open())
 	{
 		file << "       _-_\n";
-		file << "    /~~   ~~\\\n";
-		file << " /~~         ~~\\\n";
-		file << "{               }\n";
-		file << " \\  _-     -_  /\n";
-		file << "   ~  \\\\ //  ~\n";
-		file << "_- -   | | _- _\n";
-		file << ' ' << '   _- ' << ' ' ' ' << ' ' ' -_\n';
+		"    /~~   ~~\\\n";
+		" /~~         ~~\\\n";
+		"{               }\n";
+		" \\  _-     -_  /\n";
+		"   ~  \\\\ //  ~\n";
+		"_- -   | | _- _\n";
 		file.close();
 	}
 	else
