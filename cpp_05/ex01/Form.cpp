@@ -30,9 +30,8 @@ Form::Form(const std::string &name, const unsigned int &signGrade, const unsigne
 }
 
 //copy constructor
-Form::Form(const Form &copyCo)
+Form::Form(const Form &copyCo) : _signed(copyCo._signed), _name(copyCo._name), _signGrade(copyCo._signGrade), _execGrade(copyCo._execGrade)
 {
-	*this = copyCo;
 	std::cout << "An instance of a form was created by copy." << std::endl;
 }
 
