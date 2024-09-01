@@ -45,10 +45,10 @@ class Form
 		~Form();
 
 		//getters
-		bool			getSigned(void);
-		std::string		getName(void);
-		unsigned int	getSignGrade(void);
-		unsigned int	getExecGrade(void);
+		bool			getSigned(void) const;
+		std::string		getName(void) const;
+		unsigned int	getSignGrade(void) const;
+		unsigned int	getExecGrade(void) const;
 
 		//functions
 		void			beSigned(const Bureaucrat &bureaucrat);
