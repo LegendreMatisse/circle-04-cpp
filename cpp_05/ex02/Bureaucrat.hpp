@@ -16,9 +16,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -49,7 +49,8 @@ class Bureaucrat
 		//functions
 		void			incrementGrade(void);
 		void			decrementGrade(void);
-		void			signForm(Form &form);
+		void			signForm(AForm &form);
+        void			executeForm(const AForm &form);
 
 		//exception classes
 		/*

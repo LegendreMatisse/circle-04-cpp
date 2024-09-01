@@ -10,3 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
+# include <iostream>
+# include <string>
+# include <cstdlib>
+# include "AForm.hpp"
+
+class RobotomyRequestForm
+{
+	private:
+		std::string _target;
+		
+	public:
+		//constructor
+		RobotomyRequestForm(void);
+
+		//parameterised constructor
+		RobotomyRequestForm(std::string target);
+
+		//copy constructor
+		RobotomyRequestForm(const RobotomyRequestForm &copyCo);
+
+		//Assignment operator overload
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &copyOp);
+
+		//destructor
+		~RobotomyRequestForm();
+
+		//functions
+		virtual void	action(void) const;
+};
+
+#endif

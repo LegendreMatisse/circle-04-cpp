@@ -10,3 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+int main(void)
+{
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int tempGrade = 1;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
+		ShrubberyCreationForm *bush = new ShrubberyCreationForm("Steven");
+
+		std::cout << *steven;
+		std::cout << *form1;
+
+		steven->executeForm(bush);
+
+		delete steven;
+		delete bush;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
