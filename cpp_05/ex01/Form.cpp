@@ -12,14 +12,13 @@
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(false)
+Form::Form(void) : _signed(false), _name("default"), _signGrade(150), _execGrade(150)
 {
 	std::cout << "An instance of a form was created." << std::endl;
 }
 
 //parameterised constructor
-Form::Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(false)
-{
+Form::Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _signed(false), _name(name), _signGrade(signGrade), _execGrade(execGrade)
 	if (this->_signGrade < 1 || this->_execGrade < 1)
 		throw Form::GradeTooHighException();
 	else if (this->_signGrade > 150 || this->_execGrade > 150)
