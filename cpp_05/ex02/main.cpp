@@ -28,7 +28,7 @@ int main(void)
 		std::cout << *steven;
 		std::cout << *bush;
 
-		steven->executeForm(bush);
+		steven->executeForm(*bush);
 
 		delete steven;
 		delete bush;
