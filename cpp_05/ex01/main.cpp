@@ -25,7 +25,7 @@ int main(void)
 		std::cout << *steven;
 		std::cout << *form1;
 
-		steven->signForm(form1);
+		steven->signForm(*form1);
 
 		std::cout << *form1;
 	}
