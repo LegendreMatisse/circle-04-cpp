@@ -48,13 +48,13 @@ void	ShrubberyCreationForm::specialFeature(void) const
 	std::ofstream file(filename.c_str());
 	if (file.is_open())
 	{
-		file << "       _-_\n";
-		"    /~~   ~~\\\n";
-		" /~~         ~~\\\n";
-		"{               }\n";
-		" \\  _-     -_  /\n";
-		"   ~  \\\\ //  ~\n";
-		"_- -   | | _- _\n";
+		file << "       _-_\n"
+		"    /~~   ~~\\\n"
+		" /~~         ~~\\\n"
+		"{               }\n"
+		" \\  _-     -_  /\n"
+		"   ~  \\\\ //  ~\n"
+		"_- -   | | _- _\n"
 		file.close();
 	}
 	else
