@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target,
 	std::cout << "An instance of a ShrubberyCreationForm was created." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copyCo) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copyCo) : AForm(copyCo), _target(copyCo._target)
 {
 	*this = copyCo;
 	std::cout << "An instance of a ShrubberyCreationForm was created by copy." << std::endl;
@@ -42,7 +42,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "An instance of a ShrubberyCreationForm was destroyed." << std::endl;
 }
 
-void	ShrubberyCreationForm::action(void) const
+void	ShrubberyCreationForm::specialFeature(void) const
 {
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream file(filename);

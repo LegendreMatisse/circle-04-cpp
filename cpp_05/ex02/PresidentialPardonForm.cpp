@@ -22,7 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(targe
 	std::cout << "An instance of a PresidentialPardonForm was created." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copyCo) : AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copyCo) : AForm(copyCo), _target(copyCo._target)
 {
 	*this = copyCo;
 	std::cout << "An instance of a PresidentialPardonForm was created by copy." << std::endl;
@@ -42,7 +42,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "An instance of a PresidentialPardonForm was destroyed." << std::endl;
 }
 
-void	PresidentialPardonForm::action(void) const
+void	PresidentialPardonForm::specialFeature(void) const
 {
 	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

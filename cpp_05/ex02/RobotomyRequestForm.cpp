@@ -23,7 +23,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72,
 	std::cout << "An instance of a RobotomyRequestForm was created." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copyCo) : AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copyCo) : AForm(copyCo), _target(copyCo._target)
 {
 	*this = copyCo;
 	std::cout << "An instance of a RobotomyRequestForm was created by copy." << std::endl;
@@ -43,7 +43,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "An instance of a RobotomyRequestForm was destroyed." << std::endl;
 }
 
-void	RobotomyRequestForm::action(void) const
+void	RobotomyRequestForm::specialFeature(void) const
 {
 	std::cout << "Drilling noises" << std::endl;
 	if (rand() % 2)
