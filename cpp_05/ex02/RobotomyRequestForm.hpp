@@ -37,7 +37,7 @@ class RobotomyRequestForm
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &copyOp);
 
 		//destructor
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 
 		//functions
 		virtual void	specialFeature(void) const;

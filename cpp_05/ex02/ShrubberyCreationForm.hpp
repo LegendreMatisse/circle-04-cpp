@@ -37,7 +37,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copyOp);
 
 		//destructor		
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 
 		//functions
 		virtual void	specialFeature(void) const;

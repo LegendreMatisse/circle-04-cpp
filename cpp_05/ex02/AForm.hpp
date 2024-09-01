@@ -42,7 +42,7 @@ class AForm
 		AForm &operator=(const AForm &copyOp);
 
 		//destructor
-		~AForm();
+		virtual ~AForm();
 
 		//getters
 		bool			getSigned(void) const;

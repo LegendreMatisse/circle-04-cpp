@@ -36,7 +36,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &copyOp);
 
 		//destructor		
-		~PresidentialPardonForm();
+		virtual ~PresidentialPardonForm();
 
 		//functions
 		virtual void	specialFeature(void) const;
