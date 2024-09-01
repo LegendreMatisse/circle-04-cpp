@@ -20,11 +20,11 @@ Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(f
 //parameterised constructor
 Form::Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(false)
 {
-	if (signGrade < 1 || execGrade < 1)
+	if (this->_signGrade < 1 || this->_execGrade < 1)
 		throw Form::GradeTooHighException();
-	else if (signGrade > 150 || execGrade > 150)
+	else if (this->_signGrade > 150 || this->_execGrade > 150)
 		throw Form::GradeTooLowException();
-	else if (signGrade > execGrade)
+	else if (this->_signGrade > this->_execGrade)
 		throw Form::GradeTooHighException();
 	std::cout << "An instance of a form was created." << std::endl;
 }
