@@ -41,9 +41,6 @@ Form &Form::operator=(const Form &copyOp)
 	if (this == &copyOp)
 		return *this;
 	this->_signed = copyOp._signed;
-	this->_name = copyOp._name;
-	this->_signGrade = copyOp._signGrade;
-	this->_execGrade = copyOp._execGrade;
 	std::cout << "An instance of a form has been assigned." << std::endl;
 	return *this;
 }
