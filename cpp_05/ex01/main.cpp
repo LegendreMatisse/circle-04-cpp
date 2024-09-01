@@ -41,7 +41,7 @@ int main(void)
 
 	try
 	{
-		std::cout << "Test 1" << std::endl;
+		std::cout << "Test 2" << std::endl;
 		unsigned int burGrade = 19;
 		unsigned int signGrade = 1;
 		unsigned int execGrade = 19;
@@ -67,7 +67,7 @@ int main(void)
 
 	try
 	{
-		std::cout << "Test 1" << std::endl;
+		std::cout << "Test 3" << std::endl;
 		unsigned int burGrade = 19;
 		unsigned int signGrade = 200;
 		unsigned int execGrade = 19;
