@@ -21,7 +21,7 @@ int main(void)
 	try
 	{
 		std::cout << "Test 1" << std::endl;
-		unsigned int tempGrade = 1;
+		unsigned int tempGrade = 10;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		ShrubberyCreationForm *bush = new ShrubberyCreationForm("Steven");
 
