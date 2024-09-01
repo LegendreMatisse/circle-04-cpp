@@ -45,7 +45,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void	ShrubberyCreationForm::specialFeature(void) const
 {
 	std::string filename = this->_target + "_shrubbery";
-	std::ofstream file(filename);
+	std::ofstream file(filename.c_str());
 	if (file.is_open())
 	{
 		file << "       _-_\n";
