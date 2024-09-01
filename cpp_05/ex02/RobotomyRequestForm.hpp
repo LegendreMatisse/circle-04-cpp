@@ -18,7 +18,7 @@
 # include <cstdlib>
 # include "AForm.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string _target;
