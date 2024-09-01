@@ -30,7 +30,7 @@ int main(void)
 		std::cout << *form1;
 
 		delete steven;
-		delete form;
+		delete form1;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
@@ -56,7 +56,7 @@ int main(void)
 		std::cout << *form1;
 
 		delete steven;
-		delete form;
+		delete form1;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
@@ -82,7 +82,7 @@ int main(void)
 		std::cout << *form1;
 
 		delete steven;
-		delete form;
+		delete form1;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
