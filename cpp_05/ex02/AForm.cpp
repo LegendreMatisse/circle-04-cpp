@@ -87,7 +87,7 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	std::cout << "The form has been signed by the bureaucrat." << std::endl;
 }
 
-void execute(const Bureaucrat &executor) const
+void AForm::execute(const Bureaucrat &executor) const
 {
 	if (this->getSigned() == true)
 		throw AForm::FormSignedException();
