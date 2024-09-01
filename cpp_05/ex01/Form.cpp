@@ -52,22 +52,22 @@ Form::~Form()
 }
 
 //getters
-bool Form::getSigned(void)
+bool Form::getSigned(void) const
 {
 	return this->_signed;
 }
 
-std::string Form::getName(void)
+std::string Form::getName(void) const
 {
 	return this->_name;
 }
 
-unsigned int Form::getSignGrade(void)
+unsigned int Form::getSignGrade(void) const
 {
 	return this->_signGrade;
 }
 
-unsigned int Form::getExecGrade(void)
+unsigned int Form::getExecGrade(void) const
 {
 	return this->_execGrade;
 }
