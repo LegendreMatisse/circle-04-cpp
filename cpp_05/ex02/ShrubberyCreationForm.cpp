@@ -54,7 +54,7 @@ void	ShrubberyCreationForm::specialFeature(void) const
 		"{               }\n"
 		" \\  _-     -_  /\n"
 		"   ~  \\\\ //  ~\n"
-		"_- -   | | _- _\n"
+		"_- -   | | _- _\n" << std::endl;
 		file.close();
 	}
 	else
