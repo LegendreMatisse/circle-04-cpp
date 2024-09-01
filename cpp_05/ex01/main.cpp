@@ -21,6 +21,9 @@ int main(void)
 		unsigned int tempGrade = 19;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		Form *form1 = new Form("Banana form", tempGrade, tempGrade);
+
+		std::cout << *steven;
+		std::cout << *form1;
 	}
 	catch(const std::exception& e)
 	{
