@@ -28,6 +28,63 @@ int main(void)
 		steven->signForm(*form1);
 
 		std::cout << *form1;
+
+		delete steven;
+		delete form;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int burGrade = 19;
+		unsigned int signGrade = 1;
+		unsigned int execGrade = 19;
+		Bureaucrat *steven = new Bureaucrat("Steven", burGrade);
+		Form *form1 = new Form("Banana", signGrade, execGrade);
+
+		std::cout << *steven;
+		std::cout << *form1;
+
+		steven->signForm(*form1);
+
+		std::cout << *form1;
+
+		delete steven;
+		delete form;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int burGrade = 19;
+		unsigned int signGrade = 200;
+		unsigned int execGrade = 19;
+		Bureaucrat *steven = new Bureaucrat("Steven", burGrade);
+		Form *form1 = new Form("Banana", signGrade, execGrade);
+
+		std::cout << *steven;
+		std::cout << *form1;
+
+		steven->signForm(*form1);
+
+		std::cout << *form1;
+
+		delete steven;
+		delete form;
+
+		std::cout << "--__--__--__--__--" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
