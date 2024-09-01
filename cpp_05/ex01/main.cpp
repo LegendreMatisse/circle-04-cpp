@@ -20,9 +20,13 @@ int main(void)
 		std::cout << "Test 1" << std::endl;
 		unsigned int tempGrade = 19;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
-		Form *form1 = new Form("Banana form", tempGrade, tempGrade);
+		Form *form1 = new Form("Banana", tempGrade, tempGrade);
 
 		std::cout << *steven;
+		std::cout << *form1;
+
+		steven->signForm(form1);
+
 		std::cout << *form1;
 	}
 	catch(const std::exception& e)
