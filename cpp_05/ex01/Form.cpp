@@ -12,12 +12,8 @@
 
 #include "Form.hpp"
 
-Form::Form(void)
+Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(false)
 {
-	this->_name = "default";
-	this->_signGrade = 150;
-	this->_execGrade = 150;
-	this->_signed = false;
 	std::cout << "An instance of a form was created." << std::endl;
 }
 
