@@ -103,9 +103,9 @@ const char *Form::GradeTooHighException::what() const throw()
 //overloads
 std::ostream &operator<<(std::ostream &out, Form const &value)
 {
-	out << "The form: " << value.getName() << " has a sign grade of: " << value->getSignGrade();
+	out << "The form: " << value.getName() << " has a sign grade of: " << value.getSignGrade();
 	out << ", it can be executed by a grade of " << value.getExecGrade() << " or higher." << std::endl;
-	if (value.getSigned == true)
+	if (value.getSigned() == true)
 		out << "It has been signed." << std::endl;
 	else
 		out << "It has not been signed." << std::endl;
