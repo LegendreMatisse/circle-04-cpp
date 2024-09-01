@@ -52,8 +52,8 @@ class AForm
 
 		//functions
 		void			beSigned(const Bureaucrat &bureaucrat);
-		virtual void	execute(const Bureaucrat &executor) const = 0;
-		virtual void	specialFeature(void) const;
+		virtual void	execute(const Bureaucrat &executor) const;
+		virtual void	specialFeature(void) const = 0;
 
 		class GradeTooLowException : public std::exception
 		{
