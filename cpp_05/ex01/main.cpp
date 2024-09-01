@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+int main(void)
+{
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int tempGrade = 19;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
+		Form *form1 = new Form("Banana form", tempGrade, tempGrade);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}

@@ -18,28 +18,102 @@ Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(f
 }
 
 //parameterised constructor
-Form::Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _name(name)
+Form::Form(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _name(name), _signed(false)
 {
 	if (signGrade < 1 || execGrade < 1)
 		throw Form::GradeTooHighException();
 	else if (signGrade > 150 || execGrade > 150)
 		throw Form::GradeTooLowException();
+	else if (signGrade > execGrade)
+		throw Form::GradeTooHighException();
 	this->_signGrade = signGrade;
 	this->_execGrade = execGrade;
-	this->_signed = false;
 	std::cout << "An instance of a form was created." << std::endl;
 }
 
 //copy constructor
+Form::Form(const Form &copyCo)
+{
+	*this = copyCo;
+	std::cout << "An instance of a form was created by copy." << std::endl;
+}
 
 //assignement operator overload
+Form &Form::operator=(const Form &copyOp)
+{
+	if (this == &copyOp)
+		return *this;
+	this->_signed = copyOp._signed;
+	this->_name = copyOp._name;
+	this->_signGrade = copyOp._signGrade;
+	this->_execGrade = copyOp._execGrade;
+	std::cout << "An instance of a form has been assigned." << std::endl;
+	return *this;
+}
 
 //destructor
+Form::~Form()
+{
+	std::cout << "An instance of a form was destroyed." << std::endl;
+}
 
 //getters
+bool Form::getSigned(void)
+{
+	return this->_signed;
+}
+
+std::string Form::getName(void)
+{
+	return this->_name;
+}
+
+unsigned int Form::getSignGrade(void)
+{
+	return this->_signGrade;
+}
+
+unsigned int Form::getExecGrade(void)
+{
+	return this->_execGrade;
+}
 
 //functions
+void Form::beSigned(const Bureaucrat &bureaucrat)
+{
+	if (this->getSigned() == true)
+	{
+		std::cout << "This form is already signed." << std::endl;
+		return ;
+	}
+	else if (bureaucrat.getGrade() > this->getSignGrade())
+	{
+		std::cout << "The grade of the bureaucrat is too low to sign the form." << std::endl;
+		throw Form::GradeTooLowException();
+	}
+	this->_signed = true;
+	std::cout << "The form has been signed by the bureaucrat." << std::endl;
+}
 
 //exception classes
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("The grade of the bureaucrat is too low to sign or execute the form.\n");
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("The grade of the bureaucrat falls outside of the allowed range.\n");
+}
 
 //overloads
+std::ostream &operator<<(std::ostream &out, Form const &value)
+{
+	out << "The form: " << value.getName() << " has a sign grade of: " << value->getSignGrade();
+	out << ", it can be executed by a grade of " << value.getExecGrade() << " or higher." << std::endl;
+	if (value.getSigned == true)
+		out << "It has been signed." << std::endl;
+	else
+		out << "It has not been signed." << std::endl;
+	return out;
+}
