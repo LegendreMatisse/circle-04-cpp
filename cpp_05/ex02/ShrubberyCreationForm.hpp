@@ -40,7 +40,7 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm();
 
 		//functions
-		virtual void	action(void) const;
+		virtual void	specialFeature(void) const;
 };
 
 #endif

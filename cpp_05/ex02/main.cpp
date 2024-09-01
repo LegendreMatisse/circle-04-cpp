@@ -26,7 +26,7 @@ int main(void)
 		ShrubberyCreationForm *bush = new ShrubberyCreationForm("Steven");
 
 		std::cout << *steven;
-		std::cout << *form1;
+		std::cout << *bush;
 
 		steven->executeForm(bush);
 

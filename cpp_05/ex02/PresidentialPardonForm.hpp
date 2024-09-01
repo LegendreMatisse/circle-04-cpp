@@ -39,7 +39,7 @@ class PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 
 		//functions
-		virtual void	action(void) const;
+		virtual void	specialFeature(void) const;
 };
 
 #endif
