@@ -23,24 +23,24 @@ int main(void)
 	std::cout << "Value of a: " << a << std::endl;
 	std::cout << "Value of b: " << b << std::endl;
 
-	int a = 875412, b = 5;
+	int c = 875412, d = 5;
 	//again, template, no std:: or className::
-	std::cout << "Max of a and b: " << ::min(a, b) << std::endl;
-	std::cout << "Min of a and b: " << ::min(a, b) << std::endl;
+	std::cout << "Max of c and d: " << ::min(c, d) << std::endl;
+	std::cout << "Min of c and d: " << ::min(c, d) << std::endl;
 
 	//main from subject
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	
+	int e = 2;
+	int f = 3;
+	::swap( e, f );
+	std::cout << "e = " << e << ", f = " << f << std::endl;
+	std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
+	std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl;
+	std::string g = "chaine1";
+	std::string h = "chaine2";
+	::swap(g, h);
+	std::cout << "g = " << g << ", h = " << h << std::endl;
+	std::cout << "min( g, h ) = " << ::min( g, h ) << std::endl;
+	std::cout << "max( g, h ) = " << ::max( g, h ) << std::endl;
+
 	return 0;
 }
