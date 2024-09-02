@@ -25,7 +25,7 @@ int main(void)
 
 	int c = 875412, d = 5;
 	//again, template, no std:: or className::
-	std::cout << "Max of c and d: " << ::min(c, d) << std::endl;
+	std::cout << "Max of c and d: " << ::max(c, d) << std::endl;
 	std::cout << "Min of c and d: " << ::min(c, d) << std::endl;
 
 	//main from subject
