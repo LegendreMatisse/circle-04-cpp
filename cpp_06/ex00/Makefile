@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	moreWeirdShit
+NAME	=	ScalarConverter
 
 SRC		=	main.cpp ScalarConverter.cpp
 
