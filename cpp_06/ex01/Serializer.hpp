@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 15:13:51 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 15:13:51 by mlegendr         ###   ########.fr       */
+/*   Created: 2024/09/02 15:52:44 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/09/02 15:52:44 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
-int main(void)
+# include <iostream>
+# include <string>
+# include <stdint.h>
+
+struct Data
 {
-	Data *data = new Data();
-	data->data = "Dit is een banaan.";
-	std::cout << data->data << std::endl;
-	uintptr_t steven = Serializer::serialize(data);
-	std::cout << steven << std::endl;
-	std::cout << Serializer::deserialize(steven)->data << std::endl;
-	delete data;
-	return 0;
-}
+	std::string	data;
+};
+
+class Serializer
+{
+	private:
+		//constructor
+		Serializer(void);
+	public:
+		//deconstructor
+		~Serializer();
+
+		//functions
+		static uintptr_t	serialize(Data *data);
+		static Data			*deserialize(uintptr_t in);
+};
+
+
+#endif

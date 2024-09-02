@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 15:13:51 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 15:13:51 by mlegendr         ###   ########.fr       */
+/*   Created: 2024/09/02 15:52:37 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/09/02 15:52:37 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-int main(void)
+Serializer::Serializer(void)
 {
-	Data *data = new Data();
-	data->data = "Dit is een banaan.";
-	std::cout << data->data << std::endl;
-	uintptr_t steven = Serializer::serialize(data);
-	std::cout << steven << std::endl;
-	std::cout << Serializer::deserialize(steven)->data << std::endl;
-	delete data;
-	return 0;
+	std::cout << "An instance of Serializer was created." << std::endl;
+}
+
+Serializer::~Serializer()
+{
+	std::cout << "An instance of Serializer was destroyed." << std::endl;
+}
+
+uintptr_t Serializer::serialize(Data *data)
+{
+	return reinterpret_cast<uintptr_t>(data);
+}
+
+Data *Serializer::deserialize(uintptr_t in)
+{
+	return reinterpret_cast<Data *>(in);
 }
