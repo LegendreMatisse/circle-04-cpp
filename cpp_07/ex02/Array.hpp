@@ -66,7 +66,7 @@ Array<T> &Array<T>::operator=(const Array &copyOp)
 	if (_arr)
 		delete[] _arr;
 	this->_size = copyOp._size;
-	this->_array = new T[this->_size];
+	this->_arr = new T[this->_size];
 	for (unsigned int i = 0; i < this->_size; i++)
 	{
 		this->_arr[i] = copyOp._arr[i];
@@ -84,7 +84,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-Array<T> &Array<T>::operator[](unsigned int index)
+T &Array<T>::operator[](unsigned int index)
 {
 	if (index >= this->_size)
 		throw std::out_of_range("The index has gone out of bounds.");
