@@ -19,25 +19,9 @@ int main(void)
 		std::cout << "Test 1" << std::endl;
 		Intern *steve = new Intern();
 
-		steven->chooseForm("robotomy request", "Bender");
+		steve->chooseForm("robotomy request", "Bender");
 
-		delete steven;
-
-		std::cout << "--__--__--__--__--" << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	try
-	{
-		std::cout << "Test 2" << std::endl;
-		Intern *steve = new Intern();
-
-		steven->chooseForm("shrubbery creation", "The knights who say ni");
-
-		delete steven;
+		delete steve;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
@@ -49,11 +33,27 @@ int main(void)
 	try
 	{
 		std::cout << "Test 2" << std::endl;
-		Intern *steve = new Intern();
+		Intern *bart = new Intern();
 
-		steven->chooseForm("presidential pardon", "Rick Shanchez");
+		bart->chooseForm("shrubbery creation", "The knights who say ni");
 
-		delete steven;
+		delete bart;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		std::cout << "Test 2" << std::endl;
+		Intern *karl = new Intern();
+
+		karl->chooseForm("presidential pardon", "Rick Shanchez");
+
+		delete karl;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
@@ -65,11 +65,11 @@ int main(void)
 	try
 	{
 		std::cout << "Test 3" << std::endl;
-		Intern *steve = new Intern();
+		Intern *ken = new Intern();
 
-		steven->chooseForm("fail", "fail");
+		ken->chooseForm("fail", "fail");
 
-		delete steven;
+		delete ken;
 
 		std::cout << "--__--__--__--__--" << std::endl;
 	}
