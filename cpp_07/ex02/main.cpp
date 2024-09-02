@@ -6,12 +6,12 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:26:50 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 17:26:51 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:47:38 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 #include <ctime>
 #include <cstdlib>
 
