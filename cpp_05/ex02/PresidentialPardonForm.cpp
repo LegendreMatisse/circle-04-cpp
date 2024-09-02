@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm(void) : AForm("default", 25, 5)
 	std::cout << "An instance of a PresidentialPardonForm was created." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(false, target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 25, 5)
 {
 	std::cout << "An instance of a PresidentialPardonForm was created." << std::endl;
 }

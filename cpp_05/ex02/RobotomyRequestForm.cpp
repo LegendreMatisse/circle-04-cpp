@@ -18,7 +18,7 @@ RobotomyRequestForm::RobotomyRequestForm(void) : AForm("default", 72, 45)
 	std::cout << "An instance of a RobotomyRequestForm was created." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(false, target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45)
 {
 	std::cout << "An instance of a RobotomyRequestForm was created." << std::endl;
 }
