@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 16:56:13 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 16:56:13 by mlegendr         ###   ########.fr       */
+/*   Created: 2024/09/02 17:18:48 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/09/02 17:18:48 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-void print(const int &in)
+# include <iostream>
+
+template <typename Iter>
+void iter(Iter *arr, int len, void (*function)(const Iter &in))
 {
-	std::cout << in << std::flush;
+	for (size_t i = 0; i < len; i++)
+	{
+		function(arr[i]);
+	}
+	
 }
 
-int main(void)
-{
-	int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	iter(arr, 10, print);
-	return 0;
-}
+#endif
