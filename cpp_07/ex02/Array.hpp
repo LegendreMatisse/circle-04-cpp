@@ -44,17 +44,21 @@ Array<T>::Array(void) : _arr(NULL), _size(0)
 {
 	std::cout << "An instance of Array was created." << std::endl;
 }
+
+template <typename T>
 Array<T>::Array(unsigned int n) : _arr(new T[n]), _size(n)
 {
 	std::cout << "An instance of Array was created with parameters." << std::endl;
 }
 
+template <typename T>
 Array<T>::Array(const Array &copyCo)
 {
 	*this = copyCo;
 	std::cout << "An instance of Array was created by copy." << std::endl;
 }
 
+template <typename T>
 Array<T> &Array<T>::operator=(const Array &copyOp)
 {
 	if (this == &copyOp)
@@ -71,6 +75,7 @@ Array<T> &Array<T>::operator=(const Array &copyOp)
 	return *this;
 }
 
+template <typename T>
 Array<T>::~Array()
 {
 	if (this->_arr)
@@ -78,6 +83,7 @@ Array<T>::~Array()
 	std::cout << "An instance of Array was destroyed." << std::endl;
 }
 
+template <typename T>
 Array<T> &Array<T>::operator[](unsigned int index)
 {
 	if (index >= this->_size)
