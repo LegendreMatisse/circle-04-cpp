@@ -16,7 +16,7 @@
 # include <iostream>
 
 template <typename Iter>
-void iter(Iter *arr, int len, void (*function)(const Iter &in))
+void iter(Iter *arr, size_t len, void (*function)(const Iter &in))
 {
 	for (size_t i = 0; i < len; i++)
 	{
