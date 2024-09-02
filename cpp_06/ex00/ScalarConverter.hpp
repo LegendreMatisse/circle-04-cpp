@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 15:13:15 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 15:13:15 by mlegendr         ###   ########.fr       */
+/*   Created: 2024/09/02 15:26:47 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/09/02 15:26:47 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
-int main(int argc, char **argv)
+# include <iostream>
+# include <string>
+# include <limits>
+# include <cmath>
+# include <cstdlib>
+# include <cstring>
+# include <iomanip>
+
+class ScalarConverter
 {
-	if (argc == 2)
-	{
-		std::cout << "Wrong input, try again." << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(argv[1]);
-	return (0);
-}
+	private:
+		//constructor
+		ScalarConverter(void);
+	public:
+		//destructor
+		~ScalarConverter();
+
+		//functions
+		static void	convert(const std::string &in);
+};
+
+#endif
