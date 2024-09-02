@@ -40,7 +40,7 @@ AForm* Intern::chooseForm(const std::string& form, const std::string& target)
 {
 	const std::string form_types[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-	AForm* (Intern::*functions[3])(const std::string&) = {&Intern::_makePardon, &Intern::_makeRobotomy, &Intern::_makeShrub;};
+	AForm* (Intern::*functions[3])(const std::string&) = {&Intern::_makePardon, &Intern::_makeRobotomy, &Intern::_makeShrub};
 
 	for (short i = 0; i < 3; i++)
 		if (form_types[i] == form)
