@@ -21,7 +21,7 @@ int main(void)
 	try
 	{
 		std::cout << "Test 1" << std::endl;
-		unsigned int tempGrade = 10;
+		unsigned int tempGrade = 1;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		ShrubberyCreationForm *bush = new ShrubberyCreationForm("Steven");
 
@@ -43,7 +43,7 @@ int main(void)
 	try
 	{
 		std::cout << "Test 1" << std::endl;
-		unsigned int tempGrade = 10;
+		unsigned int tempGrade = 1;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		PresidentialPardonForm *bush = new PresidentialPardonForm("Steven");
 
@@ -65,7 +65,7 @@ int main(void)
 	try
 	{
 		std::cout << "Test 1" << std::endl;
-		unsigned int tempGrade = 10;
+		unsigned int tempGrade = 1;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		RobotomyRequestForm *bush = new RobotomyRequestForm("Steven");
 
