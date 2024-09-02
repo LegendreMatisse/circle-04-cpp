@@ -24,8 +24,6 @@ Form::Form(const std::string &name, const unsigned int &signGrade, const unsigne
 		throw Form::GradeTooHighException();
 	else if (this->_signGrade > 150 || this->_execGrade > 150)
 		throw Form::GradeTooLowException();
-	else if (this->_signGrade > this->_execGrade)
-		throw Form::GradeTooHighException();
 	std::cout << "An instance of a form was created." << std::endl;
 }
 
