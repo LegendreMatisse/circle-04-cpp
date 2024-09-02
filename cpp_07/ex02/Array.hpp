@@ -24,7 +24,7 @@ class Array
 		Array(void);
 
 		//parameterized constructor
-		Array(unsigend int n);
+		Array(unsigned int n);
 
 		//copy constructor
 		Array(const Array &copyCo);
