@@ -21,11 +21,17 @@ AForm::AForm(void) : _signed(false), _name("default"), _signGrade(150), _execGra
 AForm::AForm(const std::string &name, const unsigned int &signGrade, const unsigned int &execGrade) : _signed(false), _name(name), _signGrade(signGrade), _execGrade(execGrade)
 {
 	if (this->_signGrade < 1 || this->_execGrade < 1)
+	{
+		std::cout << "1" << std::endl
 		throw AForm::GradeTooHighException();
+	}
 	else if (this->_signGrade > 150 || this->_execGrade > 150)
 		throw AForm::GradeTooLowException();
 	else if (this->_signGrade > this->_execGrade)
+	{
+		std::cout << "2" << std::endl
 		throw AForm::GradeTooHighException();
+	}
 	std::cout << "An instance of a form was created." << std::endl;
 }
 
