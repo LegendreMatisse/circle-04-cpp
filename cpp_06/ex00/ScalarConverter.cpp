@@ -34,7 +34,7 @@ void ScalarConverter::convert(const std::string &in)
 		else
 			throw std::exception();
 	}
-	catch(std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cout << "cannot be printed." << std::endl; 
 	}
@@ -51,7 +51,7 @@ void ScalarConverter::convert(const std::string &in)
 		else
 			throw std::exception();
 	}
-	catch(std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cout << "cannot be printed." << std::endl; 
 	}
@@ -66,7 +66,7 @@ void ScalarConverter::convert(const std::string &in)
 		else
 			throw std::exception();
 	}
-	catch(std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cout << "cannot be printed." << std::endl; 
 	}
@@ -81,7 +81,7 @@ void ScalarConverter::convert(const std::string &in)
 		else
 			throw std::exception();
 	}
-	catch(std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cout << "cannot be printed." << std::endl; 
 	}
