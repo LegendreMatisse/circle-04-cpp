@@ -30,7 +30,7 @@ class Array
 		Array(const Array &copyCo);
 
 		//copy assignment operator
-		Array &operator=(const Array &copyOp)
+		Array &operator=(const Array &copyOp);
 
 		//destructor
 		~Array();
