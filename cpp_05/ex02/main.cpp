@@ -39,4 +39,48 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int tempGrade = 10;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
+		PresidentialPardonForm *bush = new PresidentialPardonForm("Steven");
+
+		std::cout << *steven;
+		std::cout << *bush;
+
+		steven->executeForm(*bush);
+
+		delete steven;
+		delete bush;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		std::cout << "Test 1" << std::endl;
+		unsigned int tempGrade = 10;
+		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
+		RobotomyRequestForm *bush = new RobotomyRequestForm("Steven");
+
+		std::cout << *steven;
+		std::cout << *bush;
+
+		steven->executeForm(*bush);
+
+		delete steven;
+		delete bush;
+
+		std::cout << "--__--__--__--__--" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
