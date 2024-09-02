@@ -17,7 +17,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default", 145, 137)
 	std::cout << "An instance of a ShrubberyCreationForm was created." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(false, target, 145, 137)
 {
 	std::cout << "An instance of a ShrubberyCreationForm was created." << std::endl;
 }
