@@ -22,7 +22,6 @@ int main(void)
 
 	try
 	{
-		std::vector<int> test;
 		std::vector<int>::const_iterator it = easyfind(test, 20);
 		std::cout << *it << std::endl;	
 	}
@@ -33,7 +32,6 @@ int main(void)
 
 	try
 	{
-		std::vector<int> test;
 		std::vector<int>::const_iterator it = easyfind(test, 9500);
 		std::cout << *it << std::endl;	
 	}
