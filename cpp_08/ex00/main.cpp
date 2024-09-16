@@ -22,6 +22,28 @@ int main(void)
 
 	try
 	{
+		std::vector<int> test;
+		std::vector<int>::const_iterator it = easyfind(test, 20);
+		std::cout << *it << std::endl;	
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	try
+	{
+		std::vector<int> test;
+		std::vector<int>::const_iterator it = easyfind(test, 9500);
+		std::cout << *it << std::endl;	
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+	
+	try
+	{
 		std::vector<int> test2;
 		std::vector<int>::const_iterator it = easyfind(test2, 20);
 		std::cout << *it << std::endl;	
