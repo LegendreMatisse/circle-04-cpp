@@ -23,7 +23,7 @@ typename T::const_iterator easyfind(const T &container, const int &value)
 {
 	if (container.empty())
 		throw std::out_of_range("Container is empty");
-	for (std::vector<int>::const_iterator it = container.begin(); it != container.end(); it++)	
+	for (typename T::const_iterator it = container.begin(); it != container.end(); it++)	
 	{
 		if (*it == value)
 			return it;
