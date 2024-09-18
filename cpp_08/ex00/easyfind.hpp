@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:22:37 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/16 18:13:34 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/18 12:24:27 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ typename T::const_iterator easyfind(const T &container, const int &value)
 {
 	if (container.empty())
 		throw std::out_of_range("Container is empty");
-	for (typename T::const_iterator it = container.begin(); it != container.end(); it++)	
-	{
-		if (*it == value)
-			return it;
-	}
+		
+	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
+	
+	if (it != container.end())
+		return (it);
+	
 	throw std::runtime_error("Value not found.");
 }
 
