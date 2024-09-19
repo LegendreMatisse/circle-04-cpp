@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 02:17:07 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 02:17:07 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:34:51 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class	Intern
 		~Intern();
 
 		//functions
-		AForm *chooseForm(const std::string &form, const std::string &target);
+		AForm *makeForm(const std::string &form, const std::string &target);
 
 		//exception classes
 		class NoFormFound : public std::exception

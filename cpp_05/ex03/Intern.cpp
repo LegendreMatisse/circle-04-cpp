@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 02:17:14 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 02:17:14 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:35:09 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Intern::~Intern()
 	std::cout << "An instance of an Intern was destroyed." << std::endl;
 }
 
-AForm* Intern::chooseForm(const std::string& form, const std::string& target)
+AForm* Intern::makeForm(const std::string& form, const std::string& target)
 {
 	const std::string form_types[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 

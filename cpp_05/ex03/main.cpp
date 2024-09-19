@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:55:17 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/17 21:55:17 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:38:19 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 		std::cout << "Test 1" << std::endl;
 		Intern *steve = new Intern();
 
-		steve->chooseForm("robotomy request", "Bender");
+		steve->makeForm("robotomy request", "Bender");
 
 		delete steve;
 
@@ -35,7 +35,7 @@ int main(void)
 		std::cout << "Test 2" << std::endl;
 		Intern *bart = new Intern();
 
-		bart->chooseForm("shrubbery creation", "The knights who say ni");
+		bart->makeForm("shrubbery creation", "The knights who say ni");
 
 		delete bart;
 
@@ -51,7 +51,7 @@ int main(void)
 		std::cout << "Test 2" << std::endl;
 		Intern *karl = new Intern();
 
-		karl->chooseForm("presidential pardon", "Rick Shanchez");
+		karl->makeForm("presidential pardon", "Rick Shanchez");
 
 		delete karl;
 
@@ -67,7 +67,7 @@ int main(void)
 		std::cout << "Test 3" << std::endl;
 		Intern *ken = new Intern();
 
-		ken->chooseForm("fail", "fail");
+		ken->makeForm("fail", "fail");
 
 		delete ken;
 
