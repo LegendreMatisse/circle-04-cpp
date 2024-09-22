@@ -50,13 +50,14 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-std::vector<int> Span::prepVector() const
+int Span::shortestSpan() const
 {
 	if (this->_spanVec.size() == 0)
 		throw EmptySpanEx();
 	if (this->_spanVec.size() < 2)
 		throw NotEnoughNumbersEx();
 
+	int lowestSpan = std::numeric_limits<int>::max();
 	std::vector<int> temp(this->_spanVec);
 
 	std::sort(temp.begin(), temp.end());
@@ -65,15 +66,7 @@ std::vector<int> Span::prepVector() const
 
 	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 
-	return span;
-}
-
-int Span::shortestSpan() const
-{
-	int lowestSpan = std::numeric_limits<int>::max();
-	std::vector<int> temp(this->prepVector());
-
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
+	for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it) 
 	{
 		if (*it < lowestSpan && *it > 0)
 			lowestSpan = *it;
@@ -84,20 +77,27 @@ int Span::shortestSpan() const
 
 int Span::longestSpan() const
 {
+	if (this->_spanVec.size() == 0)
+		throw EmptySpanEx();
+	if (this->_spanVec.size() < 2)
+		throw NotEnoughNumbersEx();
+
 	int highestSpan = std::numeric_limits<int>::min();
-	std::vector<int> temp(this->prepVector());
+	int temp = 0;
 
-	std::cout << "rrr" << std::endl;
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+	for (std::vector<int>::iterator it = _spanVec.begin(); it != _spanVec.end(); ++it)
 	{
-		std::cout << *it << std::endl;
-	}
-	std::cout << "rrr" << std::endl;
-
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
-	{
-		if (*it > highestSpan)
-			highestSpan = *it;
+		for (std::vector<int>::iterator er = _spanVec.begin(); er != _spanVec.end(); ++er)
+		{
+			if (*it > *er && *it != *er)
+				temp = *it - *er;
+			else if (*it < *er && *it != *er)
+				temp = *er - *it;
+			if (highestSpan == std::numeric_limits<int>::min())
+				highestSpan = temp;
+			if (temp > highestSpan)
+				highestSpan = temp;
+		}
 	}
 
 	return highestSpan;

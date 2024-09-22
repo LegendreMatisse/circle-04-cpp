@@ -43,7 +43,6 @@ class Span
 		//destructor
 		~Span();
 
-		std::vector<int> prepVector() const;
 		void addNumber(const int num);
 		int shortestSpan() const;
 		int longestSpan() const;
