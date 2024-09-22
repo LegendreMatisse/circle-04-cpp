@@ -18,17 +18,14 @@ int main(void)
 	
 	for (std::vector<int>::iterator it = test.begin(); it != test.end(); ++it)
 	{
-		std::cout << "--__--__--__--__--" << std::endl;
 		for (std::vector<int>::iterator er = test.begin(); er != test.end(); ++er)
 		{
-			std::cout << "it = " << *it << std::endl;
-			std::cout << "er = " << *er << std::endl;
 			if (*it > *er && *it != *er)
 				temp = *it - *er;
 			else if (*it < *er && *it != *er)
 				temp = *er - *it;
-			if (lowestSpan == 0)
-				lowestSpan = temp;
+			/*if (lowestSpan == 0)
+				lowestSpan = temp;*/
 			if (temp < lowestSpan)
 				lowestSpan = temp;
 		}
