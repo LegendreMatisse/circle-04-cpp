@@ -15,7 +15,7 @@ int main(void)
 	
 	for (std::vector<int>::const_iterator it = test.begin(); it != test.end; ++it)
 	{
-		std::cout << it << std::endl;
+		std::cout << test[it] << std::endl;
 	}
 	
 	return (0);
