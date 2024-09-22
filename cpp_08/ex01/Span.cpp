@@ -100,7 +100,7 @@ const char *Span::SpanFullEx::what() const throw()
 	return ("The span is already at full capacity.\n");
 }
 
-const char *Span::NoSpanEx::what() const throw()
+const char *Span::EmptySpanEx::what() const throw()
 {
 	return ("The span is empty.\n");
 }
