@@ -50,7 +50,7 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-std::vector<int> Span::prepVector()
+std::vector<int> Span::prepVector() const
 {
 	if (this->_spanVec.size() == 0)
 		throw EmptySpanEx();
@@ -64,7 +64,7 @@ std::vector<int> Span::prepVector()
 
 	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 
-	return std::adjacent_difference(temp.begin(), temp.end(), span.begin());
+	return span;
 }
 
 int Span::shortestSpan() const
