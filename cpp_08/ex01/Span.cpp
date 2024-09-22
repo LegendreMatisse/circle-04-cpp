@@ -62,25 +62,15 @@ std::vector<int> Span::prepVector() const
 	std::sort(temp.begin(), temp.end());
 
 	std::vector<int> span(temp.size());
-	
+
+	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
+
 	std::cout << "rrr" << std::endl;
 	for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it)
 	{
 		std::cout << *it << std::endl;
 	}
 	std::cout << "rrr" << std::endl;
-
-	/*for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}*/
-
-	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
-
-	/*for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}*/
 
 	return span;
 }
