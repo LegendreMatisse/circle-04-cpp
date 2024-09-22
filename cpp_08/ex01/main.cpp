@@ -48,6 +48,9 @@ int main(void)
 	std::cout << lowestSpan << std::endl;
 	std::cout << highestSpan << std::endl;
 
+	lowestSpan = 0;
+	highestSpan = 0;
+
 	std::sort(test.begin(), test.end());
 
 	std::vector<int> differences(test.size());
