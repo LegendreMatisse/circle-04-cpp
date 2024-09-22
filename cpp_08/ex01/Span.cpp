@@ -87,6 +87,13 @@ int Span::longestSpan() const
 	int highestSpan = std::numeric_limits<int>::min();
 	std::vector<int> temp(this->prepVector());
 
+	std::cout << "rrr" << std::endl;
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+	std::cout << "rrr" << std::endl;
+
 	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
 	{
 		if (*it > highestSpan)
