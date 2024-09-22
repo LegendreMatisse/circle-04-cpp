@@ -85,9 +85,9 @@ int Span::longestSpan() const
 	int highestSpan = std::numeric_limits<int>::min();
 	int temp = 0;
 
-	for (std::vector<int>::iterator it = _spanVec.begin(); it != _spanVec.end(); ++it)
+	for (std::vector<int>::const_iterator it = _spanVec.begin(); it != _spanVec.end(); ++it)
 	{
-		for (std::vector<int>::iterator er = _spanVec.begin(); er != _spanVec.end(); ++er)
+		for (std::vector<int>::const_iterator er = _spanVec.begin(); er != _spanVec.end(); ++er)
 		{
 			if (*it > *er && *it != *er)
 				temp = *it - *er;
