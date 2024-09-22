@@ -23,9 +23,9 @@ int main(void)
 		{
 			std::cout << "it = " << *it << std::endl;
 			std::cout << "er = " << *er << std::endl;
-			if (*it > *er)
+			if (*it > *er && *it != *er)
 				temp = *it - *er;
-			else
+			else if (*it < *er && *it != *er)
 				temp = *er - *it;
 			if (lowestSpan == 0)
 				lowestSpan = temp;
