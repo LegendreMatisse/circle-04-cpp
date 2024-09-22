@@ -22,10 +22,10 @@ int main(void)
 		{
 			std::cout << "it = " << *it << std::endl;
 			std::cout << "er = " << *er << std::endl;
-			if (it > er)
-				lowestSpan = it - er;
+			if (*it > *er)
+				lowestSpan = *it - *er;
 			else
-				lowestSpan = er - it;
+				lowestSpan = *er - *it;
 			std::cout << lowestSpan << std::endl;
 		}
 	}
