@@ -7,15 +7,15 @@ int main(void)
 {
 	std::vector<int> test;
 
-	test.pushback(6);
-	test.pushback(3);
-	test.pushback(17);
-	test.pushback(9);
-	test.pushback(11);
+	test.push_back(6);
+	test.push_back(3);
+	test.push_back(17);
+	test.push_back(9);
+	test.push_back(11);
 	
 	for (std::vector<int>::const_iterator it = test.begin(); it != test.end; ++it)
 	{
-		std::cout << test[it] << std::endl;
+		std::cout << *it << std::endl;
 	}
 	
 	return (0);
