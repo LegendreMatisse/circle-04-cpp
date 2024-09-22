@@ -59,10 +59,10 @@ std::vector<int> Span::prepVector() const
 
 	std::vector<int> temp(this->_spanVec);
 
-	/*for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
 	{
 		std::cout << *it << std::endl;
-	}*/
+	}
 
 	std::sort(temp.begin(), temp.end());
 
