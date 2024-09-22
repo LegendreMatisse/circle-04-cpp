@@ -61,7 +61,7 @@ int main(void)
 	
 	try
 	{
-		std::vector<int>::const_iterator it = easyfind(test2, 20);
+		std::list<int>::const_iterator it = easyfind(test2, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -71,7 +71,7 @@ int main(void)
 
 	try
 	{
-		std::vector<int>::const_iterator it = easyfind(test2, 9500);
+		std::list<int>::const_iterator it = easyfind(test2, 9500);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -81,8 +81,8 @@ int main(void)
 	
 	try
 	{
-		std::vector<int> test2;
-		std::vector<int>::const_iterator it = easyfind(test2, 20);
+		std::list<int> test2;
+		std::list<int>::const_iterator it = easyfind(test2, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
