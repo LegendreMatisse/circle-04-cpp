@@ -87,10 +87,10 @@ int Span::longestSpan() const
 	int highestSpan = std::numeric_limits<int>::min();
 	std::vector<int> temp(this->prepVector());
 
-	for (size_t i = 1; i < temp.size(); ++i) 
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
 	{
-		if (temp[i] > highestSpan)
-			highestSpan = temp[i];
+		if (*it > highestSpan)
+			highestSpan = *it;
 	}
 
 	return highestSpan;
