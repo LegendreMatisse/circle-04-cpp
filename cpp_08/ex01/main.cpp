@@ -1,8 +1,16 @@
-#include <string>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 00:03:11 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/09/23 00:03:11 by mlegendr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <Span.hpp>
 
 int main(void)
 {
@@ -57,6 +65,56 @@ int main(void)
 
 	std::cout << lowestSpan << std::endl;
 	std::cout << highestSpan << std::endl;
+
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Span *spanTest1 = new Span(5);
+
+	spanTest1->addNumber(6);
+	spanTest1->addNumber(3);
+	spanTest1->addNumber(17);
+	spanTest1->addNumber(11);
+	spanTest1->addNumber(2);
+
+	try
+	{
+		std::cout << spanTest1->shortestSpan() << std::endl;
+		std::cout << spanTest1->longestSpan() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Span *spanTest2 = new Span(0);
+
+	try
+	{
+		std::cout << spanTest2->shortestSpan() << std::endl;
+		std::cout << spanTest2->longestSpan() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Span *spanTest3 = new Span(1);
+
+	spanTest3->addNumber(6);
+
+	try
+	{
+		std::cout << spanTest3->shortestSpan() << std::endl;
+		std::cout << spanTest3->longestSpan() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	return (0);
 }
