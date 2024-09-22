@@ -31,9 +31,10 @@ int main(void)
 				lowestSpan = temp;
 			if (temp < lowestSpan)
 				lowestSpan = temp;
-			std::cout << lowestSpan << std::endl;
 		}
 	}
+	
+	std::cout << lowestSpan << std::endl;
 	
 	return (0);
 }
