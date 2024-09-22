@@ -48,9 +48,13 @@ int main(void)
 		if (differences[i] < lowestSpan && differences[i] > 0) {
 			lowestSpan = differences[i];
 		}
+		if (differences[i] > highestSpan) {
+			highestSpan = differences[i];
+		}
 	}
 
 	std::cout << lowestSpan << std::endl;
+	std::cout << highestSpan << std::endl;
 	
 	return (0);
 }
