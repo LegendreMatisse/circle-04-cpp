@@ -73,8 +73,8 @@ int main(void)
 	spanTest1->addNumber(6);
 	spanTest1->addNumber(3);
 	spanTest1->addNumber(17);
+	spanTest1->addNumber(9);
 	spanTest1->addNumber(11);
-	spanTest1->addNumber(2);
 
 	try
 	{
