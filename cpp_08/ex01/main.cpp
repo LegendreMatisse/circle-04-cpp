@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 int main(void)
 {
@@ -36,6 +37,20 @@ int main(void)
 	
 	std::cout << lowestSpan << std::endl;
 	std::cout << highestSpan << std::endl;
+
+	std::sort(test.begin(), test.end());
+
+	std::vector<int> differences(test.size());
+
+	std::adjacent_difference(test.begin(), test.end(), differences.begin());
+
+	for (size_t i = 1; i < differences.size(); ++i) {
+		if (differences[i] < lowestSpan && differences[i] > 0) {
+			lowestSpan = differences[i];
+		}
+	}
+
+	std::cout << lowestSpan << std::endl;
 	
 	return (0);
 }
