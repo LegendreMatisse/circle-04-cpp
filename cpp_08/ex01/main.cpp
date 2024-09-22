@@ -18,6 +18,8 @@ int main(void)
 	int highestSpan = 0;
 	int temp = 0;
 	
+	std::sort(test.begin(), test.end());
+
 	for (std::vector<int>::iterator it = test.begin(); it != test.end(); ++it)
 	{
 		for (std::vector<int>::iterator er = test.begin(); er != test.end(); ++er)
@@ -55,6 +57,6 @@ int main(void)
 
 	std::cout << lowestSpan << std::endl;
 	std::cout << highestSpan << std::endl;
-	
+
 	return (0);
 }
