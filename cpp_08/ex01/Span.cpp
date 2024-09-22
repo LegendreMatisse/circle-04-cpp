@@ -73,17 +73,10 @@ int Span::shortestSpan() const
 	int lowestSpan = 0;
 	std::vector<int> temp(this->prepVector());
 
-	std::cout << "rrr" << std::endl;
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
 	{
-		std::cout << *it << std::endl;
-	}
-	std::cout << "rrr" << std::endl;
-
-	for (size_t i = 1; i < temp.size(); ++i) 
-	{
-		if (temp[i] < lowestSpan && temp[i] > 0)
-			lowestSpan = temp[i];
+		if (*it < lowestSpan && *it > 0)
+			lowestSpan = *it;
 	}
 
 	return lowestSpan;
