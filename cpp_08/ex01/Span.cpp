@@ -30,7 +30,7 @@ Span::Span(const Span &copyCo)
 
 Span &Span::operator=(const Span &copyOp)
 {
-	if (this == &copyCo)
+	if (this == &copyOp)
 		return *this;
 	this->_count = copyOp._count;
 	this->_spanVec = copyOp._spanVec;
@@ -72,10 +72,10 @@ int Span::shortestSpan() const
 	int lowestSpan = 0;
 	std::vector<int> temp = prepVector();
 
-	for (size_t i = 1; i < differences.size(); ++i) 
+	for (size_t i = 1; i < temp.size(); ++i) 
 	{
-		if (differences[i] < lowestSpan && differences[i] > 0)
-			lowestSpan = differences[i];
+		if (temp[i] < lowestSpan && temp[i] > 0)
+			lowestSpan = temp[i];
 	}
 
 	return lowestSpan;
@@ -86,10 +86,10 @@ int Span::longestSpan() const
 	int highestSpan = 0;
 	std::vector<int> temp = prepVector();
 
-	for (size_t i = 1; i < differences.size(); ++i) 
+	for (size_t i = 1; i < temp.size(); ++i) 
 	{
-		if (differences[i] > highestSpan)
-			highestSpan = differences[i];
+		if (temp[i] > highestSpan)
+			highestSpan = temp[i];
 	}
 
 	return highestSpan;
