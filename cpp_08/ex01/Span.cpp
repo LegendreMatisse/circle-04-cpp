@@ -64,7 +64,7 @@ std::vector<int> Span::prepVector()
 
 	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 
-	return temp;
+	return std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 }
 
 int Span::shortestSpan() const
