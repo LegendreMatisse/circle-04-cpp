@@ -52,7 +52,7 @@ int main(void)
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 	
-
+	std::cout << "--- Container is a list of int's ---" << std::endl;
 	std::list<int> test2;
 
 	test2.push_back(10);
