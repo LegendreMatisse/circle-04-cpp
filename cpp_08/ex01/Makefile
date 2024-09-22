@@ -12,9 +12,9 @@
 
 NAME	=	Span
 
-SRC		=	main.cpp
+SRC		=	main.cpp Span.cpp
 
-INC		=	easyfind.hpp
+INC		=	Span.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
