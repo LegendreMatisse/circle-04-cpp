@@ -70,7 +70,7 @@ std::vector<int> Span::prepVector() const
 
 int Span::shortestSpan() const
 {
-	int lowestSpan = 0;
+	int lowestSpan = std::numeric_limits<int>::max();
 	std::vector<int> temp(this->prepVector());
 
 	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it) 
@@ -84,7 +84,7 @@ int Span::shortestSpan() const
 
 int Span::longestSpan() const
 {
-	int highestSpan = 0;
+	int highestSpan = std::numeric_limits<int>::min();
 	std::vector<int> temp(this->prepVector());
 
 	for (size_t i = 1; i < temp.size(); ++i) 
