@@ -59,27 +59,16 @@ std::vector<int> Span::prepVector() const
 
 	std::vector<int> temp(this->_spanVec);
 
-	std::cout << "rrr" << std::endl;
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}
-	std::cout << "rrr" << std::endl;
-
 	std::sort(temp.begin(), temp.end());
-	std::cout << "rrr" << std::endl;
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}
-	std::cout << "rrr" << std::endl;
-
-	/*for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}*/
 
 	std::vector<int> span(temp.size());
+	
+	std::cout << "rrr" << std::endl;
+	for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+	std::cout << "rrr" << std::endl;
 
 	/*for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it)
 	{
