@@ -115,5 +115,5 @@ const char *Span::EmptySpanEx::what() const throw()
 
 const char *Span::NotEnoughNumbersEx::what() const throw()
 {
-	return ("There is only 1 number is the span.\n");
+	return ("There is only 1 number in the span.\n");
 }
