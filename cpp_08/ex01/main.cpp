@@ -12,10 +12,13 @@ int main(void)
 	test.push_back(17);
 	test.push_back(9);
 	test.push_back(11);
+
+
 	
 	for (std::vector<int>::iterator it = test.begin(); it != test.end(); ++it)
 	{
-		std::cout << *it << std::endl;
+		if (*it == 17)
+			std::cout << "banaan" << std::endl;
 	}
 	
 	return (0);
