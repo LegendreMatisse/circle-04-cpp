@@ -14,6 +14,7 @@ int main(void)
 	test.push_back(11);
 
 	int lowestSpan = 0;
+	int temp = 0;
 	
 	for (std::vector<int>::iterator it = test.begin(); it != test.end(); ++it)
 	{
@@ -23,9 +24,13 @@ int main(void)
 			std::cout << "it = " << *it << std::endl;
 			std::cout << "er = " << *er << std::endl;
 			if (*it > *er)
-				lowestSpan = *it - *er;
+				temp = *it - *er;
 			else
-				lowestSpan = *er - *it;
+				temp = *er - *it;
+			if (lowestSpan == 0)
+				lowestSpan = temp;
+			if (temp < lowestSpan)
+				lowestSpan = temp;
 			std::cout << lowestSpan << std::endl;
 		}
 	}
