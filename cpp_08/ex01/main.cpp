@@ -13,12 +13,18 @@ int main(void)
 	test.push_back(9);
 	test.push_back(11);
 
-
+	int lowestSpan = 0;
 	
 	for (std::vector<int>::iterator it = test.begin(); it != test.end(); ++it)
 	{
-		if (*it == 17)
-			std::cout << "banaan" << std::endl;
+		for (std::vector<int>::iterator er = test.begin(); er != test.end(); ++er)
+		{
+			if (it > er)
+				lowestSpan = it - er;
+			else
+				lowestSpan = er - it;
+			std::cout << lowestSpan << std::endl;
+		}
 	}
 	
 	return (0);
