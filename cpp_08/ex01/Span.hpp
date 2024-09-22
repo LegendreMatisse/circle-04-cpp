@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <numeric>
 #include <exception>
+#include <limits>
 
 class Span
 {
