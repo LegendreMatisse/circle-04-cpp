@@ -66,7 +66,7 @@ int Span::shortestSpan() const
 
 	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 
-	for (std::vector<int>::iterator it = span.begin(); it != span.end(); ++it) 
+	for (std::vector<int>::const_iterator it = span.begin(); it != span.end(); ++it) 
 	{
 		if (*it < lowestSpan && *it > 0)
 			lowestSpan = *it;
