@@ -110,7 +110,7 @@ void Span::addNumberBulk()
 
 		std::stringstream ss(command);
 		int num = 0;
-		if (ss >> num && ss.eof)
+		if (ss >> num && ss.eof())
 		{
 			try
 			{
