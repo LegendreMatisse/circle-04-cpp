@@ -52,6 +52,7 @@ void Span::addNumber(const int num)
 
 void Span::addNumberBulk(const char *input...)
 {
+	std::cout << "here" << std::endl;
 	va_list args;
 	va_start(args, input);
 
