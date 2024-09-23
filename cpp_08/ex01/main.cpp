@@ -26,6 +26,8 @@ int main(void)
 
 		std::cout << spanTest1->shortestSpan() << std::endl;
 		std::cout << spanTest1->longestSpan() << std::endl;
+
+		delete spanTest1;
 	}
 	catch(const std::exception &e)
 	{
@@ -40,6 +42,8 @@ int main(void)
 
 		std::cout << spanTest2->shortestSpan() << std::endl;
 		std::cout << spanTest2->longestSpan() << std::endl;
+
+		delete spanTest2;
 	}
 	catch(const std::exception &e)
 	{
@@ -56,6 +60,8 @@ int main(void)
 
 		std::cout << spanTest3->shortestSpan() << std::endl;
 		std::cout << spanTest3->longestSpan() << std::endl;
+
+		delete spanTest3;
 	}
 	catch(const std::exception &e)
 	{
@@ -72,15 +78,13 @@ int main(void)
 
 		std::cout << spanTest4->shortestSpan() << std::endl;
 		std::cout << spanTest4->longestSpan() << std::endl;
+
+		delete spanTest4;
 	}
 	catch(const std::exception &e)
 	{
 		std::cerr << e.what() << std::flush;
 	}
 
-	delete spanTest1;
-	delete spanTest2;
-	delete spanTest3;
-	delete spanTest4;
 	return (0);
 }
