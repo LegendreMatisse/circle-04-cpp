@@ -72,7 +72,16 @@ int main(void)
 
 	try
 	{
-		Span *spanTest4 = new Span(5);
+		std::string command = "";
+
+		std::cout << "Enter a size: " << std::flush;
+        std::getline(std::cin, command);
+
+		std::stringstream ss(command);
+		int num = 0;
+		ss >> num;
+
+		Span *spanTest4 = new Span(num);
 
 		spanTest4->addNumberBulk();
 
@@ -90,7 +99,16 @@ int main(void)
 
 	try
 	{
-		Span *spanTest5 = new Span(5);
+		std::string command = "";
+
+		std::cout << "Enter a size: " << std::flush;
+        std::getline(std::cin, command);
+
+		std::stringstream ss(command);
+		int num = 0;
+		ss >> num;
+
+		Span *spanTest5 = new Span(num);
 
 		spanTest5->addNumberBulk();
 
