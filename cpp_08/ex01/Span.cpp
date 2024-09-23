@@ -50,7 +50,7 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-void Span::addNumberBulk(const char *input...)
+void Span::addNumberBulk(const int input...)
 {
 	std::cout << "here" << std::endl;
 	va_list args;
