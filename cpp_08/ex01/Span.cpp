@@ -98,7 +98,7 @@ void Span::addNumberBulk()
 	bool exit = false;
 	std::string command = "";
 
-	while (exit == false || i == this->_count)
+	while (exit == false)
 	{
 		std::cout << "Enter a number: " << std::flush;
 		std::getline(std::cin, command);
@@ -126,6 +126,9 @@ void Span::addNumberBulk()
 		}
 		else
 			throw NotANumberEx();
+		
+		if (i >= this->_count)
+			exit = true;
 	}
 }
 
