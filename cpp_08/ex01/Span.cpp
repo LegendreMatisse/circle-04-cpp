@@ -94,10 +94,11 @@ void Span::addNumber(const int num)
 
 void Span::addNumberBulk()
 {
+	int i = 0;
 	bool exit = false;
 	std::string command = "";
 
-	while (exit == false)
+	while (exit == false || i == this->_count)
 	{
 		std::cout << "Enter a number: " << std::flush;
 		std::getline(std::cin, command);
@@ -115,6 +116,7 @@ void Span::addNumberBulk()
 			try
 			{
 				addNumber(num);
+				i++;
 			}
 			catch(const SpanFullEx &e)
 			{
