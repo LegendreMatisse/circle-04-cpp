@@ -70,8 +70,8 @@ int main(void)
 
 		spanTest4->addNumberBulk(5, 6, 3, 17, 9, 11);
 
-		std::cout << spanTest3->shortestSpan() << std::endl;
-		std::cout << spanTest3->longestSpan() << std::endl;
+		std::cout << spanTest4->shortestSpan() << std::endl;
+		std::cout << spanTest4->longestSpan() << std::endl;
 	}
 	catch(const std::exception &e)
 	{
