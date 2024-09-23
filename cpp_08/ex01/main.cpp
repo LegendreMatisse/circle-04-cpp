@@ -68,7 +68,7 @@ int main(void)
 
 	try
 	{
-		spanTest4->addNumberBulk(5, 6, 3, 17, 9, 11);
+		spanTest4->addNumberBulk(6, 3, 17, 9, 11);
 	}
 	catch(const std::exception &e)
 	{

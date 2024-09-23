@@ -17,8 +17,13 @@ Span::Span()
 	std::cout << "default constructor called" << std::endl;
 }
 
-Span::Span(unsigned int count) : _count(count)
+Span::Span(unsigned int count)
 {
+	if (count == 0)
+		throw EmptySpanEx();
+	if (count == 1)
+		throw NotEnoughNumbersEx();
+	this->_count = count;
 	std::cout << "parameterised constructor called" << std::endl;
 }
 
@@ -50,11 +55,11 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-void Span::addNumberBulk(const int count, ...)
+void Span::addNumberBulk(...)
 {
 	va_list args;
-	va_start(args, count);
-	for (int i = 0; i < count; ++i)
+	va_start(args, this->_count);
+	for (int i = 0; i < this->_count; ++i)
 	{
 		int num = va_arg(args, int);
 		std::cout << num << std::endl;
