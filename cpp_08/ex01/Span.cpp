@@ -56,8 +56,8 @@ void Span::addNumberBulk(const int count, ...)
 	va_start(args, count);
 	for (int i = 0; i < count; ++i)
 	{
-		std::cout << va_arg(args, int) << std::endl;
 		int num = va_arg(args, int);
+		std::cout << num << std::endl;
 		addNumber(num);
 	}
 	va_end(args);
