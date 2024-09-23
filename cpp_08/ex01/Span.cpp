@@ -50,22 +50,6 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-void Span::addNumberBulk(const char *input...)
-{
-	std::cout << "here" << std::endl;
-	va_list args;
-	va_start(args, input);
-
-	while (*input != '\0')
-	{
-		std::cout << va_arg(args, int) << std::endl;
-		this->addNumber(va_arg(args, int));
-		++input;
-	}
-
-	va_end(args);
-}
-
 int Span::shortestSpan() const
 {
 	if (this->_spanVec.size() == 0)
