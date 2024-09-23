@@ -61,8 +61,6 @@ void Span::addNumberBulk(const unsigned int count, ...)
 	va_start(args, count);
 	for (unsigned int i = 0; i < count; ++i)
 	{
-		if (!isdigit(va_arg(args, int)))
-			throw NotANumberEx();
 		int num = va_arg(args, int);
 		addNumber(num);
 	}
