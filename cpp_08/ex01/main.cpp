@@ -95,5 +95,28 @@ int main(void)
 		std::cerr << e.what() << std::flush;
 	}
 
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	try
+	{
+		Span *spanTest5 = new Span(5);
+
+		spanTest5->addNumber(6);
+		spanTest5->addNumber(3);
+		spanTest5->addNumber(17);
+		spanTest5->addNumber(9);
+		spanTest5->addNumber(11);
+		spanTest5->addNumber(11);
+
+		std::cout << spanTest5->shortestSpan() << std::endl;
+		std::cout << spanTest5->longestSpan() << std::endl;
+
+		delete spanTest5;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::flush;
+	}
+
 	return (0);
 }
