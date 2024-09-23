@@ -57,11 +57,11 @@ void Spann::addNumberBulk(const char *input...)
 
 	while (*input != '\0')
 	{
-		if (!isdigit(*input))
-			throw Span::NotANumberEx();
-		this->addNumber(static_cast<int>(*input));
-		*input++;
+		this->addNumber(va_arg(args, int));
+		++input;
 	}
+
+	va_end(args);
 }
 
 int Span::shortestSpan() const
