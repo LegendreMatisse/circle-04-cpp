@@ -57,6 +57,7 @@ void Span::addNumberBulk(const char *input...)
 
 	while (*input != '\0')
 	{
+		std::cout << va_arg(args, int) << std::endl;
 		this->addNumber(va_arg(args, int));
 		++input;
 	}
