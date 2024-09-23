@@ -21,6 +21,7 @@
 #include <exception>
 #include <limits>
 #include <cstdarg>
+#include <cctype>
 
 class Span
 {
@@ -62,6 +63,12 @@ class Span
 		};
 
 		class NotEnoughNumbersEx : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+
+		class NotANumberEx : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();

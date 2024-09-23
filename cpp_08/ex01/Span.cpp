@@ -61,6 +61,8 @@ void Span::addNumberBulk(const unsigned int count, ...)
 	va_start(args, count);
 	for (unsigned int i = 0; i < count; ++i)
 	{
+		if (!isdigit(va_arg, int))
+			throw NotANumberEx();
 		int num = va_arg(args, int);
 		addNumber(num);
 	}
@@ -133,4 +135,9 @@ const char *Span::EmptySpanEx::what() const throw()
 const char *Span::NotEnoughNumbersEx::what() const throw()
 {
 	return ("There is only 1 number in the span.\n");
+}
+
+const char *Span::NotEnoughNumbersEx::what() const throw()
+{
+	return ("The input is not a number.\n");
 }
