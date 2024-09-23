@@ -21,13 +21,14 @@
 #include <exception>
 #include <limits>
 #include <cstdarg>
-#include <cctype>
+#include <iomanip>
+#include <ios>
 
 class Span
 {
 	private:
-		unsigned int _count;
-		std::vector<int> _spanVec;
+		unsigned int		_count;
+		std::vector<int>	_spanVec;
 
 	public:
 		//constructor
@@ -45,10 +46,10 @@ class Span
 		//destructor
 		~Span();
 
-		void addNumber(const int num);
-		void addNumberBulk(const unsigned int count, ...);
-		int shortestSpan() const;
-		int longestSpan() const;
+		void				addNumber(const int num);
+		void				addNumberBulk(),
+		int					shortestSpan() const;
+		int					longestSpan() const;
 
 		class SpanFullEx : public std::exception
 		{
@@ -67,6 +68,14 @@ class Span
 			public:
 				virtual const char *what() const throw();
 		};
+
+		class NotANumberEx : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		
+		//void addNumberBulk(const unsigned int count, ...);
 };
 
 #endif

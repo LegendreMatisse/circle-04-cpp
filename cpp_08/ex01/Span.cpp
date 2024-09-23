@@ -55,21 +55,76 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-void Span::addNumberBulk(const unsigned int count, ...)
+/*
+	~~ Here lies my Variadic function ~~
+
+	By design, variadic function do not have type safety.
+	This means I cannot protect my function from non int inputs.
+
+	It is possible to do this in variadic templates.
+	But these are only available in c++ 11.
+
+	Stop all the clocks, cut off the telephone,
+	...
+
+		   _______
+		 /         \
+        /           \
+       /             \
+	  |               |
+      |   R.I.P.      |
+      |   Variadic    |
+      |   Function    |
+      |               |
+      |   2023        |
+      |               |
+      |_______________|
+*/
+/*void Span::addNumberBulk(const unsigned int count, ...)
 {
 	va_list args;
 	va_start(args, count);
 	for (unsigned int i = 0; i < count; ++i)
 	{
 		int num = va_arg(args, int);
-		if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
-		{
-			va_end(args);
-			throw std::runtime_error("The input is not a number.\n");
-		}
 		addNumber(num);
 	}
 	va_end(args);
+}*/
+
+void Span::addNumberBulk()
+{
+	bool exit = false;
+	std::string command = "";
+
+	while (exit == false)
+	{
+		std::cout << "Enter a number: " << std::flush;
+		std::getline(std::cin, command);
+
+		if (std::cin.eof())
+		{
+			std::cout << "Done adding numbers." << std::endl;
+			exit = true;
+		}
+
+		std::stringstream ss(command);
+		int num = 0;
+		if (ss >> num && ss.eof)
+		{
+			try
+			{
+				addNumber(num);
+			}
+			catch(const SpanFullEx &e)
+			{
+				std::cerr << e.what() << std::flush;
+				exit = true;
+			}
+		}
+		else
+			throw NotANumberEx();
+	}
 }
 
 int Span::shortestSpan() const
@@ -136,6 +191,11 @@ const char *Span::EmptySpanEx::what() const throw()
 }
 
 const char *Span::NotEnoughNumbersEx::what() const throw()
+{
+	return ("There is only 1 number in the span.\n");
+}
+
+const char *Span::NotANumberEx::what() const throw()
 {
 	return ("There is only 1 number in the span.\n");
 }
