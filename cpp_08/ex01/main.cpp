@@ -66,14 +66,7 @@ int main(void)
 
 	Span *spanTest4 = new Span(5);
 
-	try
-	{
-		spanTest4->addNumberBulk(6, 3, 17, 9, 11);
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << e.what() << std::flush;
-	}
+	spanTest4->addNumberBulk(6, 3, 17, 9, 11);
 
 	try
 	{

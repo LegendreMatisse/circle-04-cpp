@@ -44,10 +44,8 @@ class Span
 		//destructor
 		~Span();
 
-		template<typename... Args>
-		void addNumberBulk(Args... args);
-		
 		void addNumber(const int num);
+		void addNumberBulk(const int count, ...);
 		int shortestSpan() const;
 		int longestSpan() const;
 
@@ -69,15 +67,5 @@ class Span
 				virtual const char *what() const throw();
 		};
 };
-
-template<typename... Args>
-void Span::qddNumbersBulk(Args... args)
-{
-	int numbers[] = {args...};
-	for (int num : numbers)
-	{
-		addNumber(num);
-	}
-}
 
 #endif
