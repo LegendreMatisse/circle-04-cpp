@@ -34,7 +34,14 @@ int main(void)
 
 	std::cout << "--__--__--__--__--" << std::endl;
 
-	Span *spanTest2 = new Span(0);
+	try
+	{
+		Span *spanTest2 = new Span(0);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::flush;
+	}
 
 	try
 	{
