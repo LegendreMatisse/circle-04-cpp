@@ -67,12 +67,6 @@ class Span
 			public:
 				virtual const char *what() const throw();
 		};
-
-		class NotANumberEx : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
 };
 
 #endif

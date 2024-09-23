@@ -62,6 +62,11 @@ void Span::addNumberBulk(const unsigned int count, ...)
 	for (unsigned int i = 0; i < count; ++i)
 	{
 		int num = va_arg(args, int);
+		if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		{
+			va_end(args);
+			throw std::runtime_error("The input is not a number.\n");
+		}
 		addNumber(num);
 	}
 	va_end(args);
@@ -133,9 +138,4 @@ const char *Span::EmptySpanEx::what() const throw()
 const char *Span::NotEnoughNumbersEx::what() const throw()
 {
 	return ("There is only 1 number in the span.\n");
-}
-
-const char *Span::NotANumberEx::what() const throw()
-{
-	return ("The input is not a number.\n");
 }

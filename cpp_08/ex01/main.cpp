@@ -86,6 +86,8 @@ int main(void)
 		std::cerr << e.what() << std::flush;
 	}
 
+	std::cout << "--__--__--__--__--" << std::endl;
+
 	try
 	{
 		Span *spanTest5 = new Span(5);
