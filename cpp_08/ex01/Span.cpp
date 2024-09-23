@@ -137,7 +137,7 @@ const char *Span::NotEnoughNumbersEx::what() const throw()
 	return ("There is only 1 number in the span.\n");
 }
 
-const char *Span::NotEnoughNumbersEx::what() const throw()
+const char *Span::NotANumberEx::what() const throw()
 {
 	return ("The input is not a number.\n");
 }
