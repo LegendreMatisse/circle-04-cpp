@@ -37,14 +37,7 @@ int main(void)
 	try
 	{
 		Span *spanTest2 = new Span(0);
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << e.what() << std::flush;
-	}
 
-	try
-	{
 		std::cout << spanTest2->shortestSpan() << std::endl;
 		std::cout << spanTest2->longestSpan() << std::endl;
 	}
