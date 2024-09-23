@@ -45,7 +45,7 @@ class Span
 		~Span();
 
 		void addNumber(const int num);
-		void addNumberBulk(...);
+		void addNumberBulk(const unsigned int count, ...);
 		int shortestSpan() const;
 		int longestSpan() const;
 

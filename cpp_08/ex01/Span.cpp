@@ -55,11 +55,11 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
-void Span::addNumberBulk(...)
+void Span::addNumberBulk(const unsigned int count, ...)
 {
 	va_list args;
-	va_start(args, this->_count);
-	for (unsigned int i = 0; i < this->_count; ++i)
+	va_start(args, count);
+	for (unsigned int i = 0; i < count; ++i)
 	{
 		int num = va_arg(args, int);
 		std::cout << num << std::endl;
