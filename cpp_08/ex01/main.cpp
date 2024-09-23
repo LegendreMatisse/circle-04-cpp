@@ -92,7 +92,7 @@ int main(void)
 	{
 		Span *spanTest5 = new Span(5);
 
-		spanTest5->addNumberBulk(5, "a", 3, 17, 9, 11);
+		spanTest5->addNumberBulk(5, 'a', 3, 17, 9, 11);
 
 		std::cout << spanTest5->shortestSpan() << std::endl;
 		std::cout << spanTest5->longestSpan() << std::endl;
