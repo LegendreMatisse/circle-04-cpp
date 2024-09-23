@@ -94,7 +94,7 @@ void Span::addNumber(const int num)
 
 void Span::addNumberBulk()
 {
-	int i = 0;
+	unsigned int i = 0;
 	bool exit = false;
 	std::string command = "";
 
