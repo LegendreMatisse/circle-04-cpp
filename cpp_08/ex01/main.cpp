@@ -95,32 +95,5 @@ int main(void)
 		std::cerr << e.what() << std::flush;
 	}
 
-	std::cout << "--__--__--__--__--" << std::endl;
-
-	try
-	{
-		std::string command = "";
-
-		std::cout << "Enter a size: " << std::flush;
-        std::getline(std::cin, command);
-
-		std::stringstream ss(command);
-		int num = 0;
-		ss >> num;
-
-		Span *spanTest5 = new Span(num);
-
-		spanTest5->addNumberBulk();
-
-		std::cout << spanTest5->shortestSpan() << std::endl;
-		std::cout << spanTest5->longestSpan() << std::endl;
-
-		delete spanTest5;
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << e.what() << std::flush;
-	}
-
 	return (0);
 }
