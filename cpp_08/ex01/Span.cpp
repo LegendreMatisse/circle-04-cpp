@@ -50,6 +50,20 @@ void Span::addNumber(const int num)
 	this->_spanVec.push_back(num);
 }
 
+void Spann::addNumberBulk(const char *input...)
+{
+	va_list args;
+	va_start(args, input);
+
+	while (*input != '\0')
+	{
+		if (!isdigit(*input))
+			throw Span::NotANumberEx();
+		this->addNumber(static_cast<int>(*input));
+		*input++;
+	}
+}
+
 int Span::shortestSpan() const
 {
 	if (this->_spanVec.size() == 0)

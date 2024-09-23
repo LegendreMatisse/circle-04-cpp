@@ -62,5 +62,28 @@ int main(void)
 		std::cerr << e.what() << std::flush;
 	}
 
+	std::cout << "--__--__--__--__--" << std::endl;
+
+	Span *spanTest4 = new Span(5);
+
+	try
+	{
+		spanTest4->addNumberBulk(6, 3, 17, 9, 11);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::flush;
+	}
+
+	try
+	{
+		std::cout << spanTest3->shortestSpan() << std::endl;
+		std::cout << spanTest3->longestSpan() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::flush;
+	}
+
 	return (0);
 }

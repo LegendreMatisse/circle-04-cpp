@@ -20,6 +20,7 @@
 #include <numeric>
 #include <exception>
 #include <limits>
+#include <cstdarg>
 
 class Span
 {
@@ -44,6 +45,7 @@ class Span
 		~Span();
 
 		void addNumber(const int num);
+		void addNumberBulk(const char *input...);
 		int shortestSpan() const;
 		int longestSpan() const;
 
@@ -60,6 +62,12 @@ class Span
 		};
 
 		class NotEnoughNumbersEx : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+
+		class NotANumberEx : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();
