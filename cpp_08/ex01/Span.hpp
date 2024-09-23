@@ -23,6 +23,7 @@
 #include <cstdarg>
 #include <iomanip>
 #include <ios>
+#include <sstream>
 
 class Span
 {
