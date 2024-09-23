@@ -59,7 +59,7 @@ void Span::addNumberBulk(...)
 {
 	va_list args;
 	va_start(args, this->_count);
-	for (int i = 0; i < this->_count; ++i)
+	for (unsigned int i = 0; i < this->_count; ++i)
 	{
 		int num = va_arg(args, int);
 		std::cout << num << std::endl;
