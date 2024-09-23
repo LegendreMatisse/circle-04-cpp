@@ -78,5 +78,9 @@ int main(void)
 		std::cerr << e.what() << std::flush;
 	}
 
+	delete spanTest1;
+	delete spanTest2;
+	delete spanTest3;
+	delete spanTest4;
 	return (0);
 }
