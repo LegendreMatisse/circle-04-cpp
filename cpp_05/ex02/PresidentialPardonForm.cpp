@@ -6,19 +6,20 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:20:16 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/01 19:20:16 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:28:36 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5)
 {
 	std::cout << "An instance of a PresidentialPardonForm was created." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5)
 {
+	this->_target = target;
 	std::cout << "An instance of a PresidentialPardonForm was created." << std::endl;
 }
 

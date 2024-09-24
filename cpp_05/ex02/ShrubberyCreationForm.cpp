@@ -6,19 +6,20 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:20:25 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/01 19:20:25 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:29:31 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137)
 {
 	std::cout << "An instance of a ShrubberyCreationForm was created." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
 {
+	this->_target = target;
 	std::cout << "An instance of a ShrubberyCreationForm was created." << std::endl;
 }
 

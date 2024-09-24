@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:56:35 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/19 15:29:36 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:18:52 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Bureaucrat
 {
 	private:
-		std::string		_name;
-		unsigned int	_grade;
+		const std::string	_name;
+		unsigned int		_grade;
 
 	public:
 		//constructor
@@ -40,12 +40,12 @@ class Bureaucrat
 		~Bureaucrat();
 
 		//getters
-		std::string		getName(void) const;
-		unsigned int	getGrade(void) const;
+		std::string			getName(void) const;
+		unsigned int		getGrade(void) const;
 
 		//functions
-		void			incrementGrade(void);
-		void			decrementGrade(void);
+		void				incrementGrade(void);
+		void				decrementGrade(void);
 
 		//exception classes
 		/*

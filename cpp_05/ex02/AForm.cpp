@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:20:09 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/01 19:20:09 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:32:58 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void AForm::execute(const Bureaucrat &executor) const
 {
 	if (this->getSigned() == true)
 		throw AForm::FormSignedException();
-	else if (executor.getGrade() > this->getExecGrade())
+	if (executor.getGrade() > this->getExecGrade())
 		throw AForm::GradeTooLowException();
 	this->specialFeature();
 }

@@ -6,11 +6,11 @@
 #    By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 21:55:10 by mlegendr          #+#    #+#              #
-#    Updated: 2024/08/17 21:55:10 by mlegendr         ###   ########.fr        #
+#    Updated: 2024/09/19 15:38:43 by mlegendr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	moreWeirdShit
+NAME	=	ex02
 
 SRC		=	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 

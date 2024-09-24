@@ -6,20 +6,21 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:20:20 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/01 19:20:20 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:29:07 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45)
 {
 	std::cout << "An instance of a RobotomyRequestForm was created." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45)
 {
+	this->_target = target;
 	std::cout << "An instance of a RobotomyRequestForm was created." << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:55:17 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/17 21:55:17 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:33:28 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	try
 	{
 		std::cout << "Test 1" << std::endl;
-		unsigned int tempGrade = 1;
+		unsigned int tempGrade = 150;
 		Bureaucrat *steven = new Bureaucrat("Steven", tempGrade);
 		ShrubberyCreationForm *bush = new ShrubberyCreationForm("Steven");
 

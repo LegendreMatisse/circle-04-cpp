@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:56:35 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/19 19:40:06 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:21:44 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Form;
 class Bureaucrat
 {
 	private:
-		std::string		_name;
-		unsigned int	_grade;
+		const std::string	_name;
+		unsigned int		_grade;
 
 	public:
 		//constructor

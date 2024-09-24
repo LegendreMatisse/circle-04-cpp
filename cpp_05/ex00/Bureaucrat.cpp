@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:56:44 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/08/19 15:29:09 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:18:10 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &copyOp)
 {
 	if (this == &copyOp)
 		return *this;
-	this->_name = copyOp._name;
 	this->_grade = copyOp._grade;
 	std::cout << "An instance of a bureaucrat has been assigned." << std::endl;
 	return *this;
