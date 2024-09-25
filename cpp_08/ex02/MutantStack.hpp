@@ -33,16 +33,16 @@ class MutantStack : public std::stack<T>
 		MutantStack(const MutantStack &copyCo);
 
 		//assignment operator overload
-		MutantStack &operator=(const MutaantStack &copyOp);
+		MutantStack &operator=(const MutantStack &copyOp);
 
 		//destructor
 		virtual ~MutantStack();
 
 		//funtions
-		iterator			stackStart();
-		iterator			stackEnd();
-		reverse_iterator	revStackStart();
-		reverse_iterator	revStackEnd();
+		iterator			begin();
+		iterator			end();
+		reverse_iterator	rbegin();
+		reverse_iterator	rend();
 };
 
 # include "MutantStack.tpp"
