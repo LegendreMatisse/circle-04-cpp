@@ -38,7 +38,7 @@ int main(void)
 
 	++it;
 	--it;
-	
+
 	while (it != ite)
 	{
 		std::cout << *it << std::endl;
@@ -56,7 +56,7 @@ int main(void)
 
 	std::cout << list_test.back() << std::endl;
 
-	list_test.pop();
+	list_test.pop_back();
 
 	std::cout << list_test.size() << std::endl;
 
