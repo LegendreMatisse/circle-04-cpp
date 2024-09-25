@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_TPP
+# define MUTANTSTACK_HPP
 
 # include <stack>
 # include <iostream>
@@ -23,8 +23,8 @@ class MutantStack : public std::stack<T>
 
 	public:
 		//iterators
-		typedef typename std::stack<T>::container_type::iterator it;
-		typedef typename std::stack<T>::container_type::reverse_iterator revIt;
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 
 		//constructor
 		MutantStack();
