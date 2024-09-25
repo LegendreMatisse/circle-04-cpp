@@ -38,7 +38,7 @@ MutantStack<T> &MutantStack<T>::operator=(const MutantStack<T> &copyOp)
 }
 
 template <typename T>
-MutantStack<T>::~MutantStack() : std::stack<T>()
+MutantStack<T>::~MutantStack()
 {
 	std::cout << "Stack deconstructor called." << std::endl;
 }
