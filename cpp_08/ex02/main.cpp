@@ -15,6 +15,7 @@
 
 int main(void)
 {
+	std::cout << "MutantStack tests" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -35,5 +36,29 @@ int main(void)
 		++it;
 	}
 	std::stack<int> s(mstack);
+	std::cout << "--__--__--__--" << std::endl;
+
+	std::cout << "List tests" << std::endl;
+	std::list<int> list_test;
+	list_test.push_back(5);
+	list_test.push_back(17);
+	std::cout << list_test.top() << std::endl;
+	list_test.pop();
+	std::cout << list_test.size() << std::endl;
+	list_test.push_back(3);
+	list_test.push_back(5);
+	list_test.push_back(737);
+	list_test.push_back(0);
+	std::list<int>::iterator it_list = list_test.begin();
+	std::list<int>::iterator ite_list = list_test.end();
+	++it_list;
+	--it_list;
+	while (it_list != ite_list)
+	{
+		std::cout << *it_list << std::endl;
+		++it_list;
+	}
+	std::list<int> s(list_test);
+
 	return 0;
 }
