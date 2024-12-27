@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 00:03:04 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/23 00:03:04 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:33:06 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 #include <iomanip>
 #include <ios>
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
 
 class Span
 {

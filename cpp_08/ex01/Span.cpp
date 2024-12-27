@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 00:03:07 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/23 00:03:07 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:32:59 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,11 +148,14 @@ int Span::shortestSpan() const
 
 	std::adjacent_difference(temp.begin(), temp.end(), span.begin());
 
-	for (std::vector<int>::const_iterator it = span.begin(); it != span.end(); ++it) 
+	std::cout << "--" << std::endl;
+	for (std::vector<int>::const_iterator it = span.begin() + 1; it != span.end(); ++it) 
 	{
+		std::cout << *it << std::endl;
 		if (*it < lowestSpan && *it > 0)
 			lowestSpan = *it;
 	}
+	std::cout << "--" << std::endl;
 
 	return lowestSpan;
 }

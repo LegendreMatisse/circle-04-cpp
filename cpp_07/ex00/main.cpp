@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:55:59 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/02 16:55:59 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/12/27 10:23:03 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main(void)
 	std::cout << "Min of c and d: " << ::min(c, d) << std::endl;
 
 	//main from subject
+	std::cout << "\nSubject from main\n" << std::endl;
 	int e = 2;
 	int f = 3;
 	::swap( e, f );
