@@ -161,7 +161,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			std::cout << concateDate << std::endl;
 
 			std::map<std::string, double>::iterator it = _exchangeRate.find(concateDate);
-			std::string closestDate == concateDate;
+			std::string closestDate = concateDate;
 			int dateInt = 0;
 
 			while (it == _exchangeRate.end())
