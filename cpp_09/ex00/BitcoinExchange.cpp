@@ -161,11 +161,21 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			std::cout << concateDate << std::endl;
 
 			std::map<std::string, double>::iterator it = _exchangeRate.find(concateDate);
+			std::string closestDate == concateDate;
+			int dateInt = 0;
 
-			if (it == _exchangeRate.end())
-				std::cout << "no" << std::endl;
+			while (it == _exchangeRate.end())
+			{
+				dateInt = _convertStringToInt(concateDate);
+				dateInt = dateInt - 1;
+				std::stringstream ss;
+				ss << dateInt;
+				closestDate = ss.str();
 
-			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[concateDate] << std::endl;
+				std::map<std::string, double>::iterator it = _exchangeRate.find(closestDate);
+			}
+
+			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[closestDate] << std::endl;
 		}
 		catch(const std::exception& e)
 		{
