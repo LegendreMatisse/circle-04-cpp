@@ -169,20 +169,24 @@ void BitcoinExchange::exchange(std::ifstream &file)
 
 const char *BitcoinExchange::NoFileError::what() const throw()
 {
-	return "ERROR: Could not open file. Please provide a valid file.\n";
+	std::cout << "ERROR: Could not open file. Please provide a valid file." << std::flush;
+	return "\n";
 }
 
 const char *BitcoinExchange::MissingDataError::what() const throw()
 {
-	return "ERROR: The file you provided is missing the required data. Please provide a valid file.\n";
+	std::cout << "ERROR: The file you provided is missing the required data. Please provide a valid file." << std::flush;
+	return "\n";
 }
 
 const char *BitcoinExchange::InvalidDataFormatError::what() const throw()
 {
-	return "ERROR: The data within the file does not have the required format. Please provide a valid file.\n";
+	std::cout << "ERROR: The data within the file does not have the required format. Please provide a valid file." << std::flush;
+	return "\n";
 }
 
 const char *BitcoinExchange::OutOfRangeError::what() const throw()
 {
-	return "ERROR: The data within the file exceeds the required ranges. Please provide a valid file.\n";
+	std::cout << "ERROR: The data within the file exceeds the required ranges. Please provide a valid file." << std::flush;
+	return "\n";
 }
