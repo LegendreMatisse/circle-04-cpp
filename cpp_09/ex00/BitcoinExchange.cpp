@@ -84,6 +84,9 @@ bool BitcoinExchange::_validateDate(const std::string &date) const
 	int month = _convertStringToInt(date.substr(5, 7));
 	int day = _convertStringToInt(date.substr(8, 10));
 
+	std::cout << date << std::endl;
+	std::cout << date.substr(0, 4) << std::endl;
+	std::cout << date.substr(5, 6) << std::endl;
 	std::cout << year << " " << month << " " << day << std::endl;
 
 	if (!_checkIfRealDate(year, month, day))
