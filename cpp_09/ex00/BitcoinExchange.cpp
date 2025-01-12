@@ -59,8 +59,8 @@ void BitcoinExchange::_addExchangeRateAndDatesToMap()
 		if (_exchangeRate.find(date) != _exchangeRate.end())
 			throw MissingDataError();
 
-		std::string concateDate = date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10);
-		_exchangeRateSorted[concateDate] = std::strtod(rate.c_str(), NULL);
+		/*std::string concateDate = date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10);
+		_exchangeRateSorted[concateDate] = std::strtod(rate.c_str(), NULL);*/
 
 		_exchangeRate[date] = std::strtod(rate.c_str(), NULL);
 	}
@@ -81,13 +81,8 @@ bool BitcoinExchange::_validateDate(const std::string &date) const
 	}
 
 	int year = _convertStringToInt(date.substr(0, 4));
-	int month = _convertStringToInt(date.substr(5, 7));
-	int day = _convertStringToInt(date.substr(8, 10));
-
-	std::cout << date << std::endl;
-	std::cout << date.substr(0, 4) << std::endl;
-	std::cout << date.substr(5, 6) << std::endl;
-	std::cout << year << " " << month << " " << day << std::endl;
+	int month = _convertStringToInt(date.substr(5, 2));
+	int day = _convertStringToInt(date.substr(8, 2));
 
 	if (!_checkIfRealDate(year, month, day))
 		return false;
@@ -162,10 +157,10 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			std::cout << "Found value: " << _exchangeRate[date] << std::endl;*/
 
 			//std::cout << date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10) << std::endl;
-			std::cout << date << std::endl;
+			/*std::cout << date << std::endl;
 			std::cout << date.substr(0, 4) << std::endl;
 			std::cout << date.substr(5, 2) << std::endl;
-			std::cout << date.substr(8, 2) << std::endl;
+			std::cout << date.substr(8, 2) << std::endl;*/
 
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
 		}
