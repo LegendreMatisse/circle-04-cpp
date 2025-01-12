@@ -164,8 +164,8 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			//std::cout << date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10) << std::endl;
 			std::cout << date << std::endl;
 			std::cout << date.substr(0, 4) << std::endl;
-			std::cout << date.substr(5, 6) << std::endl;
-			std::cout << date.substr(8, 10) << std::endl;
+			std::cout << date.substr(5, 2) << std::endl;
+			std::cout << date.substr(8, 2) << std::endl;
 
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
 		}
