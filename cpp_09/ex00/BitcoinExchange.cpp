@@ -104,6 +104,12 @@ int BitcoinExchange::_convertStringToInt(const std::string &input) const
 
 bool BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
 {
+	std::cout << "----" << std::endl;
+	std::cout << year << std::endl;
+	std::cout << month << std::endl;
+	std::cout << day << std::endl;
+	std::cout << "----" << std::endl;
+	
 	if (month < 1 || month > 12) 
 		return false;
     if (day < 1 || day > 31)
