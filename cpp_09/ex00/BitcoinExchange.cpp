@@ -147,6 +147,9 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			throw InvalidDataFormatError();
 		if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
                 throw OutOfRangeError();
+
+		std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << " BTC" << std::endl;
+
 		
 	}
 }
