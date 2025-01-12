@@ -27,7 +27,6 @@ class BitcoinExchange {
 	private:
 		//variables
 		std::map<std::string, double> _exchangeRate;
-		std::map<std::string, double> _exchangeRateSorted;
 
 		//functions
 		void _addExchangeRateAndDatesToMap();
