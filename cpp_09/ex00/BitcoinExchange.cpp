@@ -159,35 +159,19 @@ void BitcoinExchange::exchange(std::ifstream &file)
 				throw OutOfRangeError();
 
 			std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
-			std::cout << concateDate << std::endl;
 
 			std::map<std::string, double>::iterator it = _exchangeRate.lower_bound(concateDate);
 
 			if (it == _exchangeRate.end() || it->first != concateDate) 
 			{
-                if (it == _exchangeRate.begin())
-                    throw InvalidDataFormatError();
-                --it;
-            }
-
-
-			/*std::string closestDate = concateDate;
-			int dateInt = 0;
-
-			while (it == _exchangeRate.end())
-			{
-				dateInt = _convertStringToInt(concateDate);
-				dateInt = dateInt - 1;
-				std::stringstream ss;
-				ss << dateInt;
-				closestDate = ss.str();
-
-				it = _exchangeRate.find(closestDate);
-			}*/
+				if (it == _exchangeRate.begin())
+					throw InvalidDataFormatError();
+				--it;
+			}
 
 			std::cout << date << " => " << value << " = " 
-			          << std::fixed << std::setprecision(2) 
-					  << std::strtod(value.c_str(), NULL) * it->second << std::endl;
+					<< std::fixed << std::setprecision(2) 
+					<< std::strtod(value.c_str(), NULL) * it->second << std::endl;
 		}
 		catch(const std::exception& e)
 		{
