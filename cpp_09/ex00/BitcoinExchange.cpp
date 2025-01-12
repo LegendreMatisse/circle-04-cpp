@@ -157,7 +157,8 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
 				throw OutOfRangeError();
 
-			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
+			std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
+			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[concateDate] << std::endl;
 		}
 		catch(const std::exception& e)
 		{
