@@ -42,7 +42,7 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		//functions
-		void exchange(/*std::ifstream &file*/) const;
+		void exchange(/*std::ifstream &file*/);
 
 		//exceptions
 		class NoFileError : public std::exception

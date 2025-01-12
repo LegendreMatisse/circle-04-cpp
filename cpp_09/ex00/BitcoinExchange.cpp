@@ -90,9 +90,11 @@ bool BitcoinExchange::_validateExchangeRate(const std::string &rate) const
     return iss.eof();
 }
 
-void BitcoinExchange::exchange(/*std::ifstream &file*/) const
+void BitcoinExchange::exchange(/*std::ifstream &file*/)
 {
-	for (std::map<std::string, double>::const_iterator it = _exchangeRate.begin(); it != _exchangeRate.end(); ++it)
+	_addExchangeRateAndDatesToMap();
+
+	for (std::map<std::string, double>::iterator it = _exchangeRate.begin(); it != _exchangeRate.end(); ++it)
 	{
 		std::cout << "Date: " << it->first << ", value: " << it->second << std::endl;
 	}
