@@ -138,19 +138,24 @@ void BitcoinExchange::exchange(std::ifstream &file)
 	
 	while (std::getline(file, input))
 	{
-		std::string date = input.substr(0, input.find('|') - 1);
-		std::string value = input.substr(input.find('|') + 2);
+		try
+		{
+			std::string date = input.substr(0, input.find('|') - 1);
+			std::string value = input.substr(input.find('|') + 2);
 
-		if (date.empty() || value.empty())
-			throw InvalidDataFormatError();
-		if (!_validateDate(date))
-			throw InvalidDataFormatError();
-		if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
-                throw OutOfRangeError();
+			if (date.empty() || value.empty())
+				throw InvalidDataFormatError();
+			if (!_validateDate(date))
+				throw InvalidDataFormatError();
+			if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
+					throw OutOfRangeError();
 
-		std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << " BTC" << std::endl;
-
-		
+			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 }
 
