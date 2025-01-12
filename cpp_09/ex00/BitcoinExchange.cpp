@@ -148,13 +148,16 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			if (!_validateDate(date))
 				throw InvalidDataFormatError();
 			if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
-					throw OutOfRangeError();
+				throw OutOfRangeError();
+			
+			if (_exchangeRate.find(date) == _exchangeRate.end())
+				std::cout << "Date not found." << std::endl;
 
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << e.what();
 		}
 	}
 }
