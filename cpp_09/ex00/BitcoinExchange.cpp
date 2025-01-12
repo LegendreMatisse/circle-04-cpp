@@ -172,7 +172,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 				ss << dateInt;
 				closestDate = ss.str();
 
-				std::map<std::string, double>::iterator it = _exchangeRate.find(closestDate);
+				it = _exchangeRate.find(closestDate);
 			}
 
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[closestDate] << std::endl;
