@@ -153,6 +153,8 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			if (_exchangeRate.find(date) == _exchangeRate.end())
 				std::cout << "Date not found." << std::endl;
 
+			std::cout << "Found value: " << _exchangeRate[date] << std::endl;
+
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
 		}
 		catch(const std::exception& e)
