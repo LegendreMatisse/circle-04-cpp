@@ -10,3 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "BitcoinExchange.hpp"
+
+int main(void)
+{
+	BitcoinExchange test;
+	test.exchange();
+	return 0;
+}
