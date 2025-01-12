@@ -28,7 +28,15 @@ int main(int argc, char **argv)
 	}
 
 	BitcoinExchange bitcoin;
-	bitcoin.exchange(input);
+
+	try
+	{
+		bitcoin.exchange(input);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what();
+	}	
 
 	return 0;
 }
