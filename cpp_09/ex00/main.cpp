@@ -16,14 +16,14 @@ int main(int argc, char **argv)
 {
 	if (argc!= 2)
 	{
-		std::cout << "ERROR: Wrong number of arguments. Please provide a valid file.\n" << std::endl;
+		std::cout << "ERROR: Wrong number of arguments. Please provide a valid file.\n" << std::flush;
 		return 1;
 	}
 
 	std::ifstream input(argv[1]);
 	if (!input.is_open())
 	{
-		std::cout << "ERROR: Could not open file. Please provide a valid file.\n" << std::endl;
+		std::cout << "ERROR: Could not open file. Please provide a valid file.\n" << std::flush;
 		return 1;
 	}
 
