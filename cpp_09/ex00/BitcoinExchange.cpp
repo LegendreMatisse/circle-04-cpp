@@ -104,12 +104,6 @@ int BitcoinExchange::_convertStringToInt(const std::string &input) const
 
 bool BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
 {
-	std::cout << "----" << std::endl;
-	std::cout << year << std::endl;
-	std::cout << month << std::endl;
-	std::cout << day << std::endl;
-	std::cout << "----" << std::endl;
-	
 	if (month < 1 || month > 12) 
 		return false;
     if (day < 1 || day > 31)
@@ -133,15 +127,28 @@ bool BitcoinExchange::_validateExchangeRate(const std::string &rate) const
     return iss.eof();
 }
 
-void BitcoinExchange::exchange(/*std::ifstream &file*/)
+void BitcoinExchange::exchange(std::ifstream &file)
 {
-	_addExchangeRateAndDatesToMap();
+	std::string input;
+	std::getline(file, input);
+	if (line != "date | value")
+		throw InvalidDataFormatError();
 
-	for (std::map<std::string, double>::iterator it = _exchangeRate.begin(); it != _exchangeRate.end(); ++it)
-	{
-		std::cout << "Date: " << it->first << ", value: " << it->second << std::endl;
-	}
+	_addExchangeRateAndDatesToMap();
 	
+	while (std::getline(file, input))
+	{
+		std::string date = input.substr(0, line.find('|') - 1);
+		std::string value = input.substr(line.find('|') + 2);
+
+		if (date.empty() || value.empty())
+			throw InvalidDataFormatError();
+		if (!_validateDate(date))
+			throw InvalidDataFormatError();
+		if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
+                throw OutOfRangeError();
+		
+	}
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()

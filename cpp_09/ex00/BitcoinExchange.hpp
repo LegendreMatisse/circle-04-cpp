@@ -35,6 +35,8 @@ class BitcoinExchange {
 		bool _checkIfRealDate(const int year, const int month, const int day) const;
 		bool _validateExchangeRate(const std::string &rate) const;
 
+		
+
 	public:
 		//constructors and destructor
 		BitcoinExchange();
@@ -43,7 +45,7 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		//functions
-		void exchange(/*std::ifstream &file*/);
+		void exchange(std::ifstream &file);
 
 		//exceptions
 		class NoFileError : public std::exception
