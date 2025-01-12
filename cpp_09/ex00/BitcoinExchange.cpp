@@ -162,6 +162,9 @@ void BitcoinExchange::exchange(std::ifstream &file)
 
 			std::map<std::string, double>::iterator it = _exchangeRate.find(concateDate);
 
+			if (it == _exchangeRate.end())
+				std::cout << "no" << std::endl;
+
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[concateDate] << std::endl;
 		}
 		catch(const std::exception& e)
