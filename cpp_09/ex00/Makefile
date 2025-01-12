@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Find
+NAME	=	bitcoin
 
 SRC		=	main.cpp BitcoinExchange.cpp
 

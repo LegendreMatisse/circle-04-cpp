@@ -31,12 +31,12 @@ int main(int argc, char **argv)
 
 	try
 	{
-		bitcoin.exchange(argv[1]);
+		bitcoin.exchange(input);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::flush;
 	}
-	
+
 	return 0;
 }
