@@ -59,10 +59,9 @@ void BitcoinExchange::_addExchangeRateAndDatesToMap()
 		if (_exchangeRate.find(date) != _exchangeRate.end())
 			throw MissingDataError();
 
-		/*std::string concateDate = date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10);
-		_exchangeRateSorted[concateDate] = std::strtod(rate.c_str(), NULL);*/
+		std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
 
-		_exchangeRate[date] = std::strtod(rate.c_str(), NULL);
+		_exchangeRate[concateDate] = std::strtod(rate.c_str(), NULL);
 	}
 }
 
