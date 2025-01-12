@@ -135,7 +135,14 @@ void BitcoinExchange::exchange(std::ifstream &file)
 	if (input != "date | value")
 		throw InvalidDataFormatError();
 
-	_addExchangeRateAndDatesToMap();
+	try
+	{
+		_addExchangeRateAndDatesToMap();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what();
+	}
 	
 	while (std::getline(file, input))
 	{
