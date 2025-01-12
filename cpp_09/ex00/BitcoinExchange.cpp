@@ -78,7 +78,44 @@ bool BitcoinExchange::_validateDate(const std::string &date) const
         if (date[i] < '0' || date[i] > '9')
             return false;
 	}
+
+	int year = _convertStringToInt(date.substr(0, 4));
+	int month = _convertStringToInt(date.substr(5, 7));
+	int day = _convertStringToInt(date.substr(8, 10));
+
+	if (!_checkIfRealDate(year, month, day))
+		return false;
+
 	return true;
+}
+
+int BitcoinExchange::_convertStringToInt(const std::string &input) const
+{
+	std::istringstream iss(input);
+	int output = 0;
+
+	iss >> output;
+
+	if (iss.fail())
+		throw InvalidDataFormatError();
+
+	return output;
+}
+
+bool BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
+{
+	if (month < 1 || month > 12) 
+		return false;
+    if (day < 1 || day > 31)
+		return false;
+    if (month == 2)
+	{
+        bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        return day <= (isLeapYear ? 29 : 28);
+    }
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+        return day <= 30;
+    return true;
 }
 
 bool BitcoinExchange::_validateExchangeRate(const std::string &rate) const
