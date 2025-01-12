@@ -84,6 +84,8 @@ bool BitcoinExchange::_validateDate(const std::string &date) const
 	int month = _convertStringToInt(date.substr(5, 2));
 	int day = _convertStringToInt(date.substr(8, 2));
 
+	std::cout << year << " " << month << " " << day << std::endl;
+
 	if (!_checkIfRealDate(year, month, day))
 		return false;
 
@@ -150,17 +152,6 @@ void BitcoinExchange::exchange(std::ifstream &file)
 				throw InvalidDataFormatError();
 			if (std::strtod(value.c_str(), NULL) <= 0 || std::strtod(value.c_str(), NULL) > 1000)
 				throw OutOfRangeError();
-			
-			/*if (_exchangeRate.find(date) == _exchangeRate.end())
-				std::cout << "Date not found." << std::endl;
-
-			std::cout << "Found value: " << _exchangeRate[date] << std::endl;*/
-
-			//std::cout << date.substr(0, 4) + date.substr(5, 7) + date.substr(8, 10) << std::endl;
-			/*std::cout << date << std::endl;
-			std::cout << date.substr(0, 4) << std::endl;
-			std::cout << date.substr(5, 2) << std::endl;
-			std::cout << date.substr(8, 2) << std::endl;*/
 
 			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << std::strtod(value.c_str(), NULL) * _exchangeRate[date] << std::endl;
 		}
