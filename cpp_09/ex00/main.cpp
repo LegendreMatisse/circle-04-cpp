@@ -15,6 +15,13 @@
 int main(void)
 {
 	BitcoinExchange test;
-	test.exchange();
+	try
+	{
+		test.exchange();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return 0;
 }
