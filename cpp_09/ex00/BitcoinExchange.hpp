@@ -27,6 +27,7 @@ class BitcoinExchange {
 	private:
 		//variables
 		std::map<std::string, double> _exchangeRate;
+		std::map<std::string, double> _exchangeRateSorted;
 
 		//functions
 		void _addExchangeRateAndDatesToMap();
@@ -35,7 +36,7 @@ class BitcoinExchange {
 		bool _checkIfRealDate(const int year, const int month, const int day) const;
 		bool _validateExchangeRate(const std::string &rate) const;
 
-		
+
 
 	public:
 		//constructors and destructor
