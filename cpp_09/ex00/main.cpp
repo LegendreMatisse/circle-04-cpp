@@ -12,16 +12,31 @@
 
 #include "BitcoinExchange.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-	BitcoinExchange test;
+	if (argc!= 2)
+	{
+		std::cout << "ERROR: Wrong number of arguments. Please provide a valid file.\n" << std::endl;
+		return 1;
+	}
+
+	std::ifstream input(argv[1]);
+	if (!input.is_open())
+	{
+		std::cout << "ERROR: Could not open file. Please provide a valid file.\n" << std::endl;
+		return 1;
+	}
+
+	BitcoinExchange bitcoin;
+
 	try
 	{
-		test.exchange();
+		bitcoin.exchange(argv[1]);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::flush;
 	}
+	
 	return 0;
 }
