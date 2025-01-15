@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   easyFind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:22:37 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/18 12:28:20 by mlegendr         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:32:04 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <list>
 
 template <typename T>
-typename T::const_iterator easyfind(const T &container, const int &value)
+typename T::const_iterator easyFind(const T &container, const int &value)
 {
 	if (container.empty())
 		throw std::out_of_range("Container is empty");

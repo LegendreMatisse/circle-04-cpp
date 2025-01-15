@@ -6,11 +6,11 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:22:18 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/09/18 12:28:54 by mlegendr         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:32:09 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "easyFind.hpp"
 
 int main(void)
 {
@@ -23,7 +23,7 @@ int main(void)
 
 	try
 	{
-		std::vector<int>::const_iterator it = easyfind(test, 20);
+		std::vector<int>::const_iterator it = easyFind(test, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -33,7 +33,7 @@ int main(void)
 
 	try
 	{
-		std::vector<int>::const_iterator it = easyfind(test, 9500);
+		std::vector<int>::const_iterator it = easyFind(test, 9500);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -44,7 +44,7 @@ int main(void)
 	try
 	{
 		std::vector<int> test2;
-		std::vector<int>::const_iterator it = easyfind(test2, 20);
+		std::vector<int>::const_iterator it = easyFind(test2, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -61,7 +61,7 @@ int main(void)
 	
 	try
 	{
-		std::list<int>::const_iterator it = easyfind(test2, 20);
+		std::list<int>::const_iterator it = easyFind(test2, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -71,7 +71,7 @@ int main(void)
 
 	try
 	{
-		std::list<int>::const_iterator it = easyfind(test2, 9500);
+		std::list<int>::const_iterator it = easyFind(test2, 9500);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
@@ -82,7 +82,7 @@ int main(void)
 	try
 	{
 		std::list<int> test2;
-		std::list<int>::const_iterator it = easyfind(test2, 20);
+		std::list<int>::const_iterator it = easyFind(test2, 20);
 		std::cout << *it << std::endl;	
 	}
 	catch (const std::exception &e)
