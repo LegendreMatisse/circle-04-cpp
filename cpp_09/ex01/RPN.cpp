@@ -52,7 +52,7 @@ void RPN::_addInputToStack(const std::string &input)
 
 		_inputValidation(input[i]);
 
-		_expression.push(input[i] - '0');
+		_expression.push(input[i]);
 	}
 
 	while (!_expression.empty())
