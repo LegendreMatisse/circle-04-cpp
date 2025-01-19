@@ -51,7 +51,7 @@ void RPN::_inputValidation(const std::string &input)
 		if (input[i] == ' ')
 			continue;
 
-		if (!std::isdigit(input) && input != '+' && input != '-' && input != '/' && input != '*')
+		if (!std::isdigit(input[i]) && input[i] != '+' && input[i] != '-' && input[i] != '/' && input[i] != '*')
 			throw WrongInputError();
 
 		_inputWithoutSpaces += input[i];
