@@ -116,6 +116,8 @@ void RPN::calculateResult(const std::string &input)
 			throw WrongInputError();
 	}
 
+	std::cout << "10" << std::endl;
+
 	if (_expression.size() != 1)
 		throw WrongInputError();
 
