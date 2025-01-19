@@ -137,6 +137,9 @@ void RPN::calculateResult(const std::string &input)
 	if (_expression.size() != 1)
 		throw WrongInputError();
 	
+	while (!(_expression.empty()))
+		std::cout << "stack: " << _expression << std::endl;
+	
 	std::cout << _expression.top() << std::endl;
 }
 
