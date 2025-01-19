@@ -24,7 +24,7 @@ class RPN
 	private:
 		//variables
 		std::stack<char> _expression;
-		std::string _inputWithoutSpaces = "";
+		std::string _inputWithoutSpaces;
 
 		//fucntions
 		void _inputValidation(const std::string &input);
