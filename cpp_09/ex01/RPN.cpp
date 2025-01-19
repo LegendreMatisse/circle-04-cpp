@@ -57,6 +57,8 @@ void RPN::_inputValidation(const std::string &input)
 		_inputWithoutSpaces += input[i];
 	}
 
+	std::cout << "1" << std::endl;
+
 	int operandCount = 0;
 	int operatorCount = 0;
 
@@ -70,11 +72,15 @@ void RPN::_inputValidation(const std::string &input)
 		if (!(operandCount > operatorCount))
 			throw WrongInputError();
 	}
+
+	std::cout << "2" << std::endl;
 	
 	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size() - 1];
 
 	if (lastValue != '+' && lastValue != '-' && lastValue != '/' && lastValue != '*')
 		throw WrongInputError();
+
+	std::cout << "3" << std::endl;
 
 	return;
 }
@@ -87,7 +93,10 @@ void RPN::calculateResult(const std::string &input)
 	while (iss >> expressionPart)
 	{
 		if (expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
+		{
 			_expression.push(expressionPart[0] - '0');
+			std::cout << "4" << std::endl;
+		}
 		else if (expressionPart == "+" && expressionPart == "-" && expressionPart == "/" && expressionPart == "*")
 		{
 			if (_expression.size() < 2)
@@ -98,6 +107,7 @@ void RPN::calculateResult(const std::string &input)
 			_expression.pop();
 			int result = _performOperation(a, b, expressionPart);
 			_expression.push(result);
+			std::cout << "5" << std::endl;
 		}
 		else
 			throw WrongInputError();
@@ -105,6 +115,8 @@ void RPN::calculateResult(const std::string &input)
 
 	if (_expression.size() != 1)
 		throw WrongInputError();
+
+	std::cout << "6" << std::endl;
 	
 	std::cout << _expression.top() << std::endl;
 }
@@ -119,10 +131,12 @@ int RPN::_performOperation(const int &a, const int &b, const std::string &expres
 		return a * b;
 	if (expressionPart == "/")
 	{
+		std::cout << "7" << std::endl;
 		if (b == 0)
 			throw WrongInputError();
 		return a / b;
 	}
+	std::cout << "8" << std::endl;
 	throw WrongInputError();
 }
 
