@@ -45,7 +45,7 @@ RPN::~RPN()
 
 void RPN::_addInputToStack(const std::string &input)
 {
-	for (size_t i = 0; i < (size_t)input.size(); i++)
+	for (size_t i = (size_t)input.size(); i > 0; i++)
 	{
 		if (input[i] == ' ')
 			continue;
