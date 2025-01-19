@@ -111,19 +111,19 @@ void RPN::calculateResult(const std::string &input)
 
 int RPN::_performOperation(const int &a, const int &b, const std::string &expressionPart)
 {
-	if (op == "+")
+	if (expressionPart == "+")
 		return a + b;
-	if (op == "-")
+	if (expressionPart == "-")
 		return a - b;
-	if (op == "*")
+	if (expressionPart == "*")
 		return a * b;
-	if (op == "/")
+	if (expressionPart == "/")
 	{
 		if (b == 0)
-			throw WrongInputError;
+			throw WrongInputError();
 		return a / b;
 	}
-	throw std::runtime_error("Invalid operator");
+	throw WrongInputError();
 }
 
 const char *RPN::WrongInputError::what() const throw()
