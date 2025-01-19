@@ -21,7 +21,7 @@ RPN::RPN(const std::string &input)
 {
 	std::cout << "Constructor with parameters called" << std::endl;
 	_inputValidation(input);
-	_calculateResult(_inputWithoutSpaces);
+	calculateResult(_inputWithoutSpaces);
 }
 
 RPN::RPN(const RPN &copyCo)
@@ -82,11 +82,11 @@ void RPN::_inputValidation(const std::string &input)
 void RPN::calculateResult(const std::string &input)
 {
 	std::istringstream iss(input);
-	std::string = expressionPart;
+	std::string expressionPart;
 
 	while (iss >> expressionPart)
 	{
-		if (_expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
+		if (expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
 			_expression.push(expressionPart);
 		else if (expressionPart != '+' && expressionPart != '-' && expressionPart != '/' && expressionPart != '*')
 		{
