@@ -97,7 +97,7 @@ void RPN::calculateResult(const std::string &input)
 			_expression.push(_inputWithoutSpaces[i] - '0');
 			std::cout << "4" << std::endl;
 		}
-		else if (_inputWithoutSpaces[i] == "+" || _inputWithoutSpaces[i] == "-" || _inputWithoutSpaces[i] == "/" || _inputWithoutSpaces[i] == "*")
+		else if (_inputWithoutSpaces[i] == '+' || _inputWithoutSpaces[i] == '-' || _inputWithoutSpaces[i] == '/' || _inputWithoutSpaces[i] == '*')
 		{
 			std::cout << "9" << std::endl;
 			if (_expression.size() < 2)
@@ -157,15 +157,15 @@ void RPN::calculateResult(const std::string &input)
 	std::cout << _expression.top() << std::endl;
 }
 
-int RPN::_performOperation(const int &a, const int &b, const std::string &expressionPart)
+int RPN::_performOperation(const int &a, const int &b, const char &expressionPart)
 {
-	if (expressionPart == "+")
+	if (expressionPart == '+')
 		return a + b;
-	if (expressionPart == "-")
+	if (expressionPart == '-')
 		return a - b;
-	if (expressionPart == "*")
+	if (expressionPart == '*')
 		return a * b;
-	if (expressionPart == "/")
+	if (expressionPart == '/')
 	{
 		std::cout << "7" << std::endl;
 		if (b == 0)

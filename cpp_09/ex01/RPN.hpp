@@ -28,7 +28,7 @@ class RPN
 
 		//fucntions
 		void _inputValidation(const std::string &input);
-		int _performOperation(const int &a, const int &b, const std::string &expressionPart);
+		int _performOperation(const int &a, const int &b, const char &expressionPart);
 	
 	public:
 		//constructors and destructor
