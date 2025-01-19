@@ -57,17 +57,17 @@ void RPN::_inputValidation(const std::string &input)
 		_inputWithoutSpaces += input[i];
 	}
 
+	int operandCount = 0;
+	int operatorCount = 0;
+
 	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
 	{
-		int operandCount = 0;
-		int operatorCount = 0;
-
 		if (std::isdigit(_inputWithoutSpaces[i]))
 			operandCount++;
 		else
 			operatorCount++;
 
-		if (operandCount == operatorCount || operandCount < operatorCount)
+		if (!(operandCount > operatorCount))
 			throw WrongInputError();
 	}
 	
