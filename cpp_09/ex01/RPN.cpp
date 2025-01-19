@@ -45,7 +45,7 @@ RPN::~RPN()
 
 void RPN::_addInputToStack(const std::string &input)
 {
-	for (size_t i = (size_t)input.size(); i >= 0; i--)
+	for (size_t i = (size_t)input.size(); i > 0; i--)
 	{
 		std::cout << i;
 	}
