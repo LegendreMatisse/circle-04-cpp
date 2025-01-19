@@ -57,8 +57,6 @@ void RPN::_inputValidation(const std::string &input)
 		_inputWithoutSpaces += input[i];
 	}
 
-	std::cout << "1" << std::endl;
-
 	int operandCount = 0;
 	int operatorCount = 0;
 
@@ -72,17 +70,11 @@ void RPN::_inputValidation(const std::string &input)
 		if (!(operandCount > operatorCount))
 			throw WrongInputError();
 	}
-
-	std::cout << "2" << std::endl;
 	
 	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size() - 1];
 
 	if (lastValue != '+' && lastValue != '-' && lastValue != '/' && lastValue != '*')
 		throw WrongInputError();
-
-	std::cout << "3" << std::endl;
-
-	std::cout << _inputWithoutSpaces << std::endl;
 
 	return;
 }
@@ -93,13 +85,9 @@ void RPN::calculateResult(const std::string &input)
 	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
 	{
 		if (std::isdigit(_inputWithoutSpaces[i]))
-		{
 			_expression.push(_inputWithoutSpaces[i] - '0');
-			std::cout << "4" << std::endl;
-		}
 		else if (_inputWithoutSpaces[i] == '+' || _inputWithoutSpaces[i] == '-' || _inputWithoutSpaces[i] == '/' || _inputWithoutSpaces[i] == '*')
 		{
-			std::cout << "9" << std::endl;
 			if (_expression.size() < 2)
 				throw WrongInputError();
 			int b = _expression.top();
@@ -108,13 +96,9 @@ void RPN::calculateResult(const std::string &input)
 			_expression.pop();
 			int result = _performOperation(a, b, _inputWithoutSpaces[i]);
 			_expression.push(result);
-			std::cout << "5" << std::endl;
 		}
 		else
-		{
-			std::cout << "11" << std::endl;
 			throw WrongInputError();
-		}
 	}
 	
 	/*std::istringstream iss(input);
@@ -147,12 +131,8 @@ void RPN::calculateResult(const std::string &input)
 		}
 	}*/
 
-	std::cout << "10" << std::endl;
-
 	if (_expression.size() != 1)
 		throw WrongInputError();
-
-	std::cout << "6" << std::endl;
 	
 	std::cout << _expression.top() << std::endl;
 }
@@ -167,12 +147,10 @@ int RPN::_performOperation(const int &a, const int &b, const char &expressionPar
 		return a * b;
 	if (expressionPart == '/')
 	{
-		std::cout << "7" << std::endl;
 		if (b == 0)
 			throw WrongInputError();
 		return a / b;
 	}
-	std::cout << "8" << std::endl;
 	throw WrongInputError();
 }
 
