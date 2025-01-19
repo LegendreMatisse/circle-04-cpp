@@ -140,7 +140,7 @@ void RPN::calculateResult(const std::string &input)
 	while (!(_expression.empty()))
 	{
 		std::cout << "stack: " << _expression.top() << std::endl;
-		_expression.pop()
+		_expression.pop();
 	}
 	
 	std::cout << _expression.top() << std::endl;
