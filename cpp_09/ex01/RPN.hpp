@@ -16,6 +16,7 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <ctype.h>
 
 class RPN
 {
@@ -25,6 +26,7 @@ class RPN
 
 		//fucntions
 		void _addInputToStack(const std::string &input);
+		void _inputValidation(const char &input);
 	
 	public:
 		//constructors and destructor

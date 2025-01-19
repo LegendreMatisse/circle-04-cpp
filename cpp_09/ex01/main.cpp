@@ -14,7 +14,14 @@
 
 int main(void)
 {
-	RPN test("1 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9");
+	try
+	{
+		RPN test("1 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what();
+	}
 
 	return 0;
 }
