@@ -87,7 +87,7 @@ void RPN::calculateResult(const std::string &input)
 	while (iss >> expressionPart)
 	{
 		if (expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
-			_expression.push(expressionPart - '0');
+			_expression.push(expressionPart[0] - '0');
 		else if (expressionPart == "+" && expressionPart == "-" && expressionPart == "/" && expressionPart == "*")
 		{
 			if (_expression.size() < 2)
