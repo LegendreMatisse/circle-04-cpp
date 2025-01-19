@@ -92,47 +92,14 @@ void RPN::calculateResult(const std::string &input)
 				throw WrongInputError();
 			int b = _expression.top();
 			_expression.pop();
-			std::cout << "b = " << b << std::endl;
 			int a = _expression.top();
 			_expression.pop();
-			std::cout << "a = " << a << std::endl;
 			int result = _performOperation(a, b, _inputWithoutSpaces[i]);
-			std::cout << "result = " << result << std::endl;
 			_expression.push(result);
 		}
 		else
 			throw WrongInputError();
 	}
-	
-	/*std::istringstream iss(input);
-	std::string expressionPart;
-
-	while (iss >> expressionPart)
-	{
-		if (std::isdigit(expressionPart[0]))
-		{
-			_expression.push(expressionPart[0] - '0');
-			std::cout << "4" << std::endl;
-		}
-		else if (expressionPart == "+" || expressionPart == "-" || expressionPart == "/" || expressionPart == "*")
-		{
-			std::cout << "9" << std::endl;
-			if (_expression.size() < 2)
-				throw WrongInputError();
-			int b = _expression.top();
-			_expression.pop();
-			int a = _expression.top();
-			_expression.pop();
-			int result = _performOperation(a, b, expressionPart);
-			_expression.push(result);
-			std::cout << "5" << std::endl;
-		}
-		else
-		{
-			std::cout << "11" << std::endl;
-			throw WrongInputError();
-		}
-	}*/
 
 	if (_expression.size() != 1)
 		throw WrongInputError();
