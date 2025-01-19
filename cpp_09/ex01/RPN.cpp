@@ -48,7 +48,7 @@ void RPN::_addInputToStack(const std::string &input)
 	for (size_t i = 0; i < (size_t)input.size(); i++)
 	{
 		std::cout << i << std::flush;
-		_inputValidation(i);
+		//_inputValidation(i);
 	}	
 }
 
