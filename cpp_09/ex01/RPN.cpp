@@ -89,7 +89,34 @@ void RPN::_inputValidation(const std::string &input)
 
 void RPN::calculateResult(const std::string &input)
 {
-	std::istringstream iss(input);
+	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
+	{
+		if (std::isdigit(_inputWithoutSpaces[i]))
+		{
+			_expression.push(_inputWithoutSpaces[i] - '0');
+			std::cout << "4" << std::endl;
+		}
+		else if (_inputWithoutSpaces[i] == "+" || _inputWithoutSpaces[i] == "-" || _inputWithoutSpaces[i] == "/" || _inputWithoutSpaces[i] == "*")
+		{
+			std::cout << "9" << std::endl;
+			if (_expression.size() < 2)
+				throw WrongInputError();
+			int b = _expression.top();
+			_expression.pop();
+			int a = _expression.top();
+			_expression.pop();
+			int result = _performOperation(a, b, _inputWithoutSpaces[i]);
+			_expression.push(result);
+			std::cout << "5" << std::endl;
+		}
+		else
+		{
+			std::cout << "11" << std::endl;
+			throw WrongInputError();
+		}
+	}
+	
+	/*std::istringstream iss(input);
 	std::string expressionPart;
 
 	while (iss >> expressionPart)
@@ -117,7 +144,7 @@ void RPN::calculateResult(const std::string &input)
 			std::cout << "11" << std::endl;
 			throw WrongInputError();
 		}
-	}
+	}*/
 
 	std::cout << "10" << std::endl;
 
