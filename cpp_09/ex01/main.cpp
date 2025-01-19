@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 
 	try
 	{
+		std::cout "~~" std::endl;
 		RPN test(argv[1]);
 	}
 	catch(const std::exception& e)
@@ -33,6 +34,7 @@ int main(int argc, char **argv)
 
 	try
 	{
+		std::cout "~~" std::endl;
 		std::cout << "Result should be: 42" << std::endl;
 		RPN test("8 9 * 9 - 9 - 9 - 4 - 1 +");
 	}
@@ -43,6 +45,7 @@ int main(int argc, char **argv)
 
 	try
 	{
+		std::cout "~~" std::endl;
 		std::cout << "Result should be: 42" << std::endl;
 		RPN test("7 7 * 7 -");
 	}
@@ -53,6 +56,7 @@ int main(int argc, char **argv)
 
 	try
 	{
+		std::cout "~~" std::endl;
 		std::cout << "Result should be: 0" << std::endl;
 		RPN test("1 2 * 2 / 2 * 2 4 - +");
 	}
@@ -63,8 +67,20 @@ int main(int argc, char **argv)
 
 	try
 	{
+		std::cout "~~" std::endl;
 		std::cout << "Result should be: Error" << std::endl;
 		RPN test("(1 + 1)");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what();
+	}
+
+	try
+	{
+		std::cout "~~" std::endl;
+		std::cout << "Result should be: Error" << std::endl;
+		RPN test("");
 	}
 	catch(const std::exception& e)
 	{
