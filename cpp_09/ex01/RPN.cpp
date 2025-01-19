@@ -89,6 +89,7 @@ void RPN::_inputValidation(const std::string &input)
 
 void RPN::calculateResult(const std::string &input)
 {
+	(void)input;
 	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
 	{
 		if (std::isdigit(_inputWithoutSpaces[i]))
