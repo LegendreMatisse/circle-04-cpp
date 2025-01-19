@@ -16,7 +16,7 @@ int main(void)
 {
 	try
 	{
-		RPN test("1 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9");
+		RPN test("1 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 +");
 	}
 	catch(const std::exception& e)
 	{
@@ -25,7 +25,7 @@ int main(void)
 
 	try
 	{
-		RPN test("1 q + 3 + 4 + 5 + 6 + 7 + 8 + 9");
+		RPN test("1 q + 3 + 4 + 5 + 6 + 7 + 8 + 9 +");
 	}
 	catch(const std::exception& e)
 	{
@@ -34,7 +34,16 @@ int main(void)
 
 	try
 	{
-		RPN test("1+3+4+5+6+7+8+9");
+		RPN test("1+3+4+5+6+7+8+9+");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what();
+	}
+	
+	try
+	{
+		RPN test("12+3+4+5+6+7+8+9");
 	}
 	catch(const std::exception& e)
 	{

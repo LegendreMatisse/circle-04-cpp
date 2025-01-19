@@ -67,10 +67,16 @@ void RPN::_inputValidation(const std::string &input)
 		else
 			operatorCount++;
 
-		if (!(operandCount > operatorCount))
+		if (operandCount == operatorCount || operandCount < operatorCount)
 			throw WrongInputError();
 	}
 	
+	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size()];
+
+	std::cout << lastValue << std::endl;
+
+	if (lastValue != '+' && lastValue != '-' && lastValue != '/' && lastValue != '*')
+		throw WrongInputError();
 
 	std::cout << _inputWithoutSpaces << std::endl;
 
