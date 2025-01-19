@@ -71,7 +71,7 @@ void RPN::_inputValidation(const std::string &input)
 			throw WrongInputError();
 	}
 	
-	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size()];
+	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size() - 1];
 
 	std::cout << lastValue << std::endl;
 
