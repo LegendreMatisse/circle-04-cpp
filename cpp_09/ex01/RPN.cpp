@@ -21,7 +21,7 @@ RPN::RPN(const std::string &input)
 {
 	std::cout << "Constructor with parameters called" << std::endl;
 	_inputValidation(input);
-	//_calculateResult();
+	_calculateResult(_inputWithoutSpaces);
 }
 
 RPN::RPN(const RPN &copyCo)
@@ -73,17 +73,13 @@ void RPN::_inputValidation(const std::string &input)
 	
 	char lastValue = _inputWithoutSpaces[_inputWithoutSpaces.size() - 1];
 
-	std::cout << lastValue << std::endl;
-
 	if (lastValue != '+' && lastValue != '-' && lastValue != '/' && lastValue != '*')
 		throw WrongInputError();
-
-	std::cout << _inputWithoutSpaces << std::endl;
 
 	return;
 }
 
-/*void RPN::calculateResult(const std::string &input)
+void RPN::calculateResult(const std::string &input)
 {
 	std::istringstream iss(input);
 	std::string = expressionPart;
@@ -93,9 +89,42 @@ void RPN::_inputValidation(const std::string &input)
 		if (_expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
 			_expression.push(expressionPart);
 		else if (input != '+' && input != '-' && input != '/' && input != '*')
-		
+		{
+			if (_expression.size() < 2)
+				throw WrongInputError();
+			int b = _expression.top();
+			_expression.pop();
+			int a = _expression.top();
+			_expression.pop();
+			int result = _performOperation(a, b, expressionPart);
+			_expression.push(result);
+		}
+		else
+			throw WrongInputError();
 	}
-}*/
+
+	if (_expression.size() != 1)
+		throw WrongInputError();
+	
+	std::cout << _expression.top() << std::endl;
+}
+
+int RPN::_performOperation(const int &a, const int &b, const std::string &expressionPart)
+{
+	if (op == "+")
+		return a + b;
+	if (op == "-")
+		return a - b;
+	if (op == "*")
+		return a * b;
+	if (op == "/")
+	{
+		if (b == 0)
+			throw WrongInputError;
+		return a / b;
+	}
+	throw std::runtime_error("Invalid operator");
+}
 
 const char *RPN::WrongInputError::what() const throw()
 {
