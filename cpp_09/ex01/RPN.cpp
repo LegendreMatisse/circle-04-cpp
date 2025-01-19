@@ -47,16 +47,23 @@ void RPN::_addInputToStack(const std::string &input)
 {
 	for (size_t i = 0; i < (size_t)input.size(); i++)
 	{
-		std::cout << input[i] << std::flush;
+		if (input[i] == ' ')
+			continue;
+
 		_inputValidation(input[i]);
-	}	
+
+		_expression.push(input[i]);
+	}
+
+	while (!_expression.empty())
+	{
+		std::cout << _expression.top() << " ";
+		_expression.pop();
+	}
 }
 
 void RPN::_inputValidation(const char &input)
 {
-	if (input == ' ')
-		return;
-	
 	if (!isdigit(input) && input != '+' && input != '-' && input != '/' && input != '*')
 		throw WrongInputError();
 	

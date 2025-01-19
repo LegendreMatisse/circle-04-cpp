@@ -22,7 +22,7 @@ class RPN
 {
 	private:
 		//variables
-		std::stack<int> _expression;
+		std::stack<std::string> _expression;
 
 		//fucntions
 		void _addInputToStack(const std::string &input);
