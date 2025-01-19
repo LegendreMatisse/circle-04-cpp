@@ -113,7 +113,10 @@ void RPN::calculateResult(const std::string &input)
 			std::cout << "5" << std::endl;
 		}
 		else
+		{
+			std::cout << "11" << std::endl;
 			throw WrongInputError();
+		}
 	}
 
 	std::cout << "10" << std::endl;
