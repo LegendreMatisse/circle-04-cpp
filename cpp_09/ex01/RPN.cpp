@@ -92,9 +92,12 @@ void RPN::calculateResult(const std::string &input)
 				throw WrongInputError();
 			int b = _expression.top();
 			_expression.pop();
+			std::cout << "b = " << b << std::endl;
 			int a = _expression.top();
 			_expression.pop();
+			std::cout << "a = " << a << std::endl;
 			int result = _performOperation(a, b, _inputWithoutSpaces[i]);
+			std::cout << "result = " << result << std::endl;
 			_expression.push(result);
 		}
 		else
