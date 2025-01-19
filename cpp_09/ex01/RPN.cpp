@@ -99,7 +99,7 @@ void RPN::calculateResult(const std::string &input)
 			_expression.push(expressionPart[0] - '0');
 			std::cout << "4" << std::endl;
 		}
-		else if (expressionPart == "+" && expressionPart == "-" && expressionPart == "/" && expressionPart == "*")
+		else if (expressionPart == "+" || expressionPart == "-" || expressionPart == "/" || expressionPart == "*")
 		{
 			std::cout << "9" << std::endl;
 			if (_expression.size() < 2)
