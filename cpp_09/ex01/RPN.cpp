@@ -94,11 +94,15 @@ void RPN::calculateResult(const std::string &input)
 
 	while (iss >> expressionPart)
 	{
+		std::cout << "12" << std::endl;
+		std::cout << expressionPart << std::endl;
 		if (expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
 		{
 			_expression.push(expressionPart[0] - '0');
 			std::cout << "4" << std::endl;
 		}
+		std::cout << "13" << std::endl;
+		std::cout << expressionPart << std::endl;
 		else if (expressionPart == "+" || expressionPart == "-" || expressionPart == "/" || expressionPart == "*")
 		{
 			std::cout << "9" << std::endl;
