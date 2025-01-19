@@ -20,7 +20,8 @@ RPN::RPN()
 RPN::RPN(const std::string &input)
 {
 	std::cout << "Constructor with parameters called" << std::endl;
-	_addInputToStack(input);
+	_inputValidation(input);
+	//_calculateResult();
 }
 
 RPN::RPN(const RPN &copyCo)
@@ -43,32 +44,35 @@ RPN::~RPN()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void RPN::_addInputToStack(const std::string &input)
+void RPN::_inputValidation(const std::string &input)
 {
 	for (size_t i = 0; i < (size_t)input.size(); i++)
 	{
 		if (input[i] == ' ')
 			continue;
 
-		_inputValidation(input[i]);
+		if (!std::isdigit(input) && input != '+' && input != '-' && input != '/' && input != '*')
+			throw WrongInputError();
 
-		_expression.push(input[i]);
+		_inputWithoutSpaces += input[i];
 	}
 
-	while (!_expression.empty())
-	{
-		std::cout << _expression.top();
-		_expression.pop();
-	}
-}
-
-void RPN::_inputValidation(const char &input)
-{
-	if (!isdigit(input) && input != '+' && input != '-' && input != '/' && input != '*')
-		throw WrongInputError();
-	
 	return;
 }
+
+/*void RPN::calculateResult(const std::string &input)
+{
+	std::istringstream iss(input);
+	std::string = expressionPart;
+
+	while (iss >> expressionPart)
+	{
+		if (_expressionPart.size() == 1 && std::isdigit(expressionPart[0]))
+			_expression.push(expressionPart);
+		else if (input != '+' && input != '-' && input != '/' && input != '*')
+		
+	}
+}*/
 
 const char *RPN::WrongInputError::what() const throw()
 {

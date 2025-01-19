@@ -17,16 +17,17 @@
 #include <stack>
 #include <string>
 #include <ctype.h>
+#include <sstream>
 
 class RPN
 {
 	private:
 		//variables
 		std::stack<char> _expression;
+		std::string _inputWithoutSpaces = "";
 
 		//fucntions
-		void _addInputToStack(const std::string &input);
-		void _inputValidation(const char &input);
+		void _inputValidation(const std::string &input);
 	
 	public:
 		//constructors and destructor
@@ -37,7 +38,7 @@ class RPN
 		~RPN();
 
 		//functions
-		void calculateResult();
+		void calculateResult(const std::string &input);
 
 		//exceptions
 		class WrongInputError : public std::exception
