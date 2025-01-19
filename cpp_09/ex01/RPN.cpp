@@ -82,6 +82,8 @@ void RPN::_inputValidation(const std::string &input)
 
 	std::cout << "3" << std::endl;
 
+	std::cout << _inputWithoutSpaces << std::endl;
+
 	return;
 }
 
