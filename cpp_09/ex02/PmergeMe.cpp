@@ -56,9 +56,11 @@ int PmergeMe::_validateInput(const std::string &argvInput)
 
 	iss >> input;
 
+	std::cout << "1" << std::endl;
 	if (iss.fail() || !iss.eof())
 		throw WrongInputError();
 	
+	std::cout << "2" << std::endl;
 	if (input < 0 || input > std::numeric_limits<int>::max())
 		throw WrongInputError();
 
