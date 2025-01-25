@@ -67,12 +67,8 @@ int PmergeMe::_validateInput(const std::string &argvInput)
 
 void PmergeMe::sort()
 {
-	for (std::list<int>::iterator it = _inputList.begin(); it != _inputList.end(); ++it)
-	{
-		std::cout << *it << ", " << std::flush;
-	}
-	std::cout << std::endl;
-	
+	_printContainerContent(_inputList, true);
+	_printContainerContent(_inputList, false);
 }
 
 const char *PmergeMe::WrongInputError::what() const throw()

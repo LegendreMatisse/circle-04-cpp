@@ -33,6 +33,21 @@ class PmergeMe
 		//functions
 		int _validateInput(const std::string &argvInput);
 
+		//templates
+		template <typename T>
+		void _printContainerContent(const T &container, bool before)
+		{
+			if (before)
+				std::cout << "Before: " << std::flush;
+			else
+				std::cout << "After: " << std::flush;
+
+			typename Container::const_iterator it;
+				for (it = container.begin(); it != container.end(); ++it)
+					std::cout << *it << " ";
+				std::cout << std::endl;
+		}
+
 	public:
 		//constructors and destructor
 		PmergeMe();
