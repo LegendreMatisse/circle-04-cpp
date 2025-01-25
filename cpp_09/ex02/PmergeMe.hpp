@@ -38,9 +38,6 @@ class PmergeMe
 		template <typename T>
 		void _printContainerContent(const T &container, bool before)
 		{
-			if (!_checkContainerType(container))
-				throw WrongInputError();
-
 			if (before)
 				std::cout << "Before: " << std::flush;
 			else
@@ -55,6 +52,9 @@ class PmergeMe
 		template <typename T>
 		void _fillContainerWithInputList(T &container)
 		{
+			if (!_checkContainerType(container))
+				throw WrongInputError();
+
 			for (std::list<int>::iterator it = _inputList.begin(); it != _inputList.end(); ++it)
 			{
 				container.push_back(*it);
