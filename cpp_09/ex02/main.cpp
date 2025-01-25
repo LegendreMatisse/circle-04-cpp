@@ -34,13 +34,14 @@ int main(int argc, char **argv)
 		{
 			pmm.fillInputList(argv[i]);
 		}
+		
+		pmm.sort();
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what();
 	}
 	
-	pmm.sort();
 
 	return 0;
 
