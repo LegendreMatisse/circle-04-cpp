@@ -91,7 +91,7 @@ class PmergeMe
 		}
 
 		template <typename Container>
-		void _sortPairs(Container &containerA, Container &containerB, std::list<std::pair<int, int>> &pairs)
+		void _sortPairs(Container &containerA, Container &containerB, std::list<std::pair<int, int> > &pairs)
 		{
 			typename Container::iterator itA = containerA.begin();
 			typename Container::iterator itB = containerB.begin();
