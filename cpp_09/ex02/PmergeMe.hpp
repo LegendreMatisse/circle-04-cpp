@@ -143,7 +143,7 @@ class PmergeMe
 		}
 
 		template <typename T>
-		T _fillContainerWithPairs(T &unsortedContainer, T &sortedContainer,  std::list<std::pair<int, int> > &pairs)
+		void _fillContainerWithPairs(T &unsortedContainer, T &sortedContainer,  std::list<std::pair<int, int> > &pairs)
 		{
 			unsortedContainer.clear();
 			sortedContainer.clear();
