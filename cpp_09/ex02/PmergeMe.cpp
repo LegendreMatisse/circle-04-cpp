@@ -74,6 +74,7 @@ void PmergeMe::sort()
 	_printContainerContent(_unsortedVector, true);
 	std::cout << std::endl;
 	int test[2] = {1, 2};
+	std::cout << typeid(test).name() << std::endl;
 	_fillContainerWithInputList(test);
 }
 
