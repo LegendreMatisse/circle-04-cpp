@@ -66,7 +66,7 @@ class PmergeMe
 
 			for (std::vector<std::string>::const_iterator it = containerTypes.begin(); it != containerTypes.end(); ++it)
 			{
-				if (fullContainerId.find(containerTypes[*it]) != std::string::npos)
+				if (fullContainerId.find(*it) != std::string::npos)
 					return *it;
 			}
 			throw WrongInputError();
