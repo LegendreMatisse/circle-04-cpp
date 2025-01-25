@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 14:19:32 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/12/25 14:19:32 by mlegendr         ###   ########.fr       */
+/*   Created: 2025/01/26 00:38:01 by mlegendr          #+#    #+#             */
+/*   Updated: 2025/01/26 00:38:01 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,56 +37,24 @@ BitcoinExchange::~BitcoinExchange()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void BitcoinExchange::_addExchangeRateAndDatesToMap()
-{
-	const std::string fileName = "data.csv";
-	std::ifstream data(fileName.c_str());
-	if (!data.is_open())
-		throw NoFileError();
-	
-	std::string input;
-	std::getline(data, input);
-	if (input != "date,exchange_rate")
-		throw InvalidDataFormatError();
-	
-	while (std::getline(data, input))
-	{
-		std::string date = input.substr(0, input.find(','));
-		std::string rate = input.substr(input.find(',') + 1);
-
-		if (date.empty() || rate.empty() || !_validateDate(date) || !_validateExchangeRate(rate))
-			throw InvalidDataFormatError();
-		if (_exchangeRate.find(date) != _exchangeRate.end())
-			throw MissingDataError();
-
-		std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
-
-		_exchangeRate[concateDate] = std::strtod(rate.c_str(), NULL);
-	}
-}
-
-bool BitcoinExchange::_validateDate(const std::string &date) const
+void BitcoinExchange::_validateDate(const std::string &date) const
 {
 	if (date.size() != 10)
-		return false;
-	if (date[4] != '-' || date[7] != '-')
-		return false;
-	for (size_t i = 0; i < date.size(); i++)
+		throw InvalidDataFormatError();
+	for (int i = 0; i < date.size(); i++)
 	{
-		if (i == 4 || i == 7)
-            continue;
-        if (date[i] < '0' || date[i] > '9')
-            return false;
+		if (!std::isdigit(date[i]) && date[i] != '-')
+			throw InvalidDataFormatError();
+		else
+			continue;
 	}
-
+	
 	int year = _convertStringToInt(date.substr(0, 4));
 	int month = _convertStringToInt(date.substr(5, 2));
 	int day = _convertStringToInt(date.substr(8, 2));
 
 	if (!_checkIfRealDate(year, month, day))
-		return false;
-
-	return true;
+		throw InvalidDataFormatError();
 }
 
 int BitcoinExchange::_convertStringToInt(const std::string &input) const
@@ -96,103 +64,51 @@ int BitcoinExchange::_convertStringToInt(const std::string &input) const
 
 	iss >> output;
 
-	if (iss.fail())
+	if (iss.fail() || !iss.eof())
+
 		throw InvalidDataFormatError();
 
 	return output;
 }
 
-bool BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
+void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
 {
 	if (month < 1 || month > 12) 
-		return false;
+		throw InvalidDataFormatError();
     if (day < 1 || day > 31)
-		return false;
+		throw InvalidDataFormatError();
     if (month == 2)
 	{
         bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-        return day <= (isLeapYear ? 29 : 28);
+		if (isLeapYear && day != 29)
+			throw InvalidDataFormatError();
+		else if (!isLeapYear && day != 28)
+			throw InvalidDataFormatError();
     }
     if (month == 4 || month == 6 || month == 9 || month == 11)
-        return day <= 30;
-    return true;
-}
-
-bool BitcoinExchange::_validateExchangeRate(const std::string &rate) const
-{
-	std::istringstream iss(rate);
-    double value;
-    if (!(iss >> value))
-        return false;
-    return iss.eof();
+	{
+		if (day != 30)
+			throw InvalidDataFormatError();
+	}
 }
 
 void BitcoinExchange::exchange(std::ifstream &file)
 {
-	std::string input;
-	std::getline(file, input);
-	if (input != "date | value")
-		throw InvalidDataFormatError();
-		
-	_addExchangeRateAndDatesToMap();
-	
-	while (std::getline(file, input))
-	{
-		try
-		{
-			std::string date = input.substr(0, input.find('|') - 1);
-			std::string value = input.substr(input.find('|') + 2);
+	(void)file;
 
-			if (date.empty() || value.empty())
-				throw InvalidDataFormatError();
-			if (!_validateDate(date))
-				throw InvalidDataFormatError();
-			double numValue = std::strtod(value.c_str(), NULL);
-			if (numValue <= 0 || numValue > 1000)
-				throw OutOfRangeError();
+	std::cout << "1" << std::endl;
+	_validateDate("2012-12-12");
+	std::cout << "2" << std::endl;
+	_validateDate("2012-12-aa");
+	std::cout << "3" << std::endl;
+	_validateDate("2012/12/12");
+	std::cout << "4" << std::endl;
+	_validateDate("2012-12-2");
+	std::cout << "5" << std::endl;
+	_validateDate("2012-02-17");
+	std::cout << "6" << std::endl;
+	_validateDate("2024-02-29");
+	std::cout << "7" << std::endl;
+	_validateDate("2024-02-28");
 
-			std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
-
-			std::map<std::string, double>::iterator it = _exchangeRate.lower_bound(concateDate);
-
-			if (it == _exchangeRate.end() || it->first != concateDate) 
-			{
-				if (it == _exchangeRate.begin())
-					throw InvalidDataFormatError();
-				--it;
-			}
-
-			std::cout << date << " => " << value << " = " 
-					<< std::fixed << std::setprecision(2) 
-					<< std::strtod(value.c_str(), NULL) * it->second << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what();
-		}
-	}
-}
-
-const char *BitcoinExchange::NoFileError::what() const throw()
-{
-	std::cout << "ERROR: Could not open file. Please provide a valid file." << std::endl;
-	return "";
-}
-
-const char *BitcoinExchange::MissingDataError::what() const throw()
-{
-	std::cout << "ERROR: The file you provided is missing the required data. Please provide a valid file." << std::endl;
-	return "";
-}
-
-const char *BitcoinExchange::InvalidDataFormatError::what() const throw()
-{
-	std::cout << "ERROR: The data within the file does not have the required format. Please provide a valid file." << std::endl;
-	return "";
-}
-
-const char *BitcoinExchange::OutOfRangeError::what() const throw()
-{
-	std::cout << "ERROR: The data within the file exceeds the required ranges. Please provide a valid file." << std::endl;
-	return "";
 }

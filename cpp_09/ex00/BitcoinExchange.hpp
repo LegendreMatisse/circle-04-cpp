@@ -21,6 +21,9 @@
 #include <exception>
 #include <cstdlib>
 #include <iomanip>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 class BitcoinExchange {
 
@@ -30,9 +33,9 @@ class BitcoinExchange {
 
 		//functions
 		void _addExchangeRateAndDatesToMap();
-		bool _validateDate(const std::string &date) const;
+		void _validateDate(const std::string &date) const;
 		int _convertStringToInt(const std::string &input) const;
-		bool _checkIfRealDate(const int year, const int month, const int day) const;
+		void _checkIfRealDate(const int year, const int month, const int day) const;
 		bool _validateExchangeRate(const std::string &rate) const;
 
 	public:
