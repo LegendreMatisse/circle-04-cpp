@@ -42,7 +42,7 @@ class PmergeMe
 			else
 				std::cout << "After: " << std::flush;
 
-			typename Container::const_iterator it;
+			typename T::const_iterator it;
 				for (it = container.begin(); it != container.end(); ++it)
 					std::cout << *it << " ";
 				std::cout << std::endl;
