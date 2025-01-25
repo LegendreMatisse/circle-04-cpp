@@ -159,6 +159,17 @@ class PmergeMe
 		}
 
 		template <typename T>
+		void _sortAndPushToSorted(T &unsortedContainer, T &sortedContainer)
+		{
+			while (!unsortedContainer.empty()) 
+			{
+				std::list<int>::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
+				sortedContainer.push_back(*min_it);
+				unsortedContainer.erase(min_it);
+			}
+		}
+
+		template <typename T>
 		void _sortContainer(T &unsortedContainer, T &sortedContainer)
 		{
 			int tmp = _extractOddElement(unsortedContainer);
@@ -173,12 +184,7 @@ class PmergeMe
 
 			_handleOddElement(unsortedContainer, tmp);
 
-			while (!unsortedContainer.empty()) 
-			{
-				std::list<int>::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
-				sortedContainer.push_back(*min_it);
-				unsortedContainer.erase(min_it);
-			}		
+			_sortAndPushToSorted(unsortedContainer, sortedContainer);
 		}
 
 	public:
