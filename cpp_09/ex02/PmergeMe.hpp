@@ -116,7 +116,10 @@ class PmergeMe
 		template <typename T>
 		std::pair<int, int> _makeOrderedPair(const T &unsortedContainerIT, const T &sortedContainerIT)
 		{
-			return (unsortedContainerIT < sortedContainerIT) ? std::make_pair(unsortedContainerIT, sortedContainerIT) : std::make_pair(sortedContainerIT, unsortedContainerIT);
+			if (unsortedContainerIT < sortedContainerIT)
+				return std::make_pair(unsortedContainerIT, sortedContainerIT);
+			else
+				return std::make_pair(sortedContainerIT, unsortedContainerIT);
 		}
 
 		template <typename T>
