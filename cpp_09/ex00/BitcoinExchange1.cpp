@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+/*#include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -195,4 +195,4 @@ const char *BitcoinExchange::OutOfRangeError::what() const throw()
 {
 	std::cout << "ERROR: The data within the file exceeds the required ranges. Please provide a valid file." << std::endl;
 	return "";
-}
+}*/
