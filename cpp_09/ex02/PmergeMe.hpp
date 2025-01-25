@@ -164,7 +164,7 @@ class PmergeMe
 		{
 			while (!unsortedContainer.empty()) 
 			{
-				T::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
+				typename T::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
 				sortedContainer.push_back(*min_it);
 				unsortedContainer.erase(min_it);
 			}
