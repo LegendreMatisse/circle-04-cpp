@@ -52,9 +52,6 @@ class PmergeMe
 		template <typename T>
 		void _fillContainerWithInputList(T &container)
 		{
-			if (!_checkContainerType(container))
-				throw WrongInputError();
-
 			for (std::list<int>::iterator it = _inputList.begin(); it != _inputList.end(); ++it)
 			{
 				container.push_back(*it);
@@ -62,17 +59,17 @@ class PmergeMe
 		}
 
 		template <typename T>
-		int _checkContainerType(T &container)
+		std::string _returnContainerType(T &container)
 		{
-			const std::string containerNames[2] = {"vector", "list"};
-			const std::string containerName = typeid(container).name();
+			const std::string containerTypes[2] = {"vector", "list"};
+			const std::string fullContainerId = typeid(container).name();
 
 			for (size_t i = 0; i < 2; i++)
 			{
-				if (containerName.find(i) != std::string::npos)
-					return 0;
+				if (fullContainerId.find(i) != std::string::npos)
+					break ;
 			}
-			return 1;
+			return containerTypes[i];
 		}
 
 	public:

@@ -75,7 +75,9 @@ void PmergeMe::sort()
 	std::cout << std::endl;
 	int test[2] = {1, 2};
 	std::cout << typeid(test).name() << std::endl;
-	_fillContainerWithInputList(test);
+	std::cout << _returnContainerType(_unsortedList) << std::endl;
+	std::cout << _returnContainerType(_unsortedVector) << std::endl;
+	std::cout << _returnContainerType(test) << std::endl;
 }
 
 const char *PmergeMe::WrongInputError::what() const throw()
