@@ -50,12 +50,14 @@ void PmergeMe::fillInputList(const std::string &argvInput)
 
 int PmergeMe::_validateInput(const std::string &argvInput)
 {
+	std::cout << argvInput << std::endl;
 	std::istringstream iss(argvInput);
 
 	int input = 0;
 
 	iss >> input;
 
+	std::cout << input << std::endl;
 	std::cout << "1" << std::endl;
 	if (iss.fail() || !iss.eof())
 		throw WrongInputError();
