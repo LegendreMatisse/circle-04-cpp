@@ -136,7 +136,7 @@ class PmergeMe
 				sortedContainer.push_back(*min_it);
 				unsortedContainer.erase(min_it);
 			}		
-			}
+		}
 
 	public:
 		//constructors and destructor
