@@ -107,7 +107,7 @@ class PmergeMe
 		template <typename Container>
 		void _handleOddElement(Container &container, int tmp)
 		{
-			if (tmp != -1) {
+			if (tmp != std::numeric_limits<int>::min()) {
 				container.push_back(tmp);
 			}
 		}
