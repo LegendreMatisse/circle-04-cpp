@@ -78,7 +78,7 @@ void PmergeMe::sort()
 	_printContainerContent(_unsortedList, true);
 	_sortContainer(_unsortedList, _sortedList);
 	_printContainerContent(_sortedList, false);
-	clock_t stop = clocl();
+	clock_t stop = clock();
 
 	double elapsedTime = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
 
