@@ -48,6 +48,15 @@ class PmergeMe
 				std::cout << std::endl;
 		}
 
+		template <typename T>
+		void _fillContainerWithInputList(const T &container)
+		{
+			for (std::list<int>::iterator it = _inputList.begin(); it != _inputList.end(); ++it)
+			{
+				container.push_back(*it);
+			}
+		}
+
 	public:
 		//constructors and destructor
 		PmergeMe();
