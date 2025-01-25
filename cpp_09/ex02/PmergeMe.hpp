@@ -33,7 +33,7 @@ class PmergeMe
 
 		//functions
 		int _validateInput(const std::string &argvInput);
-		static bool _findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted);
+		bool _findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted);
 
 		//templates
 		template <typename T>

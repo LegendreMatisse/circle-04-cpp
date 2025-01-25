@@ -65,7 +65,7 @@ int PmergeMe::_validateInput(const std::string &argvInput)
 	return input;
 }
 
-static bool PmergeMe::_findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted)
+bool PmergeMe::_findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted)
 {
 	return unsorted.first < sorted.first;
 }
