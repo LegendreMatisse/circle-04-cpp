@@ -37,7 +37,7 @@ BitcoinExchange::~BitcoinExchange()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void BitcoinExchange::_validateDate(const std::string &date) const
+void BitcoinExchange::_validateDate(std::string &date) const
 {
 	if (date.size() != 10)
 		throw InvalidDataFormatError();
