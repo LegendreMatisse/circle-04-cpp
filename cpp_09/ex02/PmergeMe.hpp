@@ -75,6 +75,14 @@ class PmergeMe
 			throw WrongInputError();
 		}
 
+		template <typename T>
+		void _printResultOfSort(T &container, double elapsedTime)
+		{
+			std::cout << "Time to process range of " << container.size() << "elements with std::" << std::flush;
+			std::cout << _returnContainerType(container) << std::flush;
+			std::cout << " : " << elapsedTime << "us" << std::endl;
+		}
+
 	public:
 		//constructors and destructor
 		PmergeMe();

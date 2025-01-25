@@ -75,8 +75,9 @@ void PmergeMe::sort()
 	std::cout << std::endl;
 	std::cout << _returnContainerType(_unsortedList) << std::endl;
 	std::cout << _returnContainerType(_unsortedVector) << std::endl;
-	int test[2] = {1, 2};
-	std::cout << _returnContainerType(test) << std::endl;
+	std::cout << std::endl;
+	_printResultOfSort(_unsortedList, 0.124578);
+	_printResultOfSort(_unsortedVector, 0.4578);
 }
 
 const char *PmergeMe::WrongInputError::what() const throw()
