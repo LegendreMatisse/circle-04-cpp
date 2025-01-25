@@ -20,6 +20,7 @@ int main(void)
 {
 	std::vector<int> v;
 	std::list<int> l;
+	int a[18];
 
 	std::vector<std::string> containerNames;
 
@@ -33,6 +34,8 @@ int main(void)
 	{
 		if (containerName.find(*it) != std::string::npos)
 			std::cout << "The container type is: " << *it << std::endl;
+		else
+			std::cout << "This container type is not supported by this program." << std::endl;
 	}
 	
 	containerName = typeid(l).name();
@@ -41,6 +44,18 @@ int main(void)
 	{
 		if (containerName.find(*it) != std::string::npos)
 			std::cout << "The container type is: " << *it << std::endl;
+		else
+			std::cout << "This container type is not supported by this program." << std::endl;
+	}
+
+	containerName = typeid(a).name();
+
+	for (std::vector<std::string>::iterator it = containerNames.begin(); it != containerNames.end(); ++it)
+	{
+		if (containerName.find(*it) != std::string::npos)
+			std::cout << "The container type is: " << *it << std::endl;
+		else
+			std::cout << "This container type is not supported by this program." << std::endl;
 	}
 
 	return 0;
