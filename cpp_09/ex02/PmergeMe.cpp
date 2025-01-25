@@ -72,11 +72,19 @@ bool PmergeMe::_comparePairs(const std::pair<int, int> &a, const std::pair<int, 
 
 void PmergeMe::sort()
 {
+	
+	clock_t start = clock();
 	_fillContainerWithInputList(_unsortedList);
-	_fillContainerWithInputList(_unsortedVector);
 	_printContainerContent(_unsortedList, true);
 	_sortContainer(_unsortedList, _sortedList);
 	_printContainerContent(_sortedList, false);
+	clock_t stop = clocl();
+
+	double elapsedTime = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
+
+	_printSortTime(_sortedList, elapsedTime);
+
+	// _fillContainerWithInputList(_unsortedVector);
 }
 
 const char *PmergeMe::WrongInputError::what() const throw()

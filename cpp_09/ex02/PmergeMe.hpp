@@ -20,6 +20,7 @@
 #include <sstream>
 #include <limits>
 #include <typeinfo>
+#include <ctime>
 
 class PmergeMe
 {
@@ -85,36 +86,6 @@ class PmergeMe
 		}
 
 		template <typename T>
-		std::pair<int, int> _makeOrderedPair(const T &unsortedContainerIT, const T &sortedContainerIT)
-		{
-			return (unsortedContainerIT < sortedContainerIT) ? std::make_pair(unsortedContainerIT, sortedContainerIT) : std::make_pair(sortedContainerIT, unsortedContainerIT);
-		}
-
-		template <typename T>
-		void _fillAndSortPairsList(T &unsortedContainer, T &sortedContainer, std::list<std::pair<int, int> > &pairs)
-		{
-			typename T::iterator unsortedContainerIT = unsortedContainer.begin();
-			typename T::iterator sortedContainerIT = sortedContainer.begin();
-
-			while (unsortedContainerIT != unsortedContainer.end() && sortedContainerIT != sortedContainer.end())
-			{
-				pairs.push_back(_makeOrderedPair(*unsortedContainerIT, *sortedContainerIT));
-				++unsortedContainerIT;
-				++sortedContainerIT;
-			}
-
-			pairs.sort(_comparePairs);
-		}
-
-		template <typename T>
-		void _handleOddElement(T &container, int tmp)
-		{
-			if (tmp != std::numeric_limits<int>::min()) {
-				container.push_back(tmp);
-			}
-		}
-
-		template <typename T>
 		int _extractOddElement(T &container)
 		{
 			if (container.size() % 2 != 0)
@@ -143,6 +114,28 @@ class PmergeMe
 		}
 
 		template <typename T>
+		std::pair<int, int> _makeOrderedPair(const T &unsortedContainerIT, const T &sortedContainerIT)
+		{
+			return (unsortedContainerIT < sortedContainerIT) ? std::make_pair(unsortedContainerIT, sortedContainerIT) : std::make_pair(sortedContainerIT, unsortedContainerIT);
+		}
+
+		template <typename T>
+		void _fillAndSortPairsList(T &unsortedContainer, T &sortedContainer, std::list<std::pair<int, int> > &pairs)
+		{
+			typename T::iterator unsortedContainerIT = unsortedContainer.begin();
+			typename T::iterator sortedContainerIT = sortedContainer.begin();
+
+			while (unsortedContainerIT != unsortedContainer.end() && sortedContainerIT != sortedContainer.end())
+			{
+				pairs.push_back(_makeOrderedPair(*unsortedContainerIT, *sortedContainerIT));
+				++unsortedContainerIT;
+				++sortedContainerIT;
+			}
+
+			pairs.sort(_comparePairs);
+		}
+
+		template <typename T>
 		void _fillContainerWithPairs(T &unsortedContainer, T &sortedContainer,  std::list<std::pair<int, int> > &pairs)
 		{
 			unsortedContainer.clear();
@@ -155,6 +148,14 @@ class PmergeMe
 				unsortedContainer.push_back(itPair->first);
 				unsortedContainer.push_back(itPair->second);
 				++itPair;
+			}
+		}
+
+		template <typename T>
+		void _handleOddElement(T &container, int tmp)
+		{
+			if (tmp != std::numeric_limits<int>::min()) {
+				container.push_back(tmp);
 			}
 		}
 
@@ -206,5 +207,6 @@ class PmergeMe
 		};
 };
 
+//`shuf -i 1-1000 -n 3000 | tr "\n" " " `
 
 #endif
