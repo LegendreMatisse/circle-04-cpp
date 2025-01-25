@@ -90,22 +90,8 @@ class PmergeMe
 			return (unsorted < sorted) ? std::make_pair(unsorted, sorted) : std::make_pair(sorted, unsorted);
 		}
 
-		template <typename Container>
-		void _sortPairs(Container &unsortedContainer, Container &sortedContainer, std::list<std::pair<int, int> > &pairs)
-		{
-			typename Container::iterator unsortedContainerIt = unsortedContainer.begin();
-			typename Container::iterator sortedContainerIt = sortedContainer.begin();
-
-			while (unsortedContainerIt != unsortedContainer.end() && sortedContainerIt != sortedContainer.end())
-			{
-				pairs.push_back(_makeOrderedPair(*unsortedContainerIt, *sortedContainerIt));
-				++unsortedContainerIt;
-				++sortedContainerIt;
-			}
-		}
-
-		template <typename Container>
-		void _handleOddElement(Container &container, int tmp)
+		template <typename T>
+		void _handleOddElement(T &container, int tmp)
 		{
 			if (tmp != std::numeric_limits<int>::min()) {
 				container.push_back(tmp);
@@ -113,46 +99,88 @@ class PmergeMe
 		}
 
 		template <typename T>
+		void _handleOddSize(T &container)
+		{
+			if (container.size() % 2 != 0)
+			{
+				int last = container.back();
+				container.pop_back();
+				return last;
+			}
+			return std::numeric_limits<int>::min();
+		}
+
+		template <typename T>
+		T _extractHalf(T &container)
+		{
+			T firstHalf;
+			for (size_t i = 0; i < container.size() / 2; i++) {
+				firstHalf.push_back(container.front());
+				container.pop_front();
+			}
+			return firstHalf;
+		}
+
+		template <typename T>
+		std::list<std::pair<int, int>> _createPairs(T &firstHalf, T &secondHalf)
+		{
+			std::list<std::pair<int, int>> pairs;
+			typename T::iterator itFirst = firstHalf.begin();
+			typename T::iterator itSecond = secondHalf.begin();
+
+			while (itFirst != firstHalf.end() && itSecond != secondHalf.end()) {
+				if (*itFirst < *itSecond)
+					pairs.push_back(std::make_pair(*itFirst, *itSecond));
+				else
+					pairs.push_back(std::make_pair(*itSecond, *itFirst));
+
+				++itFirst;
+				++itSecond;
+			}
+			return pairs;
+		}
+
+		template <typename T>
+		void _mergePairsIntoContainer(const std::list<std::pair<int, int>> &pairs, T &container)
+		{
+			for (typename std::list<std::pair<int, int>>::const_iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair) {
+				container.push_back(itPair->first);
+				container.push_back(itPair->second);
+			}
+		}
+
+		template <typename T>
+		void _finalizeSort(T &container)
+		{
+			T tempContainer;
+			while (!container.empty()) {
+				typename T::iterator minIt = std::min_element(container.begin(), container.end());
+				tempContainer.push_back(*minIt);
+				container.erase(minIt);
+			}
+			container.swap(tempContainer);
+		}
+
+		template <typename T>
 		void _sortContainer(T &unsortedContainer, T &sortedContainer)
 		{
-			size_t size = unsortedContainer.size();
-			int tmp = std::numeric_limits<int>::min();
+			int tmp = _handleOddSize(unsortedContainer);
 
-			if (size % 2 != 0)
-			{
-				tmp = unsortedContainer.back();
-				unsortedContainer.pop_back();
-			}
+			T firstHalf = _extractHalf(unsortedContainer);
+			T secondHalf = unsortedContainer;
 
-			for (size_t i = 0; i < size / 2; i++)
-			{
-				sortedContainer.push_back(unsortedContainer.front());
-				unsortedContainer.pop_front();
-			}
-
-			std::list<std::pair<int, int> > pairs;
-
-			_sortPairs(unsortedContainer, sortedContainer, pairs);
+			std::list<std::pair<int, int> > pairs = _createPairs(firstHalf, secondHalf);
 
 			pairs.sort(_comparePairs);
 
 			unsortedContainer.clear();
 			sortedContainer.clear();
 
-			for (std::list<std::pair<int, int> >::iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair)
-			{
-				unsortedContainer.push_back(itPair->first);
-				unsortedContainer.push_back(itPair->second);
-			}
+			_mergePairsIntoContainer(pairs, sortedContainer);
 
 			_handleOddElement(unsortedContainer, tmp);
 
-			while (!unsortedContainer.empty()) 
-			{
-				std::list<int>::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
-				sortedContainer.push_back(*min_it);
-				unsortedContainer.erase(min_it);
-			}		
+			_finalizeSort(sortedContainer);		
 		}
 
 	public:
