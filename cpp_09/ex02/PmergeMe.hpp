@@ -173,9 +173,6 @@ class PmergeMe
 
 			pairs.sort(_comparePairs);
 
-			unsortedContainer.clear();
-			sortedContainer.clear();
-
 			_mergePairsIntoContainer(pairs, sortedContainer);
 
 			_handleOddElement(unsortedContainer, tmp);
