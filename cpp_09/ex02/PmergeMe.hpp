@@ -90,11 +90,11 @@ class PmergeMe
 			return (unsortedContainerIT < sortedContainerIT) ? std::make_pair(unsortedContainerIT, sortedContainerIT) : std::make_pair(sortedContainerIT, unsortedContainerIT);
 		}
 
-		template <typename Container>
-		void _sortPairs(Container &unsortedContainer, Container &sortedContainer, std::list<std::pair<int, int> > &pairs)
+		template <typename T>
+		void _sortPairs(T &unsortedContainer, T &sortedContainer, std::list<std::pair<int, int> > &pairs)
 		{
-			typename Container::iterator unsortedContainerIT = unsortedContainer.begin();
-			typename Container::iterator sortedContainerIT = sortedContainer.begin();
+			typename T::iterator unsortedContainerIT = unsortedContainer.begin();
+			typename T::iterator sortedContainerIT = sortedContainer.begin();
 
 			while (unsortedContainerIT != unsortedContainer.end() && sortedContainerIT != sortedContainer.end())
 			{
@@ -104,8 +104,8 @@ class PmergeMe
 			}
 		}
 
-		template <typename Container>
-		void _handleOddElement(Container &container, int tmp)
+		template <typename T>
+		void _handleOddElement(T &container, int tmp)
 		{
 			if (tmp != std::numeric_limits<int>::min()) {
 				container.push_back(tmp);
@@ -113,16 +113,38 @@ class PmergeMe
 		}
 
 		template <typename T>
+		int _extractOddElement(T &container)
+		{
+			if (container.size() % 2 != 0)
+			{
+				int tmp = unsortedContainer.back();
+				unsortedContainer.pop_back();
+				return tmp;
+			}
+			return std::numeric_limits<int>::min();
+		}
+
+		template <typename T>
+		T _extractHalfOfContainer(T &container)
+		{
+			int i = 0;
+			int j = container.size() / 2;
+			T tmp;
+			
+			while (i < j)
+			{
+				tmp.push_back(container.front())
+				container.pop_front();
+				i++;
+			}
+			return T;
+			
+		}
+
+		template <typename T>
 		void _sortContainer(T &unsortedContainer, T &sortedContainer)
 		{
-			size_t size = unsortedContainer.size();
-			int tmp = std::numeric_limits<int>::min();
-
-			if (size % 2 != 0)
-			{
-				tmp = unsortedContainer.back();
-				unsortedContainer.pop_back();
-			}
+			int tmp = _extractOddElement(unsortedContainer);
 
 			for (size_t i = 0; i < size / 2; i++)
 			{
@@ -130,9 +152,9 @@ class PmergeMe
 				unsortedContainer.pop_front();
 			}
 
+			sortedContainer = _extractHalfOfContainer(unsortedContainer);
+
 			std::list<std::pair<int, int> > pairs;
-			// std::list<int>::iterator unsortedContainerIt = unsortedContainer.begin();
-			// std::list<int>::iterator sortedContainerIt = sortedContainer.begin();
 
 			_sortPairs(unsortedContainer, sortedContainer, pairs);
 
