@@ -33,6 +33,7 @@ class PmergeMe
 
 		//functions
 		int _validateInput(const std::string &argvInput);
+		bool _comparePairs(const std::pair<int, int> &a, const std::pair<int, int> &b);
 
 		//templates
 		template <typename T>

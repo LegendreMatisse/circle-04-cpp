@@ -65,6 +65,11 @@ int PmergeMe::_validateInput(const std::string &argvInput)
 	return input;
 }
 
+bool PmergeMe::_comparePairs(const std::pair<int, int> &a, const std::pair<int, int> &b)
+{
+    return a.first < b.first;
+}
+
 void PmergeMe::sort()
 {
 	_fillContainerWithInputList(_unsortedList);
