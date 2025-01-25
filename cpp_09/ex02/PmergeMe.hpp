@@ -82,7 +82,7 @@ class PmergeMe
 		{
 			std::cout << "Time to process range of " << container.size() << " elements with std::" << std::flush;
 			std::cout << _returnContainerType(container) << std::flush;
-			std::cout << " : " << elapsedTime << "us" << std::endl;
+			std::cout << " : " << elapsedTime << " µs" << std::endl;
 		}
 
 		template <typename T>
