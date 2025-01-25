@@ -41,7 +41,7 @@ void BitcoinExchange::_validateDate(const std::string &date)
 {
 	if (date.size() != 10)
 		throw InvalidDataFormatError();
-	for (int i = 0; i < date.size(); i++)
+	for (size_t i = 0; i < date.size(); i++)
 	{
 		if (!std::isdigit(date[i]) && date[i] != '-')
 			throw InvalidDataFormatError();
