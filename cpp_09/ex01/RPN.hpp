@@ -28,10 +28,12 @@ class RPN
 		//fucntions
 		void _inputValidation(const std::string &input);
 		int _performOperation(const int &a, const int &b, const char &expressionPart);
+
+		//constructors
+		RPN();
 	
 	public:
 		//constructors and destructor
-		RPN();
 		RPN(const std::string &input);
 		RPN(const RPN &copyCo);
 		RPN &operator=(const RPN &copyOp);

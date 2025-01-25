@@ -35,8 +35,6 @@ class BitcoinExchange {
 		bool _checkIfRealDate(const int year, const int month, const int day) const;
 		bool _validateExchangeRate(const std::string &rate) const;
 
-
-
 	public:
 		//constructors and destructor
 		BitcoinExchange();

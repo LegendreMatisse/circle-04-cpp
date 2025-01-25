@@ -10,3 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <typeinfo>
+#include <vector>
+#include <list>
+
+int main(void)
+{
+	std::vector<int> v;
+	std::list<int> l;
+
+	std::cout << "Type of v: " << typeid(v).name() << std::endl;
+	std::cout << "Type of l: " << typeid(l).name() << std::endl;
+
+	return 0;
+
+}
