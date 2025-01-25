@@ -64,10 +64,10 @@ class PmergeMe
 			const std::string containerTypes[2] = {"vector", "list"};
 			const std::string fullContainerId = typeid(container).name();
 			size_t i = 0;
-			
+
 			for (i = 0; i < 2; i++)
 			{
-				if (fullContainerId.find(i) != std::string::npos)
+				if (fullContainerId.find(containerTypes[i]) != std::string::npos)
 					break ;
 			}
 			return containerTypes[i];
