@@ -84,14 +84,14 @@ void PmergeMe::sort()
 
 	_printSortTime(_sortedList, elapsedTime);
 
-	clock_t start = clock();
+	start = clock();
 	_fillContainerWithInputList(_unsortedVector);
 	_printContainerContent(_unsortedVector, true);
 	_sortContainer(_unsortedVector, _sortedVector);
 	_printContainerContent(_sortedVector, false);
-	clock_t stop = clock();
+	stop = clock();
 
-	double elapsedTime = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
+	elapsedTime = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
 
 	_printSortTime(_sortedVector, elapsedTime);
 }
