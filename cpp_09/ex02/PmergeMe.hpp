@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <sstream>
 #include <limits>
+#include <typeinfo>
 
 class PmergeMe
 {
