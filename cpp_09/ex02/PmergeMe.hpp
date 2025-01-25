@@ -37,6 +37,9 @@ class PmergeMe
 		template <typename T>
 		void _printContainerContent(const T &container, bool before)
 		{
+			if (!_checkContainerType(container))
+				throw WrongInputError();
+
 			if (before)
 				std::cout << "Before: " << std::flush;
 			else
@@ -55,6 +58,20 @@ class PmergeMe
 			{
 				container.push_back(*it);
 			}
+		}
+
+		template <typename T>
+		int _checkContainerType(T &container)
+		{
+			const std::string containerNames[2] = {"vector", "list"};
+			const std::string containerName = typeid(container).name();
+
+			for (size_t i = 0; i < 2; i++)
+			{
+				if (containerName.find(i) != std::string::npos)
+					return 0;
+			}
+			return 1;
 		}
 
 	public:
