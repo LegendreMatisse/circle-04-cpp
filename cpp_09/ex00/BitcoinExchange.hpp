@@ -33,7 +33,7 @@ class BitcoinExchange {
 
 		//functions
 		void _addExchangeRateAndDatesToMap();
-		void _validateDate(std::string &date) const;
+		void _validateDate(std::string &date);
 		int _convertStringToInt(const std::string &input) const;
 		void _checkIfRealDate(const int year, const int month, const int day) const;
 		bool _validateExchangeRate(const std::string &rate) const;
