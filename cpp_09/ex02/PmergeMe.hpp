@@ -33,7 +33,6 @@ class PmergeMe
 
 		//functions
 		int _validateInput(const std::string &argvInput);
-		bool _findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted);
 
 		//templates
 		template <typename T>
@@ -116,7 +115,7 @@ class PmergeMe
 				sortedContainerIt++;
 			}
 
-			pairs.sort(_findBiggestPair);
+			pairs.sort(std::bind(&PmergeMe::_comparePairs, this, std::placeholders::_1, std::placeholders::_2));
 
 			unsortedContainer.clear();
 			sortedContainer.clear();
