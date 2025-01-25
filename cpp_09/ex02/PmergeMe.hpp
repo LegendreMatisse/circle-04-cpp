@@ -131,8 +131,8 @@ class PmergeMe
 			}
 
 			std::list<std::pair<int, int> > pairs;
-			std::list<int>::iterator unsortedContainerIt = unsortedContainer.begin();
-			std::list<int>::iterator sortedContainerIt = sortedContainer.begin();
+			// std::list<int>::iterator unsortedContainerIt = unsortedContainer.begin();
+			// std::list<int>::iterator sortedContainerIt = sortedContainer.begin();
 
 			_sortPairs(unsortedContainer, sortedContainer, pairs);
 
