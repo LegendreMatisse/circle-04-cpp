@@ -140,7 +140,22 @@ class PmergeMe
 				i++;
 			}
 			return tmp;
+		}
+
+		template <typename T>
+		T _fillContainerWithPairs(T &unsortedContainer, T &sortedContainer,  std::list<std::pair<int, int> > &pairs)
+		{
+			unsortedContainer.clear();
+			sortedContainer.clear();
+
+			std::list<std::pair<int, int> >::iterator itPair = pairs.begin();
 			
+			while (itPair != pairs.end())
+			{
+				unsortedContainer.push_back(itPair->first);
+				unsortedContainer.push_back(itPair->second);
+				++itPair;
+			}
 		}
 
 		template <typename T>
@@ -154,14 +169,7 @@ class PmergeMe
 
 			_fillAndSortPairsList(unsortedContainer, sortedContainer, pairs);
 
-			unsortedContainer.clear();
-			sortedContainer.clear();
-
-			for (std::list<std::pair<int, int> >::iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair)
-			{
-				unsortedContainer.push_back(itPair->first);
-				unsortedContainer.push_back(itPair->second);
-			}
+			_fillContainerWithPairs(unsortedContainer, sortedContainer, pairs);
 
 			_handleOddElement(unsortedContainer, tmp);
 
