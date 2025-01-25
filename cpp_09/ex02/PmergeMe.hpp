@@ -117,8 +117,8 @@ class PmergeMe
 		{
 			if (container.size() % 2 != 0)
 			{
-				int tmp = unsortedContainer.back();
-				unsortedContainer.pop_back();
+				int tmp = container.back();
+				container.pop_back();
 				return tmp;
 			}
 			return std::numeric_limits<int>::min();
@@ -137,7 +137,7 @@ class PmergeMe
 				container.pop_front();
 				i++;
 			}
-			return T;
+			return tmp;
 			
 		}
 
@@ -145,12 +145,6 @@ class PmergeMe
 		void _sortContainer(T &unsortedContainer, T &sortedContainer)
 		{
 			int tmp = _extractOddElement(unsortedContainer);
-
-			for (size_t i = 0; i < size / 2; i++)
-			{
-				sortedContainer.push_back(unsortedContainer.front());
-				unsortedContainer.pop_front();
-			}
 
 			sortedContainer = _extractHalfOfContainer(unsortedContainer);
 
