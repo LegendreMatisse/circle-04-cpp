@@ -65,19 +65,18 @@ int PmergeMe::_validateInput(const std::string &argvInput)
 	return input;
 }
 
+bool PmergeMe::_findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted)
+{
+	return unsorted.first < sorted.first;
+}
+
 void PmergeMe::sort()
 {
 	_fillContainerWithInputList(_unsortedList);
 	_fillContainerWithInputList(_unsortedVector);
 	_printContainerContent(_unsortedList, true);
-	std::cout << std::endl;
-	_printContainerContent(_unsortedVector, true);
-	std::cout << std::endl;
-	std::cout << _returnContainerType(_unsortedList) << std::endl;
-	std::cout << _returnContainerType(_unsortedVector) << std::endl;
-	std::cout << std::endl;
-	_printResultOfSort(_unsortedList, 0.124578);
-	_printResultOfSort(_unsortedVector, 0.4578);
+	_sortContainer(_unsortedList, _sortedList);
+	_printContainerContent(_unsortedList, false);
 }
 
 const char *PmergeMe::WrongInputError::what() const throw()

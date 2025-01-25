@@ -33,6 +33,7 @@ class PmergeMe
 
 		//functions
 		int _validateInput(const std::string &argvInput);
+		bool _findBiggestPair(const std::pair<int, int> &unsorted, const std::pair<int, int> &sorted);
 
 		//templates
 		template <typename T>
@@ -76,12 +77,66 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _printResultOfSort(T &container, double elapsedTime)
+		void _printSortTime(T &container, double elapsedTime)
 		{
-			std::cout << "Time to process range of " << container.size() << "elements with std::" << std::flush;
+			std::cout << "Time to process range of " << container.size() << " elements with std::" << std::flush;
 			std::cout << _returnContainerType(container) << std::flush;
 			std::cout << " : " << elapsedTime << "us" << std::endl;
 		}
+
+		template <typename T>
+		void _sortContainer(T &unstortedContainer, T &sortedContainer)
+		{
+			size_t size = unstortedContainer.size();
+			int tmp = std::numeric_limits<int>::min();
+
+			if (size % 2 != 0)
+			{
+				tmp = unstortedContainer.back();
+				unstortedContainer.pop_back();
+			}
+
+			for (size_t i = 0; i < size / 2; i++)
+			{
+				sortedContainer.push_back(unstortedContainer.front());
+				unstortedContainer.pop_front();
+			}
+
+			std::list<std::pair<int, int>> pairs;
+			std::list<int>::iterator unsortedContainerIt = unsortedContainer.begin();
+			std::list<int>::iterator sortedContainerIt = sortedContainer.begin();
+
+			while (unsortedContainerIt != unsortedContainer.end() && sortedContainerIt != sortedContainer.end())
+			{
+				if (*unsortedContainerIt < * sortedContainerIt)
+					pairs.push_back(std::make_pair(*unsortedContainerIt, *sortedContainerIt));
+				else
+					pairs.push_back(std::make_pair(*sortedContainerIt, *unsortedContainerIt));
+				unsortedContainerIt++;
+				sortedContainerIt++;
+			}
+
+			pairs.sort(_findBiggestPair);
+
+			unsortedContainer.clear();
+			sortedContainer.clear();
+
+			for (std::list<std::pair<int, int>>::iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair)
+			{
+				unsortedContainer.push_back(itPair->first);
+				unsortedContainer.push_back(itPair->second);
+			}
+
+			if (tmp != -1)
+				unsortedContainer.push_back(tmp);
+
+			while (!unsortedContainer.empty()) 
+			{
+				std::list<int>::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
+				sortedContainer.push_back(*min_it);
+				unsortedContainer.erase(min_it);
+			}		
+			}
 
 	public:
 		//constructors and destructor
