@@ -35,7 +35,7 @@ int main(void)
 			std::cout << "The container type is: " << *it << std::endl;
 	}
 	
-	std::string containerName = typeid(l).name();
+	containerName = typeid(l).name();
 
 	for (std::vector<std::string>::iterator it = containerNames.begin(); it != containerNames.end(); ++it)
 	{
