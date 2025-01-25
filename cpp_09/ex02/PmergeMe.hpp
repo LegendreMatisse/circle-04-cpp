@@ -133,7 +133,7 @@ class PmergeMe
 			
 			while (i < j)
 			{
-				tmp.push_back(container.front())
+				tmp.push_back(container.front());
 				container.pop_front();
 				i++;
 			}
