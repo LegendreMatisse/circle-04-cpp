@@ -16,9 +16,35 @@
 #include <list>
 #include <string>
 
-int main(void)
+#include "PmergeMe.hpp"
+
+int main(int argc, char **argv)
 {
-	std::vector<int> v;
+	if (argc <= 2)
+	{
+		std::cout << "ERROR: Wrong number of arguments. Please provide a valid input." << std::endl;
+		return 1;
+	}
+
+	PmergeMe pmm;
+
+	try
+	{
+		for (int i = 0; i < argc; i++)
+		{
+			pmm.fillInputList(argv[i]);
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	pmm.sort();
+
+	return 0;
+
+	/*std::vector<int> v;
 	std::list<int> l;
 	int a[18];
 
@@ -58,6 +84,6 @@ int main(void)
 			std::cout << "This container type is not supported by this program." << std::endl;
 	}
 
-	return 0;
+	return 0;*/
 
 }

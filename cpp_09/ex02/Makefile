@@ -12,7 +12,7 @@
 
 NAME	=	pmm
 
-SRC		=	main.cpp #PmergeMe.cpp
+SRC		=	main.cpp PmergeMe.cpp
 
 INC		=	PmergeMe.hpp
 
