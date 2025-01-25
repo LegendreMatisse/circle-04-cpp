@@ -37,7 +37,7 @@ BitcoinExchange::~BitcoinExchange()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void BitcoinExchange::_validateDate(std::string &date) const
+void BitcoinExchange::_validateDate(const std::string &date)
 {
 	if (date.size() != 10)
 		throw InvalidDataFormatError();
@@ -56,7 +56,7 @@ void BitcoinExchange::_validateDate(std::string &date) const
 	_checkIfRealDate(year, month, day);
 }
 
-int BitcoinExchange::_convertStringToInt(const std::string &input) const
+int BitcoinExchange::_convertStringToInt(const std::string &input)
 {
 	std::istringstream iss(input);
 	int output = 0;
@@ -70,7 +70,7 @@ int BitcoinExchange::_convertStringToInt(const std::string &input) const
 	return output;
 }
 
-void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day) const
+void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day)
 {
 	if (month < 1 || month > 12) 
 		throw InvalidDataFormatError();
