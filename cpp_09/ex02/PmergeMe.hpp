@@ -85,24 +85,24 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _sortContainer(T &unstortedContainer, T &sortedContainer)
+		void _sortContainer(T &unsortedContainer, T &sortedContainer)
 		{
-			size_t size = unstortedContainer.size();
+			size_t size = unsortedContainer.size();
 			int tmp = std::numeric_limits<int>::min();
 
 			if (size % 2 != 0)
 			{
-				tmp = unstortedContainer.back();
-				unstortedContainer.pop_back();
+				tmp = unsortedContainer.back();
+				unsortedContainer.pop_back();
 			}
 
 			for (size_t i = 0; i < size / 2; i++)
 			{
-				sortedContainer.push_back(unstortedContainer.front());
-				unstortedContainer.pop_front();
+				sortedContainer.push_back(unsortedContainer.front());
+				unsortedContainer.pop_front();
 			}
 
-			std::list<std::pair<int, int>> pairs;
+			std::list<std::pair<int, int> > pairs;
 			std::list<int>::iterator unsortedContainerIt = unsortedContainer.begin();
 			std::list<int>::iterator sortedContainerIt = sortedContainer.begin();
 
@@ -121,7 +121,7 @@ class PmergeMe
 			unsortedContainer.clear();
 			sortedContainer.clear();
 
-			for (std::list<std::pair<int, int>>::iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair)
+			for (std::list<std::pair<int, int> >::iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair)
 			{
 				unsortedContainer.push_back(itPair->first);
 				unsortedContainer.push_back(itPair->second);
