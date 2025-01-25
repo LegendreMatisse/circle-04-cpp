@@ -99,7 +99,7 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _handleOddSize(T &container)
+		int _handleOddSize(T &container)
 		{
 			if (container.size() % 2 != 0)
 			{
@@ -122,9 +122,9 @@ class PmergeMe
 		}
 
 		template <typename T>
-		std::list<std::pair<int, int>> _createPairs(T &firstHalf, T &secondHalf)
+		std::list<std::pair<int, int> > _createPairs(T &firstHalf, T &secondHalf)
 		{
-			std::list<std::pair<int, int>> pairs;
+			std::list<std::pair<int, int> > pairs;
 			typename T::iterator itFirst = firstHalf.begin();
 			typename T::iterator itSecond = secondHalf.begin();
 
@@ -141,9 +141,9 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _mergePairsIntoContainer(const std::list<std::pair<int, int>> &pairs, T &container)
+		void _mergePairsIntoContainer(const std::list<std::pair<int, int> > &pairs, T &container)
 		{
-			for (typename std::list<std::pair<int, int>>::const_iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair) {
+			for (typename std::list<std::pair<int, int> >::const_iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair) {
 				container.push_back(itPair->first);
 				container.push_back(itPair->second);
 			}
