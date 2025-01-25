@@ -49,7 +49,7 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _fillContainerWithInputList(const T &container)
+		void _fillContainerWithInputList(T &container)
 		{
 			for (std::list<int>::iterator it = _inputList.begin(); it != _inputList.end(); ++it)
 			{
