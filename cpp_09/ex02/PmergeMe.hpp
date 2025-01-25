@@ -91,7 +91,7 @@ class PmergeMe
 		}
 
 		template <typename T>
-		void _sortPairs(T &unsortedContainer, T &sortedContainer, std::list<std::pair<int, int> > &pairs)
+		void _fillAndSortPairsList(T &unsortedContainer, T &sortedContainer, std::list<std::pair<int, int> > &pairs)
 		{
 			typename T::iterator unsortedContainerIT = unsortedContainer.begin();
 			typename T::iterator sortedContainerIT = sortedContainer.begin();
@@ -102,6 +102,8 @@ class PmergeMe
 				++unsortedContainerIT;
 				++sortedContainerIT;
 			}
+
+			pairs.sort(_comparePairs);
 		}
 
 		template <typename T>
@@ -150,9 +152,7 @@ class PmergeMe
 
 			std::list<std::pair<int, int> > pairs;
 
-			_sortPairs(unsortedContainer, sortedContainer, pairs);
-
-			pairs.sort(_comparePairs);
+			_fillAndSortPairsList(unsortedContainer, sortedContainer, pairs);
 
 			unsortedContainer.clear();
 			sortedContainer.clear();
