@@ -175,7 +175,7 @@ class PmergeMe
 
 			_mergePairsIntoContainer(pairs, sortedContainer);
 
-			_handleOddElement(unsortedContainer, tmp);
+			_handleOddElement(sortedContainer, tmp);
 
 			_finalizeSort(sortedContainer);		
 		}
