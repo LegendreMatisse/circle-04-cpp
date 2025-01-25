@@ -61,16 +61,15 @@ class PmergeMe
 		template <typename T>
 		std::string _returnContainerType(T &container)
 		{
-			const std::string containerTypes[2] = {"vector", "list"};
+			const std::vector containerTypes = {"vector", "list"};
 			const std::string fullContainerId = typeid(container).name();
-			size_t i = 0;
 
-			for (i = 0; i < 2; i++)
+			for (std::vector<std::string>::const_iterator it = containerTypes.begin(); it != containerTypes.end(); ++it)
 			{
 				if (fullContainerId.find(containerTypes[i]) != std::string::npos)
-					break ;
+					return *it;
 			}
-			return containerTypes[i];
+			throw WrongInputError();
 		}
 
 	public:
