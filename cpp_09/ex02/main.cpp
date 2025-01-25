@@ -14,14 +14,34 @@
 #include <typeinfo>
 #include <vector>
 #include <list>
+#include <string>
 
 int main(void)
 {
 	std::vector<int> v;
 	std::list<int> l;
 
-	std::cout << "Type of v: " << typeid(v).name() << std::endl;
-	std::cout << "Type of l: " << typeid(l).name() << std::endl;
+	std::vector<std::string> containerNames;
+
+	containerNames.push_back("vector");
+	containerNames.push_back("list");
+	containerNames.push_back("deque");
+
+	std::string containerName = typeid(v).name();
+
+	for (std::vector<std::string>::iterator it = containerNames.begin(); it != containerNames.end(); ++it)
+	{
+		if (containerName.find(*it) != std::string::npos)
+			std::cout << "The container type is: " << *it << std::endl;
+	}
+	
+	std::string containerName = typeid(l).name();
+
+	for (std::vector<std::string>::iterator it = containerNames.begin(); it != containerNames.end(); ++it)
+	{
+		if (containerName.find(*it) != std::string::npos)
+			std::cout << "The container type is: " << *it << std::endl;
+	}
 
 	return 0;
 
