@@ -85,7 +85,7 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 		rate = line.substr(line.find(',') + 1);
 		_checkRate(rate);
 
-		_exchangeRate[date] = std::strtof(rate.c_str());
+		_exchangeRate[date] = std::strtof(rate.c_str(), NULL);
 
 		std::cout << date << ":" << rate << std::endl;
 	}
