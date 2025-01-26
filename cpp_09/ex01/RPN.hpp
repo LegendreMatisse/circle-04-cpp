@@ -24,7 +24,7 @@ class RPN
 {
 	private:
 		//variables
-		std::stack<char> _expression;
+		std::stack<int> _expression;
 		std::string _inputWithoutSpaces;
 
 		//fucntions
