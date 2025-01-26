@@ -89,7 +89,7 @@ void RPN::calculateResult()
 	{
 			// _expression.push(_inputWithoutSpaces[i] - '0');
 		if (std::isdigit(_inputWithoutSpaces[i]))
-			_expression.push(std::atoi(_inputWithoutSpaces[i]));
+			_expression.push((int)_expression[i]);
 		else if (_inputWithoutSpaces[i] == '+' || _inputWithoutSpaces[i] == '-' || _inputWithoutSpaces[i] == '/' || _inputWithoutSpaces[i] == '*')
 		{
 			if (_expression.size() < 2)
