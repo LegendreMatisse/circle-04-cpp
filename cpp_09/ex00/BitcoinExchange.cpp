@@ -185,7 +185,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 
 			std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
 
-			std::cout << "it: " << *it << std::endl;
+			std::cout << "it->first: " << it->first << " it->second: " << it->second << std::endl;
 
 			if (it == _exchangeRate.end() || it->first != concatenatedDate)
 			{
