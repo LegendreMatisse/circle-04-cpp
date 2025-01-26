@@ -110,6 +110,10 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 
 	_checkIfRealDate(year, month, day);
 
+	std::string temp = _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
+
+	std::cout << "temp concat: " << temp << std::cout;
+
 	return _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
 }
 
