@@ -123,7 +123,7 @@ void BitcoinExchange::_addExchangeRateAndDatesToMap()
 
 void BitcoinExchange::_validateExchangeRate(const std::string &rate)
 {
-	std::istringstream iss(input);
+	std::istringstream iss(rate);
 	double value = 0;
 
 	iss >> value;
