@@ -129,7 +129,7 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 	if (month == 4 || month == 6 || month == 9 || month == 11)
 	{
-		if (day <= 0 || day >= 31)
+		if (day >= 31)
 			throw InvalidDataFormatError();
 	}
 }
