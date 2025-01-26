@@ -79,9 +79,12 @@ void RPN::_inputValidation(const std::string &input)
 	return;
 }
 
-void RPN::calculateResult(const std::string &input)
+void RPN::calculateResult()
 {
-	(void)input;
+	int a = 0;
+	int b = 0;
+	int result = 0;
+
 	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
 	{
 		if (std::isdigit(_inputWithoutSpaces[i]))
@@ -90,11 +93,11 @@ void RPN::calculateResult(const std::string &input)
 		{
 			if (_expression.size() < 2)
 				throw WrongInputError();
-			int b = _expression.top();
+			b = _expression.top();
 			_expression.pop();
-			int a = _expression.top();
+			a = _expression.top();
 			_expression.pop();
-			int result = _performOperation(a, b, _inputWithoutSpaces[i]);
+			result = _performOperation(a, b, _inputWithoutSpaces[i]);
 			_expression.push(result);
 		}
 		else

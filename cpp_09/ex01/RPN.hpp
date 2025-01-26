@@ -40,7 +40,7 @@ class RPN
 		~RPN();
 
 		//functions
-		void calculateResult(const std::string &input);
+		void calculateResult();
 
 		//exceptions
 		class WrongInputError : public std::exception
