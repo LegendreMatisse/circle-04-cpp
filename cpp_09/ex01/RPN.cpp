@@ -101,8 +101,10 @@ void RPN::calculateResult()
 			std::cout << "a: " << a << std::endl;
 			_expression.pop();
 			result = _performOperation(a, b, _inputWithoutSpaces[i]);
+			while (!_expression.empty())
+				_expression.pop();
 			_expression.push(result);
-			std::cout << "restult: " << result << std::endl;
+			std::cout << "result: " << result << std::endl;
 		}
 		else
 			throw WrongInputError();
