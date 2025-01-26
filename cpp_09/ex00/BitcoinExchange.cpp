@@ -169,9 +169,17 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			date = line.substr(0, line.find('|') - 1);
 			concatenatedDate = _checkDate(date);
 
+			std::cout << "date: " << date << std::endl;
+
 			bitcoinCount = line.substr(line.find('|') + 2);
+
+			std::cout << "bitcoinCount: " << bitcoinCount << std::endl;
+
 			_checkRate(bitcoinCount);
 			bitcoinCountFloat = std::strtof(bitcoinCount.c_str(), NULL);
+
+			std::cout << "bitcoinCountFloat: " << bitcoinCountFloat << std::endl;
+
 			if (bitcoinCountFloat <= 0.0f || bitcoinCountFloat > 1000.0f)
 				throw OutOfRangeError();
 
