@@ -57,12 +57,6 @@ class BitcoinExchange {
 				virtual const char *what() const throw();
 		};
 
-		class MissingDataError : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
-
 		class InvalidDataFormatError : public std::exception
 		{
 			public:

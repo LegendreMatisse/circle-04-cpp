@@ -94,6 +94,8 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 
 std::string BitcoinExchange::_checkDate(const std::string &date)
 {
+	if (date.empty())
+		throw InvalidDataFormatError();
 	if (date.size() != 10)
 		throw InvalidDataFormatError();
 	for (size_t i = 0; i < date.size(); i++)
@@ -136,6 +138,8 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 
 void BitcoinExchange::_checkRate(const std::string &rate)
 {
+	if (rate.empty())
+		throw InvalidDataFormatError();
 	std::istringstream iss(rate);
 	float value = 0;
 
@@ -147,22 +151,49 @@ void BitcoinExchange::_checkRate(const std::string &rate)
 
 void BitcoinExchange::exchange(std::ifstream &file)
 {
-	(void)file;
+	std::ifstream dataFile;
+	openInputFile("data.csv", dataFile);
+	_fillExchangeRateMapWithDateAndRate(dataFile);
 
-	std::ifstream inputFile;
-	openInputFile("data.csv", inputFile);
-	_fillExchangeRateMapWithDateAndRate(inputFile);
+	std::string line;
+	std::string date;
+	std::string concatenatedDate;
+	std::string bitcoinCount;
+	float bitcoinCountFloat;
+	
+	while (std::getline(file, line))
+	{
+		if (line == "date | value")
+			continue;
+
+		date = line.substr(0, input.find('|') - 1);
+		concatenatedDate = _checkDate(date);
+
+		bitcoinCount = line..substr(input.find('|') + 2);
+		_checkRate(bitcoinCount);
+		bitcoinCountFloat = std::strtof(rate.c_str(), NULL);
+		if (bitcoinCountFloat <= 0 || bitcoinCountFloat > 1000)
+			throw OutOfRangeError();
+
+		std::map<std::string, double>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
+
+		if (it == _exchangeRate.end() || it->first != concatenatedDate) 
+		{
+			if (it == _exchangeRate.begin())
+				throw InvalidDataFormatError();
+			--it;
+		}
+
+		std::cout << date << " => " << value << " = " 
+					<< std::fixed << std::setprecision(2) 
+					<< bitcoinCountFloat * it->second << std::endl;
+	}
+	file.close();
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()
 {
 	std::cout << "ERROR: Could not open file. Please provide a valid file." << std::endl;
-	return "";
-}
-
-const char *BitcoinExchange::MissingDataError::what() const throw()
-{
-	std::cout << "ERROR: The file you provided is missing the required data. Please provide a valid file." << std::endl;
 	return "";
 }
 
