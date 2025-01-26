@@ -95,21 +95,17 @@ void RPN::calculateResult()
 			if (_expression.size() < 2)
 				throw WrongInputError();
 			b = _expression.top();
-			std::cout << "b: " << b << std::endl;
+			// std::cout << "b: " << b << std::endl;
 			_expression.pop();
 			a = _expression.top();
-			std::cout << "a: " << a << std::endl;
+			// std::cout << "a: " << a << std::endl;
 			_expression.pop();
 			result = _performOperation(a, b, _inputWithoutSpaces[i]);
-			std::cout << "operation: " << a << " " << _inputWithoutSpaces[i] << " " << b << std::endl;
-
-			while(!_expression.empty())
-				_expression.pop();
-
+			// std::cout << "operation: " << a << " " << _inputWithoutSpaces[i] << " " << b << std::endl;
 			_expression.push(result);
 
-			std::cout << "Top: " << (int)_expression.top() << std::endl;
-			std::cout << "result: " << result << std::endl;
+			// std::cout << "Top: " << (int)_expression.top() << std::endl;
+			// std::cout << "result: " << result << std::endl;
 		}
 		else
 			throw WrongInputError();
