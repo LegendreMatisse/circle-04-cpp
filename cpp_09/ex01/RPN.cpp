@@ -21,7 +21,7 @@ RPN::RPN(const std::string &input)
 {
 	std::cout << "Constructor with parameters called" << std::endl;
 	_inputValidation(input);
-	calculateResult(_inputWithoutSpaces);
+	calculateResult();
 }
 
 RPN::RPN(const RPN &copyCo)
