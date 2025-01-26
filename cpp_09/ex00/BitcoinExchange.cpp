@@ -158,33 +158,40 @@ void BitcoinExchange::exchange(std::ifstream &file)
 	std::string concatenatedDate;
 	std::string bitcoinCount;
 	float bitcoinCountFloat;
-	
+
 	while (std::getline(file, line))
 	{
-		if (line == "date | value")
-			continue;
-
-		date = line.substr(0, line.find('|') - 1);
-		concatenatedDate = _checkDate(date);
-
-		bitcoinCount = line.substr(line.find('|') + 2);
-		_checkRate(bitcoinCount);
-		bitcoinCountFloat = std::strtof(bitcoinCount.c_str(), NULL);
-		if (bitcoinCountFloat <= 0 || bitcoinCountFloat > 1000)
-			throw OutOfRangeError();
-
-		std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
-
-		if (it == _exchangeRate.end() || it->first != concatenatedDate) 
+		try
 		{
-			if (it == _exchangeRate.begin())
-				throw InvalidDataFormatError();
-			--it;
-		}
+			if (line == "date | value")
+				continue;
 
-		std::cout << date << " => " << bitcoinCountFloat << " = " 
-					<< std::fixed << std::setprecision(2) 
-					<< bitcoinCountFloat * it->second << std::endl;
+			date = line.substr(0, line.find('|') - 1);
+			concatenatedDate = _checkDate(date);
+
+			bitcoinCount = line.substr(line.find('|') + 2);
+			_checkRate(bitcoinCount);
+			bitcoinCountFloat = std::strtof(bitcoinCount.c_str(), NULL);
+			if (bitcoinCountFloat <= 0 || bitcoinCountFloat > 1000)
+				throw OutOfRangeError();
+
+			std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
+
+			if (it == _exchangeRate.end() || it->first != concatenatedDate)
+			{
+				if (it == _exchangeRate.begin())
+					throw InvalidDataFormatError();
+				--it;
+			}
+
+			std::cout << date << " => " << bitcoinCount << " = "
+					  << std::fixed << std::setprecision(2)
+					  << bitcoinCountFloat * it->second << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what();
+		}
 	}
 	file.close();
 }
