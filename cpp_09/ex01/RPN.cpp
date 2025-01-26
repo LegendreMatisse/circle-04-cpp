@@ -108,7 +108,7 @@ void RPN::calculateResult()
 
 			_expression.push(result);
 
-			std::cout << "Top: " << _expression.top() << std::endl;
+			std::cout << "Top: " << (int)_expression.top() << std::endl;
 			std::cout << "result: " << result << std::endl;
 		}
 		else
