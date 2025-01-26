@@ -47,7 +47,7 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		//functions
-		std::ifstream &openInputFile(const std::string &filename);
+		std::ifstream &openInputFile(const std::string &filename, std::ifstream &file);
 		void exchange(std::ifstream &file);
 
 		//exceptions
