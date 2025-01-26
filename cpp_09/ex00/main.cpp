@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	if (argc!= 2)
+	if (argc != 3)
 	{
 		std::cout << "ERROR: Wrong number of arguments. Please provide a valid file.\n" << std::flush;
 		return 1;
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
 	try
 	{
-		bitcoin.exchange(input);
+		bitcoin.exchange(input, argv[2]);
 	}
 	catch(const std::exception& e)
 	{

@@ -91,24 +91,11 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 }
 
-void BitcoinExchange::exchange(std::ifstream &file)
+void BitcoinExchange::exchange(std::ifstream &file, const std::string &date)
 {
 	(void)file;
 
-	std::cout << "1" << std::endl;
-	_validateDate("2012-12-12");
-	std::cout << "2" << std::endl;
-	_validateDate("2012-12-aa");
-	std::cout << "3" << std::endl;
-	_validateDate("2012/12/12");
-	std::cout << "4" << std::endl;
-	_validateDate("2012-12-2");
-	std::cout << "5" << std::endl;
-	_validateDate("2012-02-17");
-	std::cout << "6" << std::endl;
-	_validateDate("2024-02-29");
-	std::cout << "7" << std::endl;
-	_validateDate("2024-02-28");
+	_validateDate(date);
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()
