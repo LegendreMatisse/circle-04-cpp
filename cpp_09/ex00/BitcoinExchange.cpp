@@ -73,6 +73,7 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 	std::string date;
 	std::string concatenatedDate;
 	std::string rate;
+	float rateFloat;
 
 	while (std::getline(file, line))
 	{
@@ -83,9 +84,9 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 		concatenatedDate = _checkDate(date);
 
 		rate = line.substr(line.find(',') + 1);
-		_checkRate(rate);
+		rateFloat = _checkRate(rate);
 
-		_exchangeRate[concatenatedDate] = std::strtof(rate.c_str(), NULL);
+		_exchangeRate[concatenatedDate] = rateFloat;
 	}
 	file.close();
 }
@@ -110,8 +111,6 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 
 	_checkIfRealDate(year, month, day);
 
-	std::string temp = _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
-
 	std::string yearStr = _convertIntToString(year);
 	std::string monthStr = _convertIntToString(month);
 	std::string dayStr = _convertIntToString(day);
@@ -124,7 +123,6 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 	{
 		dayStr = "0" + _convertIntToString(day);
 	}
-	// std::cout << "temp concat: " << temp << std::endl;
 
 	return yearStr + monthStr + dayStr;
 }
@@ -150,17 +148,19 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 }
 
-void BitcoinExchange::_checkRate(const std::string &rate)
+float BitcoinExchange::_checkRate(const std::string &input)
 {
-	if (rate.empty())
+	if (input.empty())
 		throw InvalidDataFormatError();
-	std::istringstream iss(rate);
+	std::istringstream iss(input);
 	float value = 0;
 
 	iss >> value;
 
 	if (iss.fail() || !iss.eof())
 		throw InvalidDataFormatError();
+
+	return std::strtof(input.c_str(), NULL);
 }
 
 void BitcoinExchange::exchange(std::ifstream &file)
@@ -185,24 +185,12 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			date = line.substr(0, line.find('|') - 1);
 			concatenatedDate = _checkDate(date);
 
-			// std::cout << "date: " << date << std::endl;
-
 			bitcoinCount = line.substr(line.find('|') + 2);
-
-			// std::cout << "bitcoinCount: " << bitcoinCount << std::endl;
-
-			_checkRate(bitcoinCount);
-			bitcoinCountFloat = std::strtof(bitcoinCount.c_str(), NULL);
-
-			// std::cout << "bitcoinCountFloat: " << bitcoinCountFloat << std::endl;
-
+			bitcoinCountFloat = _checkRate(bitcoinCount);
 			if (bitcoinCountFloat <= 0.0f || bitcoinCountFloat > 1000.0f)
 				throw OutOfRangeError();
 
 			std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
-
-			std::cout << "it->first: " << it->first << " it->second: " << it->second << std::endl;
-
 			if (it == _exchangeRate.end() || it->first != concatenatedDate)
 			{
 				if (it == _exchangeRate.begin())
