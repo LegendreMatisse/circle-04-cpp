@@ -100,6 +100,7 @@ void RPN::calculateResult()
 			_expression.pop();
 			result = _performOperation(a, b, _inputWithoutSpaces[i]);
 			_expression.push(result);
+			std::cout << result << std::endl;
 		}
 		else
 			throw WrongInputError();
