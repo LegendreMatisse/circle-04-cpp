@@ -151,7 +151,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 	(void)file;
 
 	std::ifstream inputFile;
-	inputFile = openInputFile("data.csv", inputFile);
+	openInputFile("data.csv", inputFile);
 	_fillExchangeRateMapWithDateAndRate(inputFile);
 
 }
