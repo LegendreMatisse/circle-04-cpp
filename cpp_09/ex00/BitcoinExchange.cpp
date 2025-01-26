@@ -108,7 +108,7 @@ void BitcoinExchange::_addExchangeRateAndDatesToMap()
 		std::string rate = input.substr(input.find(',') + 1);
 
 		_validateDate(date);
-		_validateExchangeRate(rate)!
+		_validateExchangeRate(rate);
 
 		if (date.empty() || rate.empty())
 			throw InvalidDataFormatError();
