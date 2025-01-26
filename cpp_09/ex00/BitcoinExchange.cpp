@@ -175,7 +175,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 		if (bitcoinCountFloat <= 0 || bitcoinCountFloat > 1000)
 			throw OutOfRangeError();
 
-		std::map<std::string, double>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
+		std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
 
 		if (it == _exchangeRate.end() || it->first != concatenatedDate) 
 		{
@@ -184,7 +184,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			--it;
 		}
 
-		std::cout << date << " => " << value << " = " 
+		std::cout << date << " => " << bitcoinCountFloat << " = " 
 					<< std::fixed << std::setprecision(2) 
 					<< bitcoinCountFloat * it->second << std::endl;
 	}
