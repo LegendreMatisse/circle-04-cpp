@@ -64,7 +64,6 @@ int BitcoinExchange::_convertStringToInt(const std::string &input)
 	iss >> output;
 
 	if (iss.fail() || !iss.eof())
-
 		throw InvalidDataFormatError();
 
 	return output;
@@ -91,11 +90,53 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 }
 
-void BitcoinExchange::exchange(std::ifstream &file, const std::string &date)
+void BitcoinExchange::_addExchangeRateAndDatesToMap()
+{
+	const std::string fileName = "data.csv";
+	std::ifstream data(fileName.c_str());
+	if (!data.is_open())
+		throw NoFileError();
+	
+	std::string input;
+	std::getline(data, input);
+	if (input != "date,exchange_rate")
+		throw InvalidDataFormatError();
+	
+	while (std::getline(data, input))
+	{
+		std::string date = input.substr(0, input.find(','));
+		std::string rate = input.substr(input.find(',') + 1);
+
+		_validateDate(date);
+		_validateExchangeRate(rate)!
+
+		if (date.empty() || rate.empty())
+			throw InvalidDataFormatError();
+		if (_exchangeRate.find(date) != _exchangeRate.end())
+			throw MissingDataError();
+
+		std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
+
+		_exchangeRate[concateDate] = std::strtod(rate.c_str(), NULL);
+	}
+}
+
+void BitcoinExchange::_validateExchangeRate(const std::string &rate)
+{
+	std::istringstream iss(input);
+	double value = 0;
+
+	iss >> value;
+
+	if (iss.fail() || !iss.eof())
+		throw InvalidDataFormatError();
+}
+
+void BitcoinExchange::exchange(std::ifstream &file)
 {
 	(void)file;
 
-	_validateDate(date);
+	_addExchangeRateAndDatesToMap();
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()
