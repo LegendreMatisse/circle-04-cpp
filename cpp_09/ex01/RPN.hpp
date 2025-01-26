@@ -17,8 +17,8 @@
 #include <stack>
 #include <string>
 #include <ctype.h>
-#include <stdio>
-#include <stdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 class RPN
 {
