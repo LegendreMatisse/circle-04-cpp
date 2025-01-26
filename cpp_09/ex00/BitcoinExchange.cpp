@@ -112,9 +112,21 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 
 	std::string temp = _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
 
+	std::string yearStr = _convertIntToString(year);
+	std::string monthStr = _convertIntToString(month);
+	std::string dayStr = _convertIntToString(day);
+
+	if (_convertIntToString(month).size() == 1)
+	{
+		monthStr = "0" + _convertIntToString(month);
+	}
+	if (_convertIntToString(day).size() == 1)
+	{
+		dayStr = "0" + _convertIntToString(day);
+	}
 	// std::cout << "temp concat: " << temp << std::endl;
 
-	return _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
+	return yearStr + monthStr + dayStr;
 }
 
 void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day)
