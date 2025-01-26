@@ -20,17 +20,12 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	std::ifstream input(argv[1]);
-	if (!input.is_open())
-	{
-		std::cout << "ERROR: Could not open file. Please provide a valid file.\n" << std::flush;
-		return 1;
-	}
-
 	BitcoinExchange bitcoin;
+	std::ifstream inputFile;
 
 	try
 	{
+		bitcoin.openInputFile(argv[i], inputFile);
 		bitcoin.exchange(input);
 	}
 	catch(const std::exception& e)
