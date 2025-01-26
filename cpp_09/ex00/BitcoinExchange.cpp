@@ -78,7 +78,7 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 	{
 		if (line == "date,exchange_rate")
 			continue;
-		
+
 		date = line.substr(0, line.find(','));
 		concatenatedDate = _checkDate(date);
 
@@ -103,7 +103,7 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 		else
 			continue;
 	}
-	
+
 	int year = _convertStringToInt(date.substr(0, 4));
 	int month = _convertStringToInt(date.substr(5, 2));
 	int day = _convertStringToInt(date.substr(8, 2));
@@ -113,28 +113,21 @@ std::string BitcoinExchange::_checkDate(const std::string &date)
 	return _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
 }
 
-
 void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day)
 {
-	if (month < 1 || month > 12) 
+	if (month < 1 || month > 12)
 		throw InvalidDataFormatError();
-    if (day < 1 || day > 31)
+	if (day < 1 || day > 31)
 		throw InvalidDataFormatError();
-    if (month == 2)
+	if (month == 2)
 	{
-        bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-		if (isLeapYear)
-		{
-			if (day <= 0 || day >= 30)
-				throw InvalidDataFormatError();
-		}
-		else if (!isLeapYear)
-		{
-			if (day <= 0 || day >= 29)
-				throw InvalidDataFormatError();
-		}
-    }
-    if (month == 4 || month == 6 || month == 9 || month == 11)
+		bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		if (isLeapYear && day <= 29)
+			throw InvalidDataFormatError();
+		else if (!isLeapYear && day <= 28)
+			throw InvalidDataFormatError();
+	}
+	if (month == 4 || month == 6 || month == 9 || month == 11)
 	{
 		if (day <= 0 || day >= 31)
 			throw InvalidDataFormatError();
@@ -159,7 +152,6 @@ void BitcoinExchange::exchange(std::ifstream &file)
 	std::ifstream inputFile;
 	openInputFile("data.csv", inputFile);
 	_fillExchangeRateMapWithDateAndRate(inputFile);
-
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()
