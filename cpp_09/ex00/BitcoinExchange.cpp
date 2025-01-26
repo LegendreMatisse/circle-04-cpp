@@ -172,7 +172,7 @@ void BitcoinExchange::exchange(std::ifstream &file)
 			bitcoinCount = line.substr(line.find('|') + 2);
 			_checkRate(bitcoinCount);
 			bitcoinCountFloat = std::strtof(bitcoinCount.c_str(), NULL);
-			if (bitcoinCountFloat <= 0 || bitcoinCountFloat > 1000)
+			if (bitcoinCountFloat <= 0.0f || bitcoinCountFloat > 1000.0f)
 				throw OutOfRangeError();
 
 			std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
