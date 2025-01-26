@@ -122,14 +122,14 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	if (month == 2)
 	{
 		bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-		if (isLeapYear && day <= 29)
+		if (isLeapYear && day > 29)
 			throw InvalidDataFormatError();
-		else if (!isLeapYear && day <= 28)
+		else if (!isLeapYear && day > 28)
 			throw InvalidDataFormatError();
 	}
 	if (month == 4 || month == 6 || month == 9 || month == 11)
 	{
-		if (day >= 31)
+		if (day > 30)
 			throw InvalidDataFormatError();
 	}
 }
