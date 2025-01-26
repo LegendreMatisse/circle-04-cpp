@@ -37,10 +37,8 @@ BitcoinExchange::~BitcoinExchange()
 	std::cout << "Destructor called" << std::endl;
 }
 
-std::ifstream &BitcoinExchange::openInputFile(const std::string &filename)
+std::ifstream &BitcoinExchange::openInputFile(const std::string &filename, std::ifstream &file)
 {
-	std::ifstream file;
-
 	file.open(filename.c_str());
 	if (!file.is_open())
 		throw NoFileError();
@@ -60,7 +58,7 @@ int BitcoinExchange::_convertStringToInt(const std::string &input)
 	return output;
 }
 
-int BitcoinExchange::_convertIntToString(const int &input)
+std::string BitcoinExchange::_convertIntToString(const int &input)
 {
 	std::stringstream ss;
 
@@ -87,7 +85,7 @@ void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
 		rate = line.substr(line.find(',') + 1);
 		_checkRate(rate);
 
-		_exchangeRate[date] = std::stof(rate);
+		_exchangeRate[date] = std::strtof(rate, NULL);
 
 		std::cout << date << ":" << rate << std::endl;
 	}
@@ -137,7 +135,7 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 }
 
-void BitcoinExchange::_validateExchangeRate(const std::string &rate)
+void BitcoinExchange::_checkRate(const std::string &rate)
 {
 	std::istringstream iss(rate);
 	float value = 0;
@@ -152,8 +150,9 @@ void BitcoinExchange::exchange(std::ifstream &file)
 {
 	(void)file;
 
-	std::ifstream file = openInputFile("data.csv");
-	_fillExchangeRateMapWithDateAndRate(file);
+	std::ifstream inputFile;
+	inputFile = openInputFile("data.csv", inputFile);
+	_fillExchangeRateMapWithDateAndRate(inputFile);
 
 }
 

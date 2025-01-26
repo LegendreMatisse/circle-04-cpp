@@ -36,8 +36,8 @@ class BitcoinExchange {
 		std::string _checkDate(const std::string &date);
 		void _checkIfRealDate(const int year, const int month, const int day);
 		int _convertStringToInt(const std::string &input);
-		int _convertIntToString(const int &input);
-		void _validateExchangeRate(const std::string &rate);
+		std::string _convertIntToString(const int &input);
+		void _checkRate(const std::string &rate);
 
 	public:
 		//constructors and destructor
