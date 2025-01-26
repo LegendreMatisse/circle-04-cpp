@@ -85,11 +85,11 @@ void RPN::calculateResult()
 	int b = 0;
 	int result = 0;
 
-	for (size_t i = 0; i < (size_t)_inputWithoutSpaces.size(); i++)
+	for (size_t i = 0; i < _inputWithoutSpaces.size(); i++)
 	{
 			// _expression.push(_inputWithoutSpaces[i] - '0');
 		if (std::isdigit(_inputWithoutSpaces[i]))
-			_expression.push((int)_expression[i]);
+			_expression.push(_expression[i]);
 		else if (_inputWithoutSpaces[i] == '+' || _inputWithoutSpaces[i] == '-' || _inputWithoutSpaces[i] == '/' || _inputWithoutSpaces[i] == '*')
 		{
 			if (_expression.size() < 2)
