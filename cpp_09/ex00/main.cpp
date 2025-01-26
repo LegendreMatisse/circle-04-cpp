@@ -25,8 +25,8 @@ int main(int argc, char **argv)
 
 	try
 	{
-		bitcoin.openInputFile(argv[i], inputFile);
-		bitcoin.exchange(input);
+		bitcoin.openInputFile(argv[1], inputFile);
+		bitcoin.exchange(inputFile);
 	}
 	catch(const std::exception& e)
 	{
