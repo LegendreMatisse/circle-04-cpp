@@ -29,13 +29,14 @@ class BitcoinExchange {
 
 	private:
 		//variables
-		std::map<std::string, double> _exchangeRate;
+		std::map<std::string, float> _exchangeRate;
 
 		//functions
-		void _addExchangeRateAndDatesToMap();
-		void _validateDate(const std::string &date);
-		int _convertStringToInt(const std::string &input);
+		void _fillExchangeRateMapWithDateAndRate(std::ifstream &file);
+		std::string _checkDate(const std::string &date);
 		void _checkIfRealDate(const int year, const int month, const int day);
+		int _convertStringToInt(const std::string &input);
+		int _convertIntToString(const int &input);
 		void _validateExchangeRate(const std::string &rate);
 
 	public:
@@ -46,6 +47,7 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		//functions
+		std::ifstream &openInputFile(const std::string &filename);
 		void exchange(std::ifstream &file);
 
 		//exceptions

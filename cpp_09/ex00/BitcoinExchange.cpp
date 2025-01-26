@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 00:38:01 by mlegendr          #+#    #+#             */
-/*   Updated: 2025/01/26 00:38:01 by mlegendr         ###   ########.fr       */
+/*   Created: 2025/01/26 09:59:38 by mlegendr          #+#    #+#             */
+/*   Updated: 2025/01/26 09:59:38 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,64 @@ BitcoinExchange::~BitcoinExchange()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void BitcoinExchange::_validateDate(const std::string &date)
+std::ifstream &BitcoinExchange::openInputFile(const std::string &filename)
+{
+	std::ifstream file;
+
+	file.open(filename.c_str());
+	if (!file.is_open())
+		throw NoFileError();
+	return (file);
+}
+
+int BitcoinExchange::_convertStringToInt(const std::string &input)
+{
+	std::istringstream iss(input);
+	int output = 0;
+
+	iss >> output;
+
+	if (iss.fail() || !iss.eof())
+		throw InvalidDataFormatError();
+
+	return output;
+}
+
+int BitcoinExchange::_convertIntToString(const int &input)
+{
+	std::stringstream ss;
+
+	ss << input;
+
+	return ss.str();
+}
+
+void BitcoinExchange::_fillExchangeRateMapWithDateAndRate(std::ifstream &file)
+{
+	std::string line;
+	std::string date;
+	std::string concatenatedDate;
+	std::string rate;
+
+	while (std::getline(file, line))
+	{
+		if (line == "date,exchange_rate")
+			continue;
+		
+		date = line.substr(0, line.find(','));
+		concatenatedDate = _checkDate(date);
+
+		rate = line.substr(line.find(',') + 1);
+		_checkRate(rate);
+
+		_exchangeRate[date] = std::stof(rate);
+
+		std::cout << date << ":" << rate << std::endl;
+	}
+	file.close();
+}
+
+std::string BitcoinExchange::_checkDate(const std::string &date)
 {
 	if (date.size() != 10)
 		throw InvalidDataFormatError();
@@ -54,20 +111,10 @@ void BitcoinExchange::_validateDate(const std::string &date)
 	int day = _convertStringToInt(date.substr(8, 2));
 
 	_checkIfRealDate(year, month, day);
+
+	return _convertIntToString(year) + _convertIntToString(month) + _convertIntToString(day);
 }
 
-int BitcoinExchange::_convertStringToInt(const std::string &input)
-{
-	std::istringstream iss(input);
-	int output = 0;
-
-	iss >> output;
-
-	if (iss.fail() || !iss.eof())
-		throw InvalidDataFormatError();
-
-	return output;
-}
 
 void BitcoinExchange::_checkIfRealDate(const int year, const int month, const int day)
 {
@@ -90,41 +137,10 @@ void BitcoinExchange::_checkIfRealDate(const int year, const int month, const in
 	}
 }
 
-void BitcoinExchange::_addExchangeRateAndDatesToMap()
-{
-	const std::string fileName = "data.csv";
-	std::ifstream data(fileName.c_str());
-	if (!data.is_open())
-		throw NoFileError();
-	
-	std::string input;
-	std::getline(data, input);
-	if (input != "date,exchange_rate")
-		throw InvalidDataFormatError();
-	
-	while (std::getline(data, input))
-	{
-		std::string date = input.substr(0, input.find(','));
-		std::string rate = input.substr(input.find(',') + 1);
-
-		_validateDate(date);
-		_validateExchangeRate(rate);
-
-		if (date.empty() || rate.empty())
-			throw InvalidDataFormatError();
-		if (_exchangeRate.find(date) != _exchangeRate.end())
-			throw MissingDataError();
-
-		std::string concateDate = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
-
-		_exchangeRate[concateDate] = std::strtod(rate.c_str(), NULL);
-	}
-}
-
 void BitcoinExchange::_validateExchangeRate(const std::string &rate)
 {
 	std::istringstream iss(rate);
-	double value = 0;
+	float value = 0;
 
 	iss >> value;
 
@@ -136,7 +152,9 @@ void BitcoinExchange::exchange(std::ifstream &file)
 {
 	(void)file;
 
-	_addExchangeRateAndDatesToMap();
+	std::ifstream file = openInputFile("data.csv");
+	_fillExchangeRateMapWithDateAndRate(file);
+
 }
 
 const char *BitcoinExchange::NoFileError::what() const throw()
