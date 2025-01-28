@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 09:59:38 by mlegendr          #+#    #+#             */
-/*   Updated: 2025/01/26 09:59:38 by mlegendr         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:31:39 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,12 +191,11 @@ void BitcoinExchange::exchange(std::ifstream &file)
 				throw OutOfRangeError();
 
 			std::map<std::string, float>::iterator it = _exchangeRate.lower_bound(concatenatedDate);
-			if (it == _exchangeRate.end() || it->first != concatenatedDate)
-			{
-				if (it == _exchangeRate.begin())
-					throw InvalidDataFormatError();
-				--it;
-			}
+
+			it--;
+
+			if (it == _exchangeRate.begin())
+				throw InvalidDataFormatError();
 
 			std::cout << date << " => " << bitcoinCount << " = "
 					  << std::fixed << std::setprecision(2)
