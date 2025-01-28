@@ -6,7 +6,7 @@
 /*   By: mlegendr <mlegendr@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:02:39 by mlegendr          #+#    #+#             */
-/*   Updated: 2025/01/25 17:02:39 by mlegendr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:57:25 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,14 @@ class PmergeMe
 		template <typename T>
 		void _handleOddElement(T &container, int tmp)
 		{
+		std::pair<int, int> _makeOrderedPair(const T &unsorted, const T &sorted)
+		{
+			return (unsorted < sorted) ? std::make_pair(unsorted, sorted) : std::make_pair(sorted, unsorted);
+		}
+
+		template <typename T>
+		void _handleOddElement(T &container, int tmp)
+		{
 			if (tmp != std::numeric_limits<int>::min()) {
 				container.push_back(tmp);
 			}
@@ -170,6 +178,53 @@ class PmergeMe
 				typename T::iterator min_it = std::min_element(unsortedContainer.begin(), unsortedContainer.end());
 				sortedContainer.push_back(*min_it);
 				unsortedContainer.erase(min_it);
+		int _handleOddSize(T &container)
+		{
+			if (container.size() % 2 != 0)
+			{
+				int last = container.back();
+				container.pop_back();
+				return last;
+			}
+			return std::numeric_limits<int>::min();
+		}
+
+		template <typename T>
+		T _extractHalf(T &container)
+		{
+			T firstHalf;
+			for (size_t i = 0; i < container.size() / 2; i++) {
+				firstHalf.push_back(container.front());
+				container.pop_front();
+			}
+			return firstHalf;
+		}
+
+		template <typename T>
+		std::list<std::pair<int, int> > _createPairs(T &firstHalf, T &secondHalf)
+		{
+			std::list<std::pair<int, int> > pairs;
+			typename T::iterator itFirst = firstHalf.begin();
+			typename T::iterator itSecond = secondHalf.begin();
+
+			while (itFirst != firstHalf.end() && itSecond != secondHalf.end()) {
+				if (*itFirst < *itSecond)
+					pairs.push_back(std::make_pair(*itFirst, *itSecond));
+				else
+					pairs.push_back(std::make_pair(*itSecond, *itFirst));
+
+				++itFirst;
+				++itSecond;
+			}
+			return pairs;
+		}
+
+		template <typename T>
+		void _mergePairsIntoContainer(const std::list<std::pair<int, int> > &pairs, T &container)
+		{
+			for (typename std::list<std::pair<int, int> >::const_iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair) {
+				container.push_back(itPair->first);
+				container.push_back(itPair->second);
 			}
 		}
 
@@ -189,6 +244,34 @@ class PmergeMe
 			_handleOddElement(unsortedContainer, tmp);
 
 			_sortAndPushToSorted(unsortedContainer, sortedContainer);
+		void _finalizeSort(T &container)
+		{
+			T tempContainer;
+			while (!container.empty()) {
+				typename T::iterator minIt = std::min_element(container.begin(), container.end());
+				tempContainer.push_back(*minIt);
+				container.erase(minIt);
+			}
+			container.swap(tempContainer);
+		}
+
+		template <typename T>
+		void _sortContainer(T &unsortedContainer, T &sortedContainer)
+		{
+			int tmp = _handleOddSize(unsortedContainer);
+
+			T firstHalf = _extractHalf(unsortedContainer);
+			T secondHalf = unsortedContainer;
+
+			std::list<std::pair<int, int> > pairs = _createPairs(firstHalf, secondHalf);
+
+			pairs.sort(_comparePairs);
+
+			_mergePairsIntoContainer(pairs, sortedContainer);
+
+			_handleOddElement(sortedContainer, tmp);
+
+			_finalizeSort(sortedContainer);		
 		}
 
 	public:
